@@ -14,7 +14,6 @@ setup(
         "pandas",
         "requests",
         "python-dotenv",
-        "difflib",
         "sty",
         "pyperclip",
         "python-dateutil",
