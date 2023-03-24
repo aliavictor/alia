@@ -3,59 +3,92 @@ from .helpers import *
 
 
 def reset(df):
-    "Simply returns df.reset_index(drop=True)"
+    """Resets the index of a DataFrame (shortcut for df.reset_index(drop=True)).
+
+    Args:
+        df (DataFrame): DataFrame to reference
+
+    Returns:
+        The passed DataFrame with its indexes reset."""
     return df.reset_index(drop=True)
 
 
 def drop(df, cols):
-    """
-    Shortcut for df.drop([cols],axis=1). You can also pass a list as the df value
-    and items in cols will be removed.
-    """
-    if type(cols) == str:
+    """Drops given columns from a DataFrame (shortcut for df.drop([cols],axis=1)). Also works on lists.
+
+    Args:
+        df (DataFrame): DataFrame to reference
+        cols (list): Columns to drop
+
+    Returns:
+        The passed DataFrame with the given columns removed."""
+    if isinstance(cols, str):
         if "," in cols:
             cols = [i.strip() for i in cols.split(",")]
         else:
             cols = [cols]
     if type(df) != list:
         cols = [i for i in cols if i in list(df.columns)]
-        if not empty(cols):
+        if not is_empty(cols):
             return df.drop(cols, axis=1)
         else:
             return df
     else:
         for c in cols:
-            with supp(ValueError):
+            with supp(ValueError):  # suppresses ValueErrors
                 df.remove(c)
         return df
 
 
 def keep(df, cols):
-    """Shortcut for df[[i for i in list(df.columns) if i in cols]]"""
+    """Shortcut for df[[i for i in list(df.columns) if i in cols]].
+
+    Args:
+        df (DataFrame): DataFrame to reference
+        cols (list): Columns to keep
+
+    Returns:
+        The given DataFrame with only the passed columns."""
     if type(cols) == str:
         if "," in cols:
             cols = [i.strip() for i in cols.split(",")]
         else:
             cols = [cols]
+
     return df[[i for i in list(df.columns) if i in cols]]
 
 
 def set_none(df):
-    "df.where(~pd.isnull(df),None)"
+    """Shortcut for df.where(~pd.isnull(df),None).
+
+    Args:
+        df (DataFrame): DataFrame to reference
+
+    Returns df.where(~pd.isnull(df),None)."""
     return df.where(~pd.isnull(df), None)
 
 
 def prettydf(df):
-    """Returns a df where strings are shown as printable strings not raw strings"""
+    """Makes raw strings in a DataFrame printable strings.
+
+    Args:
+        df (DataFrame): DataFrame to reference
+
+    Returns:
+        A DataFrame where strings are shown as printable strings not raw strings."""
     return display(HTML(df.to_html().replace("\\n", "<br>")))
 
 
 def dedupe(df, cols=None, ix=False):
-    """
-    Basically shortcut to df.drop_duplicates()/df.drop_duplicates(subset=cols)
-    depending on if cols are passed. When ix=True original indexes are kept,
-    otherwise they're reset.
-    """
+    """Shortcut for df.drop_duplicates(subset=cols).
+
+    Args:
+        df (DataFrame): DataFrame to reference
+        cols (list): Subset of columns to dedupe by
+        ix (bool): If True original DataFrame indexes are kept, otherwise they're reset
+
+    Returns:
+        A DataFrame dedupes based on the given columns."""
     if cols is not None:
         if type(cols) == str:
             split_str = bool(contains(",", cols) is not None and cols.strip() != ",")
@@ -75,11 +108,16 @@ def dedupe(df, cols=None, ix=False):
 
 
 def todict(df, ix, cols=None):
-    """Creates a dictionary/map from a df. ix = the column to group by (becomes the
-    keys of the outputted dictionary)"""
+    """Creates a dictionary/map from a DataFrame.
 
+    Args:
+        df (DataFrame): DataFrame to reference
+        ix (str): The column to group by (becomes the keys of the returned dictionary
+        cols (list): Columns of the DataFrame to include in the retuned dictionary
+
+    Returns:
+        A dictionary created from the passed DataFrame grouping on the given ix value."""
     def merge(df, ix, cols):
-        global dicts
         dicts = []
         for c in cols:
             exec(f"temp = df.set_index('{ix}')['{c}'].to_dict()")
@@ -108,13 +146,17 @@ def todict(df, ix, cols=None):
     except AttributeError:
         pass
     except Exception as e:
-        red("<b>ERROR:</b>\n{e}", ts=False)
+        red(f"<b>ERROR:</b>\n{e}", ts=False)
 
 
 def pdnull(series):
-    """
-    Essentially applies isnull() on a series and returns it
-    """
+    """Checks for null values in a Series.
+
+    Args:
+        series (Series): Series to be reference
+
+    Returns:
+        A Series of booleans indicating if the value of that index is null."""
     if type(series) == pd.DataFrame:
         return (series.isnull()) | (
             series.isin(["", None, "nan", "NaN", "None", "NaT", pd.NaT])
@@ -132,13 +174,16 @@ def pdnull(series):
         return series.apply(fm)
 
 
-def unique(series, as_list=True, color=None):
-    """
-    Returns list(series.unique()) (e.g. list(df['uri'].unique())). When
-    as_list=False nothing is returned and list is printed instead. Color should
-    be the color print function to use, e.g. color='teal'.
-    """
-    if type(series) == pd.Series:
+def unique(series, as_list=True):
+    """Dedupes a Series.
+
+    Args:
+        series (Series): Series to reference
+        as_list (bool): If False the output is printed instead of returned
+
+    Returns:
+        A Series containing unique values."""
+    if isinstance(series, pd.Series):
         out = list(series.unique())
     else:
         out_temp = set()
@@ -147,22 +192,4 @@ def unique(series, as_list=True, color=None):
     if as_list:
         return out
     else:
-        if color:
-            if type(color) == str:
-                cmap = {
-                    "teal": teal,
-                    "light_teal": light_teal,
-                    "blue": blue,
-                    "pink": pink,
-                    "purple": purple,
-                    "violet": violet,
-                    "red": red,
-                    "dark_red": dark_red,
-                    "green": green,
-                    "orange": orange,
-                }
-                cmap[color]("\n".join(out), ts=False)
-            else:
-                pcolor("\n".join(out), color, ts=False)
-        else:
-            print("\n".join(out))
+        print("\n".join(out))

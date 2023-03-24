@@ -492,6 +492,50 @@ def str_replace(txt, **rplc_map):
     return out
 
 
+def contains(ref, checklist, exact=True, show_all=True):
+    """Iterates through passed items and checks if they exist in a given list.
+    
+    Args:
+        ref (list): List of reference items to check
+        checklist (list): List of things to look for in ref
+        exact (bool): If False checklist is lowercased to find matches regardless of captilization/trailing spaces
+        show_all (bool): If False only the first matching item is returned, otherwise everything is
+
+    Returns:
+        A list of items from checklist that exist in ref."""
+    if not isinstance(checklist, list) and not isinstance(checklist, str):
+        # account for Series and whatnot
+        checklist = list(checklist)
+
+    if not exact:
+        checklist = [str(i).lower().strip() for i in checklist]
+
+    if isinstance(ref, str):
+        if "," in ref and ref.strip() != ",":
+            ref = [i.strip() for i in ref.split(",")]
+        else:
+            ref = [ref]
+    
+    dd = []
+    if exact:
+        for i in ref:
+            if i in checklist:
+                dd.append(i)
+    else:
+        for i in ref:
+            if str(i).lower().strip() in checklist:
+                dd.append(i)
+    
+    if len(dd) == 0:
+        pink("None of the items passed were found in given list",ts=False)
+    else:
+        if show_all or len(dd) == 1:
+            out = dd
+        else:
+            out = [dd[0]]
+        return out
+
+
 def is_empty(obj):
     """Checks if a given obj is either null, blank or len(obj) == 0.
 
