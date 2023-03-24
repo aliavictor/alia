@@ -68,7 +68,7 @@ def todt(dt_str=None, as_date=False):
         return parse(dt_str)
 
 
-def now(style="%Y-%m-%d %H:%M:%S", dt=True):
+def now(style="%Y-%m-%d %H:%M:%S", dt=False):
     """Returns the current date and time.
 
     Args:
