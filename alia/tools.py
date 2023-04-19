@@ -1,12 +1,15 @@
+import base64
 import calendar
+import csv
 import difflib
 import os
+import pickle
 from datetime import datetime, date, timedelta
 
 import pandas as pd
 import pyperclip
+from cryptography.fernet import Fernet
 from dateutil.parser import parse
-from dotenv import load_dotenv, dotenv_values
 
 from .colors import *
 
@@ -18,9 +21,101 @@ def clipboard(string):
         string (str): String to copy
 
     Returns:
-        Nothing"""
+        Nothing."""
     pyperclip.copy(string)
     green("Copied to clipboard", ts=False)
+
+
+def save_obj(obj, filename, mode="wb"):
+    """Saves an object to a file by pickling it.
+
+    Args:
+        obj (any type): Object to save
+        filename (str): Filename to save the object as
+        mode (str): Which file mode to use ('wb' by default, 'ab' to append)
+
+    Returns:
+        Nothing."""
+    if ".pkl" not in filename:
+        filename = f"{filename.strip()}.pkl"
+
+    with open(filename, mode) as f:
+        pickle.dump(obj, f)
+
+    green(f"Object saved as {filename}", ts=False)
+
+
+def load_obj(filename):
+    """Loads a saved pickled object.
+
+    Args:
+        filename (str): Filename of the pickled object
+
+    Returns:
+        An un-pickled object."""
+    with open(filename, "rb") as f:
+        obj = pickle.load(f)
+
+    return obj
+
+
+def read_csv(file_path):
+    """Reads a CSV file.
+
+    Args:
+        file_path (str): Path to the CSV file to read
+
+    Returns:
+        A list of dictionaries where each dictionary represents a row of the CSV."""
+    with open(file_path, "r", newline="") as file:
+        reader = csv.DictReader(file)
+        rows = [{k: v.strip() for k, v in row.items()} for row in reader]
+
+    return rows
+
+
+def b64encode(obj, encoding="utf-8"):
+    """Encodes an object using the base64 library.
+
+    Args:
+        obj (any type): Object to encode
+        encoding (str): Encoding to use (utf-8 by default)
+
+    Returns:
+        An encoded string representing the given object."""
+    if isinstance(obj, str):
+        return base64.b64encode(bytes(obj, encoding)).decode(encoding)
+    else:
+        return base64.b64encode(obj).decode(encoding)
+
+
+def encrypt(string):
+    """Uses Fernet 128-bit encryption to encrypt the passed string
+
+    Args:
+        string (str): String to encrypt
+
+    Returns:
+        encrypted_str (bytes): Encrypted string
+        key (bytes): Associated encryption key (keep private!)"""
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    encrypted_str = f.encrypt(string.encode())
+
+    return encrypted_str, key
+
+
+def decrypt(encrypted_str, key):
+    """Decrypts an encrypted bytes string using Fernet.
+
+    Args:
+        encrypted_str (bytes): Encrypted bytes string to decrypt
+        key (bytes): Associated encryption key
+
+    Returns:
+        A decrypted string."""
+    f = Fernet(key)
+    return f.decrypt(encrypted_str).decode()
 
 
 def tformat(date_obj, style=None):
@@ -445,19 +540,42 @@ def iseven(num):
     return (num % 2) == 0
 
 
-def regex(string, pattern):
-    """Performs a regex extration of a given string.
+def regex(string, pattern, ignore_case=False):
+    """Performs a regex extraction of a given string.
 
     Args:
         string (str, re.compile): String or compiled re object to reference
         pattern (str): Regex pattern to search the string with
+        ignore_case (bool): Whether or not to use re.IGNORECASE
 
     Returns:
         A string of the output of the passed regex."""
-    if type(pattern) == str:
-        return re.search(pattern, string).group(1)
+    if isinstance(pattern, str):
+        if ignore_case:
+            return re.search(pattern, string, re.IGNORECASE).group(1)
+        else:
+            return re.search(pattern, string).group(1)
+    elif ignore_case:
+        return pattern.search(string, re.IGNORECASE).group(1)
     else:
         return pattern.search(string).group(1)
+
+
+def str_dedupe(txt):
+    """Removes duplicate substrings from a string.
+
+    Args:
+        txt (str): String to dedupe
+
+    Returns:
+        A string with unique substrings."""
+    words = txt.strip().split()
+    unique_words = []
+    for word in words:
+        if word not in unique_words:
+            unique_words.append(word)
+
+    return " ".join(unique_words)
 
 
 def str_remove(txt, rplc_strs):

@@ -4,10 +4,15 @@ import re
 
 
 def color_opts(x=None):
-    """
-    When nothing is passed entire list of sty's color options with their corresponding numbers are returned.
-    Alternatively you can pass a specific number to see what color it corresponds to in sty.
-    """
+    """Previews sty colors. When nothing is passed entire list of `sty` color options with 
+    their corresponding numbers are returned. Alternatively you can pass a specific number 
+    to see what color it corresponds to in `sty`.
+    
+    Args:
+        x (int): `sty` color code to preview (optional)
+    
+    Returns:
+        Nothing (just prints)."""
     if x is None:
         for i in range(256):
             print(fg(i) + "fg({0})".format(i) + rs.all)
@@ -17,15 +22,19 @@ def color_opts(x=None):
 
 
 def blue(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in blue.
+    
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+    
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -43,15 +52,19 @@ def blue(x, ts=True, r=False):
 
 
 def light_blue(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in light blue.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -69,15 +82,19 @@ def light_blue(x, ts=True, r=False):
 
 
 def teal(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in teal.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -95,15 +112,19 @@ def teal(x, ts=True, r=False):
 
 
 def light_teal(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in light teal.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -121,15 +142,19 @@ def light_teal(x, ts=True, r=False):
 
 
 def gray(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in gray.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -149,15 +174,19 @@ def gray(x, ts=True, r=False):
 
 
 def red(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in red.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -177,15 +206,19 @@ def red(x, ts=True, r=False):
 
 
 def dark_red(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in dark red.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -205,15 +238,19 @@ def dark_red(x, ts=True, r=False):
 
 
 def green(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in green.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -231,15 +268,19 @@ def green(x, ts=True, r=False):
 
 
 def light_green(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in light green.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -257,15 +298,19 @@ def light_green(x, ts=True, r=False):
 
 
 def purple(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in purple.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -283,15 +328,19 @@ def purple(x, ts=True, r=False):
 
 
 def violet(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in violet.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -309,15 +358,19 @@ def violet(x, ts=True, r=False):
 
 
 def magenta(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in magenta.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -337,15 +390,19 @@ def magenta(x, ts=True, r=False):
 
 
 def pink(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in pink.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -365,15 +422,19 @@ def pink(x, ts=True, r=False):
 
 
 def light_pink(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in light pink.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -393,15 +454,19 @@ def light_pink(x, ts=True, r=False):
 
 
 def orange(x, ts=True, r=False):
-    """
-    x: input text
-    ts: whether or not to include current timestamp (default True)
-    r: when True returns actual compiled object, when False (default) nothing is returned only printed
-    """
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in orange.
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -421,11 +486,20 @@ def orange(x, ts=True, r=False):
 
 
 def pcolor(x, cid, ts=True, r=False):
-    """Same as all color printing functions, just lets you pass specific color ID (from color_opts())."""
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Prints the passed string in the color code that's passed.
+
+    Args:
+        x (str): Input text
+        cid (int): `sty` color integer
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         x = f'{x} [{datetime.now().strftime("%Y-%m-%d %H:%M:%S")}]'
     out = (
@@ -445,16 +519,23 @@ def pcolor(x, cid, ts=True, r=False):
 
 
 def pprint(x, ts=True, r=False):
-    """
-    Identical to other color functions, except you have more control over the string color(s).
-    Example: '<33>Hello world!</33>' would print the string 'Hello world!' in the corresponding sty color value (blue)
-    """
-    color_rgx1 = re.compile("<([\d{,2}]*)>")
-    color_rgx2 = re.compile("<\/([\d{,2]*)>")
-    bold_rgx = re.compile("(<b>)", re.IGNORECASE)
-    bold_rgx2 = re.compile("(<\/b>)", re.IGNORECASE)
-    und_rgx = re.compile("(<u>)", re.IGNORECASE)
-    und_rgx2 = re.compile("(<\/u>)", re.IGNORECASE)
+    """Identical to other color functions, except you have more control over the string color(s).
+    Example: '<33>Hello world!</33>' would print the string 'Hello world!' in the corresponding 
+    `sty` color value (blue)
+
+    Args:
+        x (str): Input text
+        ts (bool): Whether or not to include current timestamp (default True)
+        r (bool): When True returns actual compiled object, when False nothing is returned only printed
+
+    Returns:
+        Either a compiled `re` object or nothing depending on the r parameter."""
+    color_rgx1 = re.compile(r"<([\d{,2}]*)>")
+    color_rgx2 = re.compile(r"<\/([\d{,2]*)>")
+    bold_rgx = re.compile(r"(<b>)", re.IGNORECASE)
+    bold_rgx2 = re.compile(r"(<\/b>)", re.IGNORECASE)
+    und_rgx = re.compile(r"(<u>)", re.IGNORECASE)
+    und_rgx2 = re.compile(r"(<\/u>)", re.IGNORECASE)
     if ts:
         tstmp = (
             fg(246) + "[" + datetime.now().strftime("%Y-%m-%d %H:%M:%S") + "]" + rs.fg

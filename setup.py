@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="alia",
-    version="0.1.5",
+    version="0.2.0",
     description="A collection of random helper tools to make life easier",
     author="Alia",
     author_email="alia.jo.victor@gmail.com",
@@ -17,7 +17,8 @@ setup(
         "sty",
         "pyperclip",
         "python-dateutil",
-        "ipython"
+        "ipython",
+        "fernet"
     ],
     classifiers=[
         "Development Status :: 3 - Alpha",
