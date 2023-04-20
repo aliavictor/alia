@@ -550,15 +550,18 @@ def regex(string, pattern, ignore_case=False):
 
     Returns:
         A string of the output of the passed regex."""
-    if isinstance(pattern, str):
-        if ignore_case:
-            return re.search(pattern, string, re.IGNORECASE).group(1)
+    try:
+        if isinstance(pattern, str):
+            if ignore_case:
+                return re.search(pattern, string, re.IGNORECASE).group(1)
+            else:
+                return re.search(pattern, string).group(1)
+        elif ignore_case:
+            return pattern.search(string, re.IGNORECASE).group(1)
         else:
-            return re.search(pattern, string).group(1)
-    elif ignore_case:
-        return pattern.search(string, re.IGNORECASE).group(1)
-    else:
-        return pattern.search(string).group(1)
+            return pattern.search(string).group(1)
+    except AttributeError:
+        print("Nothing matches the given regex pattern in the given string")
 
 
 def str_dedupe(txt):
