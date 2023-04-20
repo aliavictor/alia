@@ -4,7 +4,7 @@ import csv
 import difflib
 import os
 import pickle
-from datetime import datetime, date, timedelta
+from datetime import date, timedelta
 
 import pandas as pd
 import pyperclip
