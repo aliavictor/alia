@@ -838,6 +838,20 @@ def chunkify(input_list, num):
     return [input_list[i: i + num] for i in range(0, len(input_list), num)]
 
 
+def split_data(data, ratio):
+    """Splits data into two chunks based on a given ratio.
+
+        Args:
+            data (list): The data to be split
+            ratio (float): The ratio at which to split the data. Should be between 0 and 1
+
+        Returns:
+            A tuple of 2 lists, the first containing the first 'ratio' proportion of the data,
+            the second containing the rest."""
+    split_index = int(len(data) * ratio)
+    return data[:split_index], data[split_index:]
+
+
 def ordinal(n):
     """Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).
 
