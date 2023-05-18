@@ -906,3 +906,22 @@ def filelist(dirpath, raise_err=False):
         else:
             red("<b>Can't locate directory</b>")
             return None
+
+
+def is_jupyter():
+    """Checks if the script is currently running in a Jupyter notebook.
+
+    Returns:
+        True or False."""
+    try:
+        from IPython import get_ipython
+        config_file = get_ipython().config.IPKernelApp.connection_file
+        if isinstance(config_file, str):
+            if "jupyter" in config_file.lower() or "ipykernel" in config_file.lower():
+                return True
+            else:
+                return False
+        else:
+            return False
+    except ImportError:
+        return False
