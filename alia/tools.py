@@ -889,17 +889,29 @@ def dget(dict_obj, key, val=None):
     return dict_obj.get(key, val)
 
 
-def filelist(dirpath, raise_err=False):
+def filelist(dirpath, ext=None, prefix=None, raise_err=False):
     """Lists the filenames in the passed directory.
 
     Args:
         dirpath (str): Directory path to reference
+        ext (str): Extension of the files to target
+        prefix (str): Target files that start with this prefix
         raise_err (bool): If False FileNotFoundErrors will fail silently
 
     Returns:
         A list containing all the filenames in the given directory."""
+    if ext and "." not in ext:
+        ext = f".{ext.strip()}"
+
     try:
-        return [i for i in os.listdir(dirpath) if i[0].isalnum()]
+        if ext and prefix:
+            return [i for i in os.listdir(dirpath) if i.startswith(prefix) and i.endswith(ext)]
+        elif ext:
+            return [i for i in os.listdir(dirpath) if i.endswith(ext)]
+        elif prefix:
+            return [i for i in os.listdir(dirpath) if i.startswith(prefix)]
+        else:
+            return [i for i in os.listdir(dirpath) if i[0].isalnum()]
     except FileNotFoundError:
         if raise_err:
             raise FileNotFoundError
