@@ -683,7 +683,7 @@ def is_empty(obj):
     elif isinstance(obj, str):
         return bool(obj == "")
     elif isinstance(obj, dict):
-        return bool(len(keys(obj)) == 0)
+        return bool(len(obj.keys()) == 0)
 
 
 def numdict(input_list):
