@@ -902,6 +902,7 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False):
         A list containing all the filenames in the given directory."""
     if ext and "." not in ext:
         ext = f".{ext.strip()}"
+    blacklist = [".DS_Store"]
 
     try:
         if ext and prefix:
@@ -911,7 +912,7 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False):
         elif prefix:
             return [i for i in os.listdir(dirpath) if i.startswith(prefix)]
         else:
-            return [i for i in os.listdir(dirpath)]
+            return [i for i in os.listdir(dirpath) if i not in blacklist]
     except FileNotFoundError:
         if raise_err:
             raise FileNotFoundError
