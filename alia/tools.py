@@ -911,7 +911,7 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False):
         elif prefix:
             return [i for i in os.listdir(dirpath) if i.startswith(prefix)]
         else:
-            return [i for i in os.listdir(dirpath) if i[0].isalnum()]
+            return [i for i in os.listdir(dirpath)]
     except FileNotFoundError:
         if raise_err:
             raise FileNotFoundError
