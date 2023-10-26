@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>alia.tools API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>alia.tools</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="alia.tools.b64encode"><code class="name flex">
+<span>def <span class="ident">b64encode</span></span>(<span>obj, encoding='utf-8')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Encodes an object using the base64 library.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>any type</code></dt>
+<dd>Object to encode</dd>
+<dt><strong><code>encoding</code></strong> :&ensp;<code>str</code></dt>
+<dd>Encoding to use (utf-8 by default)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>An encoded string representing the given object</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.blanknull"><code class="name flex">
+<span>def <span class="ident">blanknull</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts any null values to a blank string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>'' if the passed string is null otherwise the string is returned</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.bomonth"><code class="name flex">
+<span>def <span class="ident">bomonth</span></span>(<span>month=10, year=2023, offset=0, style='%Y-%m-%d')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the 1st of the given month (current month is default).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Month to reference</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of months to offset by</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A date string of the 1st of the given month</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023)
+'2023-10-01'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
+'2023-11-01'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.chunkify"><code class="name flex">
+<span>def <span class="ident">chunkify</span></span>(<span>input_list, num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Divides a list into a given number of chunks.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list to divide</dd>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>The number of items each chunk should contain</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of lists where each list contains the passed number of items from the given list</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; chunkify([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], num=2)
+[[&quot;dog, &quot;cat&quot;], [&quot;ferret&quot;, &quot;bird&quot;]]
+</code></pre></div>
+</dd>
+<dt id="alia.tools.clipboard"><code class="name flex">
+<span>def <span class="ident">clipboard</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Copies text to clipboard so it can be pasted anywhere.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to copy</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Nothing</p></div>
+</dd>
+<dt id="alia.tools.comma_and"><code class="name flex">
+<span>def <span class="ident">comma_and</span></span>(<span>input_list, sep=', ', last_sep='and')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a list of strings together joined by the given separators.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of strings to join and parse</dd>
+<dt><strong><code>sep</code></strong> :&ensp;<code>str</code></dt>
+<dd>The separator to be used to join the strings in the list (', ' by default)</dd>
+<dt><strong><code>last_sep</code></strong> :&ensp;<code>str</code></dt>
+<dd>The separator for the last string in the list ('and' by default)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Passed list joined by the given separators</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; comma_and([&quot;dog&quot;, &quot;cat&quot;, &quot;rat&quot;], last_sep=&quot;&amp;&quot;)
+'dog, cat &amp; rat'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; comma_and([&quot;dog&quot;, &quot;cat&quot;], last_sep=&quot;&amp;&quot;)
+'dog &amp; cat'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.contains"><code class="name flex">
+<span>def <span class="ident">contains</span></span>(<span>ref, checklist, exact=True, show_all=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Iterates through passed items and checks if they exist in a given list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ref</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of reference items to check</dd>
+<dt><strong><code>checklist</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of things to look for in ref</dd>
+<dt><strong><code>exact</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False checklist is lowercased to find matches regardless of captilization/trailing spaces</dd>
+<dt><strong><code>show_all</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False only the first matching item is returned, otherwise everything is</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items from checklist that exist in ref</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; contains([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;], [&quot;dog&quot;, &quot;rat&quot;])
+['dog', 'rat']
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; contains([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;], [&quot;dog&quot;, &quot;rat&quot;], show_all=False)
+['dog']
+</code></pre></div>
+</dd>
+<dt id="alia.tools.daydiff"><code class="name flex">
+<span>def <span class="ident">daydiff</span></span>(<span>start, stop=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the number of days between two dates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, datetime, str</code></dt>
+<dd>Date to subtract from</dd>
+<dt><strong><code>stop</code></strong> :&ensp;<code>None, date, datetime, str</code></dt>
+<dd>Date to subtract (default is the current day)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of days in between the given dates</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.decrypt"><code class="name flex">
+<span>def <span class="ident">decrypt</span></span>(<span>encrypted_str, key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decrypts an encrypted bytes string using Fernet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>encrypted_str</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Encrypted bytes string to decrypt</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Associated encryption key</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A decrypted string</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.dget"><code class="name flex">
+<span>def <span class="ident">dget</span></span>(<span>dict_obj, key, val=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
+value is a blank string and returns None (or whatever you pass as val) instead of the blank string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dict_obj</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to reference</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>Target key to grab from the dictionary</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>str, None</code></dt>
+<dd>Default value to return if the target key isn't in the dictionary</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>any</code></dt>
+<dd>Value of the key of the passed dict (or the value of val if the key doesn't exist)</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key2&quot;)
+None
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key2&quot;, val=&quot;N/A&quot;)
+&quot;N/A&quot;
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key1&quot;)
+&quot;val1&quot;
+</code></pre></div>
+</dd>
+<dt id="alia.tools.dt_int"><code class="name flex">
+<span>def <span class="ident">dt_int</span></span>(<span>num, start=None, metric='days', style='%Y-%m-%d', dt=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds/subtracts days, minutes or hours from a given date or datetime.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to offset by</dd>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, datetime, str</code></dt>
+<dd>Starting date to offset</dd>
+<dt><strong><code>metric</code></strong> :&ensp;<code>str</code></dt>
+<dd>The metric to use for calculation (days, minutes or hours)</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format (ignored when dt=True)</dd>
+<dt><strong><code>dt</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True a datetime object is returned instead of a string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted date string of the calculated date</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01&quot;)
+'2023-10-04'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01 12:30:00&quot;, metric=&quot;hours&quot;)
+'2023-10-01 15:30:00'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01&quot;, dt=True)
+datetime.date(2023, 10, 4)
+</code></pre></div>
+</dd>
+<dt id="alia.tools.elapsed"><code class="name flex">
+<span>def <span class="ident">elapsed</span></span>(<span>start, stop=None, metric='minutes', full=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pass a <code>datetime.datetime</code> object and return elapsed time from then to now. Metric opts:
+seconds, minutes, hours. When full=True elapsed time is returned as H:M:S.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>datetime, str</code></dt>
+<dd>The datetime value to subtract from</dd>
+<dt><strong><code>stop</code></strong> :&ensp;<code>None, datetime, str</code></dt>
+<dd>The datetime value to subtract with (current day by default)</dd>
+<dt><strong><code>metric</code></strong> :&ensp;<code>str</code></dt>
+<dd>The metric to calculate the elapsed time by (seconds, minutes, hours)</dd>
+<dt><strong><code>full</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True metric is overridden and elapsed time is returned in H:M:S format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>int|str: Either an integer representing the elapsed seconds, minutes or hours between two
+dates or a string representation of the elapsed time in H:M:S format</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; elapsed(&quot;2023-10-01 12:30:00&quot;, stop=&quot;2023-10-01 14:00:00&quot;)
+90
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; elapsed(&quot;2023-10-01 12:30:00&quot;, stop=&quot;2023-10-01 14:00:00&quot;, full=True)
+'01:30:00'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.encrypt"><code class="name flex">
+<span>def <span class="ident">encrypt</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses Fernet 128-bit encryption to encrypt the passed string</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to encrypt</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>encrypted_str (bytes): Encrypted string
+key (bytes): Associated encryption key (keep private!)</p></div>
+</dd>
+<dt id="alia.tools.eomonth"><code class="name flex">
+<span>def <span class="ident">eomonth</span></span>(<span>month=10, year=2023, offset=0, style='%Y-%m-%d')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the last date of the given month (current month is default).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Month to reference</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of months to offset by</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A date string of the last date of the given month</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; eomonth(month=10, year=2023)
+'2023-10-31'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; eomonth(month=10, year=2023, offset=1)
+'2023-11-30'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.filelist"><code class="name flex">
+<span>def <span class="ident">filelist</span></span>(<span>dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Lists the filenames in the passed directory.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dirpath</code></strong> :&ensp;<code>str</code></dt>
+<dd>Directory path to reference</dd>
+<dt><strong><code>ext</code></strong> :&ensp;<code>str</code></dt>
+<dd>Extension of the files to target</dd>
+<dt><strong><code>prefix</code></strong> :&ensp;<code>str</code></dt>
+<dd>Target files that start with this prefix</dd>
+<dt><strong><code>raise_err</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False FileNotFoundErrors will fail silently</dd>
+<dt><strong><code>keep_ext</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If Flase base filenames without their extensions are returned</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>All the filenames in the given directory</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.filldates"><code class="name flex">
+<span>def <span class="ident">filldates</span></span>(<span>start, end=None, as_str=False, weekends=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the dates in between two dates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, str</code></dt>
+<dd>Start of the desired date range</dd>
+<dt><strong><code>end</code></strong> :&ensp;<code>None, date, str</code></dt>
+<dd>End of the desired date range (current day by default)</dd>
+<dt><strong><code>as_str</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True dates are returned as strings instead of date objects</dd>
+<dt><strong><code>weekends</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False weekend dates are excluded from the final output</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Dates in between two given dates</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; filldates(&quot;2023-10-01&quot;, end=&quot;2023-10-10&quot;)
+[datetime.date(2023, 10, 1),
+ datetime.date(2023, 10, 2),
+ datetime.date(2023, 10, 3),
+ datetime.date(2023, 10, 4),
+ datetime.date(2023, 10, 5),
+ datetime.date(2023, 10, 6),
+ datetime.date(2023, 10, 7),
+ datetime.date(2023, 10, 8),
+ datetime.date(2023, 10, 9),
+ datetime.date(2023, 10, 10)]
+</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>filldates("2023-10-01", end="2023-10-10", weekends=False)
+[datetime.date(2023, 10, 2),
+datetime.date(2023, 10, 3),
+datetime.date(2023, 10, 4),
+datetime.date(2023, 10, 5),
+datetime.date(2023, 10, 6),
+datetime.date(2023, 10, 9),
+datetime.date(2023, 10, 10)]</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+</dd>
+<dt id="alia.tools.find_common"><code class="name flex">
+<span>def <span class="ident">find_common</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds common values between two lists.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list1</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check against</dd>
+<dt><strong><code>list2</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items that appear in both list1 and list2</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; find_common([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
+['dog', 'ferret']
+</code></pre></div>
+</dd>
+<dt id="alia.tools.find_uncommon"><code class="name flex">
+<span>def <span class="ident">find_uncommon</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compares two lists and finds values that appear in the first list but not the second.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list1</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check against</dd>
+<dt><strong><code>list2</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items that appear in list1 that don't appear in list2</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; find_uncommon([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
+['cat', 'bird']
+</code></pre></div>
+</dd>
+<dt id="alia.tools.is_empty"><code class="name flex">
+<span>def <span class="ident">is_empty</span></span>(<span>obj)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given obj is either null, blank or len(obj) == 0.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>DataFrame, Series, list, dict, str</code></dt>
+<dd>Object to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the object is empty, False if not</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.is_float"><code class="name flex">
+<span>def <span class="ident">is_float</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a string is meant to be a float.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the string is a float, False if not</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.is_jupyter"><code class="name flex">
+<span>def <span class="ident">is_jupyter</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the script is currently running in a Jupyter notebook.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True or False</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.iseven"><code class="name flex">
+<span>def <span class="ident">iseven</span></span>(<span>num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given number is even.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given number is even, False if it's odd</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.isodd"><code class="name flex">
+<span>def <span class="ident">isodd</span></span>(<span>num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given number is odd.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given number is odd, False if it's even</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.join_newline"><code class="name flex">
+<span>def <span class="ident">join_newline</span></span>(<span>items, n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a given list with commas and a
+every <code>n</code> items.</p>
+<pre><code>Args:
+    items (list): List of items to join
+    n (int): Number of items to split with a newline
+
+Returns:
+    str: A joined string
+
+Examples:
+    &gt;&gt;&gt; join_newline(["test", "test", "test", "test", "test", "test"], n=3)
+    'test, test, test,
+</code></pre>
+<p>test, test, test'</p></div>
+</dd>
+<dt id="alia.tools.keepkeys"><code class="name flex">
+<span>def <span class="ident">keepkeys</span></span>(<span>mydict, keys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a dictionary from the passed dictionary containing only the given keys.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mydict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to filter</dd>
+<dt><strong><code>keys</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of keys you want to keep from the passed dictionary</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The passed dictionary containing only the desired keys</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; keepkeys({&quot;dog&quot;: &quot;woof&quot;, &quot;cat&quot;: &quot;meow&quot;, &quot;cow&quot;: &quot;moo&quot;}, [&quot;dog&quot;, &quot;cat&quot;])
+{'dog': 'woof', 'cat': 'meow'}
+</code></pre></div>
+</dd>
+<dt id="alia.tools.load_obj"><code class="name flex">
+<span>def <span class="ident">load_obj</span></span>(<span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads a saved pickled object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filename of the pickled object</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>obj</code></dt>
+<dd>An un-pickled object</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.monthdays"><code class="name flex">
+<span>def <span class="ident">monthdays</span></span>(<span>month, year=2023)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the total number of days in a given month.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Integer representation of a given month</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of days in a given month</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.now"><code class="name flex">
+<span>def <span class="ident">now</span></span>(<span>style='%Y-%m-%d %H:%M:%S', dt=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current date and time.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Datetime format to use (default is %Y-%m-%d %H:%M:%S)</dd>
+<dt><strong><code>dt</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True a datetime object is returned instead of a string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>str|datetime: Either a string or datetime object of the current date and time</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; now()
+'2023-10-01 12:30:00'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; now(dt=True)
+datetime.datetime(2023, 10, 1, 12, 30)
+</code></pre></div>
+</dd>
+<dt id="alia.tools.nullstr"><code class="name flex">
+<span>def <span class="ident">nullstr</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>More robust way of checking if a string is null even in cases where things like '#N/A'
+are present.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>Dictates whether or not the passed string is truly null</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.numdict"><code class="name flex">
+<span>def <span class="ident">numdict</span></span>(<span>input_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a dictionary from a list where the keys are an item's index and the values are the list's items.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of items</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>Keys are the index of each item in a given list and the values are the lists's items</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; numdict([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;])
+{1: 'dog', 2: 'cat', 3: 'ferret', 4: 'rat'}
+</code></pre></div>
+</dd>
+<dt id="alia.tools.ordinal"><code class="name flex">
+<span>def <span class="ident">ordinal</span></span>(<span>n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>n</code></strong> :&ensp;<code>int, str</code></dt>
+<dd>The string or integer to convert</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>An ordinal string representation of the given number</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; ordinal(3)
+'3rd'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.quotify"><code class="name flex">
+<span>def <span class="ident">quotify</span></span>(<span>input_list, single=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a list of strings together commas and places each string inside quotes.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of strings to join and parse</dd>
+<dt><strong><code>single</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True single quotes are used otherwise double quotes are used</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Passed list joined together by commas with each string inside quotes</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.read_csv"><code class="name flex">
+<span>def <span class="ident">read_csv</span></span>(<span>file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads a CSV file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to the CSV file to read</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Dictionaries where each dictionary represents a row of the CSV</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.regex"><code class="name flex">
+<span>def <span class="ident">regex</span></span>(<span>string, pattern, ignore_case=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a regex extraction of a given string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str, re.compile</code></dt>
+<dd>String or compiled re object to reference</dd>
+<dt><strong><code>pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>Regex pattern to search the string with</dd>
+<dt><strong><code>ignore_case</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether or not to use re.IGNORECASE</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Extracted output of the passed regex</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; regex(&quot;There were 3 pups at the park&quot;, &quot;(\d+)&quot;)
+'3'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.reverse_dict"><code class="name flex">
+<span>def <span class="ident">reverse_dict</span></span>(<span>mydict, vals_as_list=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
+rather than overwriting the values all values of duplicate keys are merged into lists.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mydict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to reverse</dd>
+<dt><strong><code>vals_as_list</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True all values are returned as lists, not just values of duplicate keys</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A reversed dictionary</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;})
+{'cat': 'dog', 'rat': 'ferret'}
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;, &quot;lion&quot;: &quot;cat&quot;})
+{'cat': ['dog', 'lion'], 'rat': 'ferret'}
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;, &quot;lion&quot;: &quot;cat&quot;}, True)
+{'cat': ['dog', 'lion'], 'rat': ['ferret']}
+</code></pre></div>
+</dd>
+<dt id="alia.tools.save_obj"><code class="name flex">
+<span>def <span class="ident">save_obj</span></span>(<span>obj, filename, mode='wb')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves an object to a file by pickling it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>any type</code></dt>
+<dd>Object to save</dd>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filename to save the object as</dd>
+<dt><strong><code>mode</code></strong> :&ensp;<code>str</code></dt>
+<dd>Which file mode to use ('wb' by default, 'ab' to append)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Nothing</p></div>
+</dd>
+<dt id="alia.tools.split_data"><code class="name flex">
+<span>def <span class="ident">split_data</span></span>(<span>data, ratio)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Splits data into two chunks based on a given ratio.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>list</code></dt>
+<dd>The data to be split</dd>
+<dt><strong><code>ratio</code></strong> :&ensp;<code>float</code></dt>
+<dd>The ratio at which to split the data. Should be between 0 and 1</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>1 list containing the first 'ratio' proportion of the data, 1 containing the rest</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.str_dedupe"><code class="name flex">
+<span>def <span class="ident">str_dedupe</span></span>(<span>txt)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes duplicate substrings from a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to dedupe</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A string with unique substrings</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_dedupe(&quot;The dog dog was cute&quot;)
+'The dog was cute'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.str_remove"><code class="name flex">
+<span>def <span class="ident">str_remove</span></span>(<span>txt, rplc_strs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes passed strings from a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to clean</dd>
+<dt><strong><code>rplc_strs</code></strong> :&ensp;<code>list</code></dt>
+<dd>Strings to remove from the passed txt string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The passed string with the strings passed in rplc_strs removed from it</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_remove(&quot;There were @3 dogs#&quot;, [&quot;@&quot;, &quot;#&quot;])
+'There were 3 dogs'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.str_replace"><code class="name flex">
+<span>def <span class="ident">str_replace</span></span>(<span>txt, **rplc_map)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Replaces things in a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to clean</dd>
+<dt><strong><code>rplc_map</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dict where the keys are what to replace and the values are what to replace it with</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The passed string with the desired replacements</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_replace(&quot;There was a cute cat at the beach&quot;, **{&quot;cat&quot;: &quot;dog&quot;, &quot;beach&quot;: &quot;park&quot;})
+'There was a cute dog at the park'
+</code></pre></div>
+</dd>
+<dt id="alia.tools.tformat"><code class="name flex">
+<span>def <span class="ident">tformat</span></span>(<span>date_obj, style=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Formats a date or datetime object as a string with the given style.
+When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date format is %Y-%m-%d.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>date_obj</code></strong> :&ensp;<code>date, datetime</code></dt>
+<dd>Date or datetime object to format</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format (i.e. %Y-%m-%d)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A representation of the passed date_obj in the given style</dd>
+</dl></div>
+</dd>
+<dt id="alia.tools.todt"><code class="name flex">
+<span>def <span class="ident">todt</span></span>(<span>dt_str=None, as_date=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Takes a datetime string and converts it to an actual datetime object.
+When as_date=True a date object is returned instead of a datetime object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dt_str</code></strong> :&ensp;<code>str</code></dt>
+<dd>Date or datetime string</dd>
+<dt><strong><code>as_date</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether or not to return the value as a date not datetime object</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>date|datetime: Converted object of the passed string</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; todt(&quot;2023-10-01&quot;)
+datetime.datetime(2023, 10, 1, 0, 0)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; todt(&quot;2023-10-01&quot;, as_date=True)
+datetime.date(2023, 10, 1)
+</code></pre></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="alia" href="index.html">alia</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="alia.tools.b64encode" href="#alia.tools.b64encode">b64encode</a></code></li>
+<li><code><a title="alia.tools.blanknull" href="#alia.tools.blanknull">blanknull</a></code></li>
+<li><code><a title="alia.tools.bomonth" href="#alia.tools.bomonth">bomonth</a></code></li>
+<li><code><a title="alia.tools.chunkify" href="#alia.tools.chunkify">chunkify</a></code></li>
+<li><code><a title="alia.tools.clipboard" href="#alia.tools.clipboard">clipboard</a></code></li>
+<li><code><a title="alia.tools.comma_and" href="#alia.tools.comma_and">comma_and</a></code></li>
+<li><code><a title="alia.tools.contains" href="#alia.tools.contains">contains</a></code></li>
+<li><code><a title="alia.tools.daydiff" href="#alia.tools.daydiff">daydiff</a></code></li>
+<li><code><a title="alia.tools.decrypt" href="#alia.tools.decrypt">decrypt</a></code></li>
+<li><code><a title="alia.tools.dget" href="#alia.tools.dget">dget</a></code></li>
+<li><code><a title="alia.tools.dt_int" href="#alia.tools.dt_int">dt_int</a></code></li>
+<li><code><a title="alia.tools.elapsed" href="#alia.tools.elapsed">elapsed</a></code></li>
+<li><code><a title="alia.tools.encrypt" href="#alia.tools.encrypt">encrypt</a></code></li>
+<li><code><a title="alia.tools.eomonth" href="#alia.tools.eomonth">eomonth</a></code></li>
+<li><code><a title="alia.tools.filelist" href="#alia.tools.filelist">filelist</a></code></li>
+<li><code><a title="alia.tools.filldates" href="#alia.tools.filldates">filldates</a></code></li>
+<li><code><a title="alia.tools.find_common" href="#alia.tools.find_common">find_common</a></code></li>
+<li><code><a title="alia.tools.find_uncommon" href="#alia.tools.find_uncommon">find_uncommon</a></code></li>
+<li><code><a title="alia.tools.is_empty" href="#alia.tools.is_empty">is_empty</a></code></li>
+<li><code><a title="alia.tools.is_float" href="#alia.tools.is_float">is_float</a></code></li>
+<li><code><a title="alia.tools.is_jupyter" href="#alia.tools.is_jupyter">is_jupyter</a></code></li>
+<li><code><a title="alia.tools.iseven" href="#alia.tools.iseven">iseven</a></code></li>
+<li><code><a title="alia.tools.isodd" href="#alia.tools.isodd">isodd</a></code></li>
+<li><code><a title="alia.tools.join_newline" href="#alia.tools.join_newline">join_newline</a></code></li>
+<li><code><a title="alia.tools.keepkeys" href="#alia.tools.keepkeys">keepkeys</a></code></li>
+<li><code><a title="alia.tools.load_obj" href="#alia.tools.load_obj">load_obj</a></code></li>
+<li><code><a title="alia.tools.monthdays" href="#alia.tools.monthdays">monthdays</a></code></li>
+<li><code><a title="alia.tools.now" href="#alia.tools.now">now</a></code></li>
+<li><code><a title="alia.tools.nullstr" href="#alia.tools.nullstr">nullstr</a></code></li>
+<li><code><a title="alia.tools.numdict" href="#alia.tools.numdict">numdict</a></code></li>
+<li><code><a title="alia.tools.ordinal" href="#alia.tools.ordinal">ordinal</a></code></li>
+<li><code><a title="alia.tools.quotify" href="#alia.tools.quotify">quotify</a></code></li>
+<li><code><a title="alia.tools.read_csv" href="#alia.tools.read_csv">read_csv</a></code></li>
+<li><code><a title="alia.tools.regex" href="#alia.tools.regex">regex</a></code></li>
+<li><code><a title="alia.tools.reverse_dict" href="#alia.tools.reverse_dict">reverse_dict</a></code></li>
+<li><code><a title="alia.tools.save_obj" href="#alia.tools.save_obj">save_obj</a></code></li>
+<li><code><a title="alia.tools.split_data" href="#alia.tools.split_data">split_data</a></code></li>
+<li><code><a title="alia.tools.str_dedupe" href="#alia.tools.str_dedupe">str_dedupe</a></code></li>
+<li><code><a title="alia.tools.str_remove" href="#alia.tools.str_remove">str_remove</a></code></li>
+<li><code><a title="alia.tools.str_replace" href="#alia.tools.str_replace">str_replace</a></code></li>
+<li><code><a title="alia.tools.tformat" href="#alia.tools.tformat">tformat</a></code></li>
+<li><code><a title="alia.tools.todt" href="#alia.tools.todt">todt</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
