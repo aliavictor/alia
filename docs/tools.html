@@ -564,7 +564,7 @@ def filldates(start, end=None, as_str=False, weekends=True):
          datetime.date(2023, 10, 9),
          datetime.date(2023, 10, 10)]
 
-         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
+        &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
          [datetime.date(2023, 10, 2),
          datetime.date(2023, 10, 3),
          datetime.date(2023, 10, 4),
@@ -1079,7 +1079,7 @@ def split_data(data, ratio):
 
 def join_newline(items, n):
     &#34;&#34;&#34;
-    Joins a given list with commas and a \n every `n` items.
+    Joins a given list with commas and a newline every `n` items.
 
     Args:
         items (list): List of items to join
@@ -2183,20 +2183,15 @@ key (bytes): Associated encryption key (keep private!)</p></div>
  datetime.date(2023, 10, 9),
  datetime.date(2023, 10, 10)]
 </code></pre>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>filldates("2023-10-01", end="2023-10-10", weekends=False)
-[datetime.date(2023, 10, 2),
-datetime.date(2023, 10, 3),
-datetime.date(2023, 10, 4),
-datetime.date(2023, 10, 5),
-datetime.date(2023, 10, 6),
-datetime.date(2023, 10, 9),
-datetime.date(2023, 10, 10)]</p>
-</blockquote>
-</blockquote>
-</blockquote></div>
+<pre><code class="language-python-repl">&gt;&gt;&gt; filldates(&quot;2023-10-01&quot;, end=&quot;2023-10-10&quot;, weekends=False)
+ [datetime.date(2023, 10, 2),
+ datetime.date(2023, 10, 3),
+ datetime.date(2023, 10, 4),
+ datetime.date(2023, 10, 5),
+ datetime.date(2023, 10, 6),
+ datetime.date(2023, 10, 9),
+ datetime.date(2023, 10, 10)]
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2227,7 +2222,7 @@ datetime.date(2023, 10, 10)]</p>
          datetime.date(2023, 10, 9),
          datetime.date(2023, 10, 10)]
 
-         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
+        &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
          [datetime.date(2023, 10, 2),
          datetime.date(2023, 10, 3),
          datetime.date(2023, 10, 4),
@@ -2564,8 +2559,7 @@ datetime.date(2023, 10, 10)]</p>
 <span>def <span class="ident">join_newline</span></span>(<span>items, n)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Joins a given list with commas and a
-every <code>n</code> items.</p>
+<div class="desc"><p>Joins a given list with commas and a newline every <code>n</code> items.</p>
 <pre><code>Args:
     items (list): List of items to join
     n (int): Number of items to split with a newline
@@ -2584,7 +2578,7 @@ Examples:
 </summary>
 <pre><code class="python">def join_newline(items, n):
     &#34;&#34;&#34;
-    Joins a given list with commas and a \n every `n` items.
+    Joins a given list with commas and a newline every `n` items.
 
     Args:
         items (list): List of items to join

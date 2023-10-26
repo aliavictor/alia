@@ -536,7 +536,7 @@ def filldates(start, end=None, as_str=False, weekends=True):
          datetime.date(2023, 10, 9),
          datetime.date(2023, 10, 10)]
 
-         >>> filldates("2023-10-01", end="2023-10-10", weekends=False)
+        >>> filldates("2023-10-01", end="2023-10-10", weekends=False)
          [datetime.date(2023, 10, 2),
          datetime.date(2023, 10, 3),
          datetime.date(2023, 10, 4),
@@ -1051,7 +1051,7 @@ def split_data(data, ratio):
 
 def join_newline(items, n):
     """
-    Joins a given list with commas and a \n every `n` items.
+    Joins a given list with commas and a newline every `n` items.
 
     Args:
         items (list): List of items to join
