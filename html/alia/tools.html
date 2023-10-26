@@ -1,0 +1,3509 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>alia.tools API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>alia.tools</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import base64
+import calendar
+import csv
+import difflib
+import os
+import pickle
+from datetime import date, timedelta
+
+import pandas as pd
+import pyperclip
+from cryptography.fernet import Fernet
+from dateutil.parser import parse
+
+from .colors import *
+
+
+def clipboard(string):
+    &#34;&#34;&#34;
+    Copies text to clipboard so it can be pasted anywhere.
+
+    Args:
+        string (str): String to copy
+
+    Returns:
+        Nothing
+    &#34;&#34;&#34;
+    pyperclip.copy(string)
+    green(&#34;Copied to clipboard&#34;, ts=False)
+
+
+def save_obj(obj, filename, mode=&#34;wb&#34;):
+    &#34;&#34;&#34;
+    Saves an object to a file by pickling it.
+
+    Args:
+        obj (any type): Object to save
+        filename (str): Filename to save the object as
+        mode (str): Which file mode to use (&#39;wb&#39; by default, &#39;ab&#39; to append)
+
+    Returns:
+        Nothing
+    &#34;&#34;&#34;
+    if &#34;.pkl&#34; not in filename:
+        filename = f&#34;{filename.strip()}.pkl&#34;
+
+    with open(filename, mode) as f:
+        pickle.dump(obj, f)
+
+    green(f&#34;Object saved as {filename}&#34;, ts=False)
+
+
+def load_obj(filename):
+    &#34;&#34;&#34;
+    Loads a saved pickled object.
+
+    Args:
+        filename (str): Filename of the pickled object
+
+    Returns:
+        obj: An un-pickled object
+    &#34;&#34;&#34;
+    with open(filename, &#34;rb&#34;) as f:
+        obj = pickle.load(f)
+
+    return obj
+
+
+def read_csv(file_path):
+    &#34;&#34;&#34;
+    Reads a CSV file.
+
+    Args:
+        file_path (str): Path to the CSV file to read
+
+    Returns:
+        list: Dictionaries where each dictionary represents a row of the CSV
+    &#34;&#34;&#34;
+    with open(file_path, &#34;r&#34;, newline=&#34;&#34;) as file:
+        reader = csv.DictReader(file)
+        rows = [{k: v.strip() for k, v in row.items()} for row in reader]
+
+    return rows
+
+
+def b64encode(obj, encoding=&#34;utf-8&#34;):
+    &#34;&#34;&#34;
+    Encodes an object using the base64 library.
+
+    Args:
+        obj (any type): Object to encode
+        encoding (str): Encoding to use (utf-8 by default)
+
+    Returns:
+        str: An encoded string representing the given object
+    &#34;&#34;&#34;
+    if isinstance(obj, str):
+        return base64.b64encode(bytes(obj, encoding)).decode(encoding)
+    else:
+        return base64.b64encode(obj).decode(encoding)
+
+
+def encrypt(string):
+    &#34;&#34;&#34;
+    Uses Fernet 128-bit encryption to encrypt the passed string
+
+    Args:
+        string (str): String to encrypt
+
+    Returns:
+        encrypted_str (bytes): Encrypted string
+        key (bytes): Associated encryption key (keep private!)
+    &#34;&#34;&#34;
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    encrypted_str = f.encrypt(string.encode())
+
+    return encrypted_str, key
+
+
+def decrypt(encrypted_str, key):
+    &#34;&#34;&#34;
+    Decrypts an encrypted bytes string using Fernet.
+
+    Args:
+        encrypted_str (bytes): Encrypted bytes string to decrypt
+        key (bytes): Associated encryption key
+
+    Returns:
+        str: A decrypted string
+    &#34;&#34;&#34;
+    f = Fernet(key)
+    return f.decrypt(encrypted_str).decode()
+
+
+def tformat(date_obj, style=None):
+    &#34;&#34;&#34;
+    Formats a date or datetime object as a string with the given style.
+    When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date format is %Y-%m-%d.
+
+    Args:
+        date_obj (date, datetime): Date or datetime object to format
+        style (str): Desired datetime format (i.e. %Y-%m-%d)
+
+    Returns:
+        str: A representation of the passed date_obj in the given style
+    &#34;&#34;&#34;
+    if type(date_obj) not in [datetime, date]:
+        if &#34;:&#34; in date_obj:
+            date_obj = todt(date_obj)
+        else:
+            date_obj = todt(date_obj, as_date=True)
+    if style is None:
+        if type(date_obj) == datetime:
+            style = &#34;%Y-%m-%d %H:%M:%S&#34;
+        elif type(date_obj) == date:
+            style = &#34;%Y-%m-%d&#34;
+    return date_obj.strftime(style)
+
+
+def todt(dt_str=None, as_date=False):
+    &#34;&#34;&#34;
+    Takes a datetime string and converts it to an actual datetime object.
+    When as_date=True a date object is returned instead of a datetime object.
+
+    Args:
+        dt_str (str): Date or datetime string
+        as_date (bool): Whether or not to return the value as a date not datetime object
+
+    Returns:
+        date|datetime: Converted object of the passed string
+
+    Examples:
+        &gt;&gt;&gt; todt(&#34;2023-10-01&#34;)
+        datetime.datetime(2023, 10, 1, 0, 0)
+
+        &gt;&gt;&gt; todt(&#34;2023-10-01&#34;, as_date=True)
+        datetime.date(2023, 10, 1)
+    &#34;&#34;&#34;
+    if dt_str is None:
+        dt_str = now()
+    elif &#34;_&#34; in dt_str:
+        dt_str = dt_str.replace(&#34;_&#34;, &#34;-&#34;)
+
+    if as_date:
+        return parse(dt_str).date()
+    else:
+        return parse(dt_str)
+
+
+def now(style=&#34;%Y-%m-%d %H:%M:%S&#34;, dt=False):
+    &#34;&#34;&#34;
+    Returns the current date and time.
+
+    Args:
+        style (str): Datetime format to use (default is %Y-%m-%d %H:%M:%S)
+        dt (bool): If True a datetime object is returned instead of a string
+
+    Returns:
+        str|datetime: Either a string or datetime object of the current date and time
+
+    Examples:
+        &gt;&gt;&gt; now()
+        &#39;2023-10-01 12:30:00&#39;
+
+        &gt;&gt;&gt; now(dt=True)
+        datetime.datetime(2023, 10, 1, 12, 30)
+    &#34;&#34;&#34;
+    if dt:
+        return datetime.now()
+    else:
+        return datetime.now().strftime(style)
+
+
+def monthdays(month, year=todt(now()).year):
+    &#34;&#34;&#34;
+    Returns the total number of days in a given month.
+
+    Args:
+        month (int): Integer representation of a given month
+        year (int): Year to reference
+
+    Returns:
+        int: Number of days in a given month
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                out = calendar.monthrange(
+                    year, datetime.strptime(month[:3], &#34;%b&#34;).month
+                )
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            out = calendar.monthrange(year, datetime.strptime(month, &#34;%b&#34;).month)
+        elif len(month) &gt; 4:
+            try:
+                out = calendar.monthrange(year, datetime.strptime(month, &#34;%B&#34;).month)
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    elif type(month) == int:
+        out = calendar.monthrange(year, month)
+    return out[1]
+
+
+def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
+    &#34;&#34;&#34;
+    Returns the 1st of the given month (current month is default).
+
+    Args:
+        month (int): Month to reference
+        year (int): Year to reference
+        offset (int): Number of months to offset by
+        style (str): Desired datetime format
+
+    Returns:
+        str: A date string of the 1st of the given month
+
+    Examples:
+        &gt;&gt;&gt; bomonth(month=10, year=2023)
+        &#39;2023-10-01&#39;
+
+        &gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
+        &#39;2023-11-01&#39;
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                month = datetime.strptime(month[:3], &#34;%b&#34;).month
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            month = datetime.strptime(month, &#34;%b&#34;).month
+        elif len(month) &gt; 4:
+            try:
+                month = datetime.strptime(month, &#34;%B&#34;).month
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    if offset != 0:
+        if month &lt;= 2:
+            month = 13 + offset
+            year = todt(dt_int(-60)).year
+        else:
+            month = month + offset
+    rawdate = todt(f&#34;{year}-{month}-01&#34;)
+    return tformat(rawdate, style=style)
+
+
+def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
+    &#34;&#34;&#34;
+    Returns the last date of the given month (current month is default).
+
+    Args:
+        month (int): Month to reference
+        year (int): Year to reference
+        offset (int): Number of months to offset by
+        style (str): Desired datetime format
+
+    Returns:
+        str: A date string of the last date of the given month
+
+    Examples:
+        &gt;&gt;&gt; eomonth(month=10, year=2023)
+        &#39;2023-10-31&#39;
+
+        &gt;&gt;&gt; eomonth(month=10, year=2023, offset=1)
+        &#39;2023-11-30&#39;
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                month = datetime.strptime(month[:3], &#34;%b&#34;).month
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            month = datetime.strptime(month, &#34;%b&#34;).month
+        elif len(month) &gt; 4:
+            try:
+                month = datetime.strptime(month, &#34;%B&#34;).month
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    if offset != 0:
+        month = month + offset
+    last_day = monthdays(month)
+    rawdate = todt(f&#34;{year}-{month}-{last_day}&#34;)
+    return tformat(rawdate, style=style)
+
+
+def dt_int(num, start=None, metric=&#34;days&#34;, style=&#34;%Y-%m-%d&#34;, dt=True):
+    &#34;&#34;&#34;
+    Adds/subtracts days, minutes or hours from a given date or datetime.
+
+    Args:
+        num (int): Number to offset by
+        start (date, datetime, str): Starting date to offset
+        metric (str): The metric to use for calculation (days, minutes or hours)
+        style (str): Desired datetime format (ignored when dt=True)
+        dt (bool): If True a datetime object is returned instead of a string
+
+    Returns:
+        str: A formatted date string of the calculated date
+
+    Examples:
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01&#34;)
+        &#39;2023-10-04&#39;
+
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01 12:30:00&#34;, metric=&#34;hours&#34;)
+        &#39;2023-10-01 15:30:00&#39;
+
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01&#34;, dt=True)
+        datetime.date(2023, 10, 4)
+    &#34;&#34;&#34;
+    input_type = &#34;date&#34;
+    out = None
+    if start is None:
+        start = datetime.now()
+        input_type = &#34;datetime&#34;
+    elif isinstance(start, str):
+        if &#34; &#34; in start:
+            start = todt(start)
+            input_type = &#34;datetime&#34;
+        else:
+            start = todt(start, as_date=True)
+
+    opts = [&#34;days&#34;, &#34;minutes&#34;, &#34;hours&#34;]
+    actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+    if len(actual) == 1:
+        metric = actual[0]
+    else:
+        if len(actual) &gt; 1:
+            orange(
+                f&#34;Multiple metric options found ({&#39;, &#39;.join(actual)}). Which did you mean?&#34;,
+                ts=False,
+            )
+        elif len(actual) == 0:
+            red(&#34;Metric value seems to be incorrect, try again&#34;, ts=False)
+        print(&#34;&#34;)
+        metric = str(input(&#34;days, minutes or hours? &#34;))
+        actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+        if len(actual) == 1:
+            metric = actual[0]
+        else:
+            red(&#34;Having trouble recognizing metric&#34;)
+            return None
+
+    if metric != &#34;days&#34;:
+        t_check = [i for i in [&#34;%H&#34;, &#34;%-H&#34;, &#34;%I&#34;, &#34;%-I&#34;] if i in style]
+        if len(t_check) == 0:
+            style = f&#34;{style} %H:%M:%S&#34;
+    if metric == &#34;days&#34;:
+        out = (start + timedelta(days=num)).strftime(style)
+    elif metric == &#34;hours&#34;:
+        out = (start + timedelta(hours=num)).strftime(style)
+    elif metric == &#34;minutes&#34;:
+        out = (start + timedelta(minutes=num)).strftime(style)
+
+    if dt:
+        if input_type == &#34;datetime&#34;:
+            return todt(out)
+        else:
+            return todt(out, as_date=True)
+    else:
+        return out
+
+
+def daydiff(start, stop=None):
+    &#34;&#34;&#34;
+    Calculates the number of days between two dates.
+
+    Args:
+        start (date, datetime, str): Date to subtract from
+        stop (None, date, datetime, str): Date to subtract (default is the current day)
+
+    Returns:
+        int: Number of days in between the given dates
+    &#34;&#34;&#34;
+    start = todt(str(start))
+    if stop is None:
+        stop = todt(now())
+    else:
+        stop = todt(str(stop))
+    return (stop - start).days
+
+
+def elapsed(start, stop=None, metric=&#34;minutes&#34;, full=False):
+    &#34;&#34;&#34;
+    Pass a `datetime.datetime` object and return elapsed time from then to now. Metric opts:
+    seconds, minutes, hours. When full=True elapsed time is returned as H:M:S.
+
+    Args:
+        start (datetime, str): The datetime value to subtract from
+        stop (None, datetime, str): The datetime value to subtract with (current day by default)
+        metric (str): The metric to calculate the elapsed time by (seconds, minutes, hours)
+        full (bool): If True metric is overridden and elapsed time is returned in H:M:S format
+
+    Returns:
+        int|str: Either an integer representing the elapsed seconds, minutes or hours between two
+        dates or a string representation of the elapsed time in H:M:S format
+
+    Examples:
+        &gt;&gt;&gt; elapsed(&#34;2023-10-01 12:30:00&#34;, stop=&#34;2023-10-01 14:00:00&#34;)
+        90
+
+        &gt;&gt;&gt; elapsed(&#34;2023-10-01 12:30:00&#34;, stop=&#34;2023-10-01 14:00:00&#34;, full=True)
+        &#39;01:30:00&#39;
+    &#34;&#34;&#34;
+    opts = [&#34;minutes&#34;, &#34;hours&#34;, &#34;seconds&#34;]
+    actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+    if len(actual) == 1:
+        metric = actual[0]
+    else:
+        if len(actual) &gt; 1:
+            orange(
+                f&#34;Multiple metric options found ({&#39;, &#39;.join(actual)}). Which did you mean?&#34;,
+                ts=False,
+            )
+        elif len(actual) == 0:
+            red(&#34;Metric value seems to be incorrect, try again&#34;, ts=False)
+        print(&#34;&#34;)
+        metric = str(input(&#34;seconds, minutes or hours? &#34;))
+        actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+        if len(actual) == 1:
+            metric = actual[0]
+        else:
+            red(&#34;Having trouble recognizing metric&#34;)
+            return None
+
+    if stop is not None:
+        stop = todt(str(stop))
+    else:
+        stop = todt(now())
+    diff = (stop - todt(str(start))).total_seconds()
+
+    if full:
+        hours, leftover = divmod(diff, 3600)
+        minutes, seconds = divmod(leftover, 60)
+        return &#34;{:02}:{:02}:{:02}&#34;.format(int(hours), int(minutes), int(seconds))
+    else:
+        seconds = round(diff)
+        minutes = round(diff / 60)
+        hours = round(diff / 3600)
+        if metric == &#34;seconds&#34;:
+            return seconds
+        elif metric == &#34;minutes&#34;:
+            return minutes
+        elif metric == &#34;hours&#34;:
+            return hours
+
+
+def filldates(start, end=None, as_str=False, weekends=True):
+    &#34;&#34;&#34;
+    Calculates the dates in between two dates.
+
+    Args:
+        start (date, str): Start of the desired date range
+        end (None, date, str): End of the desired date range (current day by default)
+        as_str (bool): If True dates are returned as strings instead of date objects
+        weekends (bool): If False weekend dates are excluded from the final output
+
+    Returns:
+        list: Dates in between two given dates
+
+    Examples:
+        &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;)
+        [datetime.date(2023, 10, 1),
+         datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 7),
+         datetime.date(2023, 10, 8),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
+
+         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
+         [datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
+    &#34;&#34;&#34;
+    start = todt(str(start), as_date=True)
+    if end is None:
+        end = todt(now(), as_date=True)
+    else:
+        end = todt(str(end), as_date=True)
+    drange = range((end - start).days + 1)
+
+    if not weekends:
+        dd = [
+            start + timedelta(days=x)
+            for x in drange
+            if (start + timedelta(days=x)).weekday() not in [5, 6]
+        ]
+    else:
+        dd = [start + timedelta(days=x) for x in drange]
+
+    if as_str:
+        try:
+            return [tformat(i) for i in dd]
+        except:
+            red(&#34;Problem formatting as strings, returning dates as-is&#34;, False)
+            return dd
+    else:
+        return dd
+
+
+def nullstr(string):
+    &#34;&#34;&#34;
+    More robust way of checking if a string is null even in cases where things like &#39;#N/A&#39;
+    are present.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        bool: Dictates whether or not the passed string is truly null
+    &#34;&#34;&#34;
+    return bool(
+        pd.isnull(string) or string in [&#34;&#34;, None, &#34;nan&#34;, &#34;NaN&#34;, &#34;None&#34;, &#34;NONE&#34;, &#34;N/A&#34;, &#34;#N/A&#34;]
+    )
+
+
+def blanknull(string):
+    &#34;&#34;&#34;
+    Converts any null values to a blank string.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        str: &#39;&#39; if the passed string is null otherwise the string is returned
+    &#34;&#34;&#34;
+    if nullstr(string) or not string:
+        return &#34;&#34;
+    else:
+        return string
+
+
+def is_float(string):
+    &#34;&#34;&#34;
+    Checks if a string is meant to be a float.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        bool: True if the string is a float, False if not
+    &#34;&#34;&#34;
+    if str(string).replace(&#34;.&#34;, &#34;&#34;).isnumeric():
+        return True
+    else:
+        return False
+
+
+def isodd(num):
+    &#34;&#34;&#34;
+    Checks if a given number is odd.
+
+    Args:
+        num (int): Number to check
+
+    Returns:
+        bool: True if the given number is odd, False if it&#39;s even
+    &#34;&#34;&#34;
+    if not isinstance(num, int):
+        num = int(num.replace(&#34;,&#34;, &#34;&#34;))
+    return (num % 2) != 0
+
+
+def iseven(num):
+    &#34;&#34;&#34;
+    Checks if a given number is even.
+
+    Args:
+        num (int): Number to check
+
+    Returns:
+        bool: True if the given number is even, False if it&#39;s odd
+    &#34;&#34;&#34;
+    if not isinstance(num, int):
+        num = int(num.replace(&#34;,&#34;, &#34;&#34;))
+    return (num % 2) == 0
+
+
+def regex(string, pattern, ignore_case=False):
+    &#34;&#34;&#34;
+    Performs a regex extraction of a given string.
+
+    Args:
+        string (str, re.compile): String or compiled re object to reference
+        pattern (str): Regex pattern to search the string with
+        ignore_case (bool): Whether or not to use re.IGNORECASE
+
+    Returns:
+        str: Extracted output of the passed regex
+
+    Examples:
+        &gt;&gt;&gt; regex(&#34;There were 3 pups at the park&#34;, &#34;(\d+)&#34;)
+        &#39;3&#39;
+    &#34;&#34;&#34;
+    try:
+        if isinstance(pattern, str):
+            if ignore_case:
+                return re.search(pattern, string, re.IGNORECASE).group(1)
+            else:
+                return re.search(pattern, string).group(1)
+        elif ignore_case:
+            return pattern.search(string, re.IGNORECASE).group(1)
+        else:
+            return pattern.search(string).group(1)
+    except AttributeError:
+        print(&#34;Nothing matches the given regex pattern in the given string&#34;)
+
+
+def str_dedupe(txt):
+    &#34;&#34;&#34;
+    Removes duplicate substrings from a string.
+
+    Args:
+        txt (str): String to dedupe
+
+    Returns:
+        str: A string with unique substrings
+
+    Examples:
+        &gt;&gt;&gt; str_dedupe(&#34;The dog dog was cute&#34;)
+        &#39;The dog was cute&#39;
+    &#34;&#34;&#34;
+    words = txt.strip().split()
+    unique_words = []
+    for word in words:
+        if word not in unique_words:
+            unique_words.append(word)
+
+    return &#34; &#34;.join(unique_words)
+
+
+def str_remove(txt, rplc_strs):
+    &#34;&#34;&#34;
+    Removes passed strings from a string.
+
+    Args:
+        txt (str): String to clean
+        rplc_strs (list): Strings to remove from the passed txt string
+
+    Returns:
+        str: The passed string with the strings passed in rplc_strs removed from it
+
+    Examples:
+        &gt;&gt;&gt; str_remove(&#34;There were @3 dogs#&#34;, [&#34;@&#34;, &#34;#&#34;])
+        &#39;There were 3 dogs&#39;
+    &#34;&#34;&#34;
+    if not isinstance(rplc_strs, list):
+        rplc_strs = [r.strip() for r in rplc_strs.split(&#34;,&#34;)]
+    ntxt = txt
+    for i in rplc_strs:
+        ntxt = ntxt.replace(i, &#34;&#34;)
+    return ntxt
+
+
+def str_replace(txt, **rplc_map):
+    &#34;&#34;&#34;
+    Replaces things in a string.
+
+    Args:
+        txt (str): String to clean
+        rplc_map (dict): Dict where the keys are what to replace and the values are what to replace it with
+
+    Returns:
+        str: The passed string with the desired replacements
+
+    Examples:
+        &gt;&gt;&gt; str_replace(&#34;There was a cute cat at the beach&#34;, **{&#34;cat&#34;: &#34;dog&#34;, &#34;beach&#34;: &#34;park&#34;})
+        &#39;There was a cute dog at the park&#39;
+    &#34;&#34;&#34;
+    out = txt
+    for k, v in rplc_map.items():
+        out = out.replace(k, v)
+    return out
+
+
+def contains(ref, checklist, exact=True, show_all=True):
+    &#34;&#34;&#34;
+    Iterates through passed items and checks if they exist in a given list.
+
+    Args:
+        ref (list): List of reference items to check
+        checklist (list): List of things to look for in ref
+        exact (bool): If False checklist is lowercased to find matches regardless of captilization/trailing spaces
+        show_all (bool): If False only the first matching item is returned, otherwise everything is
+
+    Returns:
+        list: Items from checklist that exist in ref
+
+    Examples:
+        &gt;&gt;&gt; contains([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;], [&#34;dog&#34;, &#34;rat&#34;])
+        [&#39;dog&#39;, &#39;rat&#39;]
+
+        &gt;&gt;&gt; contains([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;], [&#34;dog&#34;, &#34;rat&#34;], show_all=False)
+        [&#39;dog&#39;]
+    &#34;&#34;&#34;
+    if not isinstance(checklist, list) and not isinstance(checklist, str):
+        # account for Series and whatnot
+        checklist = list(checklist)
+
+    if not exact:
+        checklist = [str(i).lower().strip() for i in checklist]
+
+    if isinstance(ref, str):
+        if &#34;,&#34; in ref and ref.strip() != &#34;,&#34;:
+            ref = [i.strip() for i in ref.split(&#34;,&#34;)]
+        else:
+            ref = [ref]
+
+    dd = []
+    if exact:
+        for i in ref:
+            if i in checklist:
+                dd.append(i)
+    else:
+        for i in ref:
+            if str(i).lower().strip() in checklist:
+                dd.append(i)
+
+    if len(dd) == 0:
+        pink(&#34;None of the items passed were found in given list&#34;,ts=False)
+    else:
+        if show_all or len(dd) == 1:
+            out = dd
+        else:
+            out = [dd[0]]
+        return out
+
+
+def is_empty(obj):
+    &#34;&#34;&#34;
+    Checks if a given obj is either null, blank or len(obj) == 0.
+
+    Args:
+        obj (DataFrame, Series, list, dict, str): Object to check
+
+    Returns:
+        bool: True if the object is empty, False if not
+    &#34;&#34;&#34;
+    if obj is None:
+        return True
+    elif type(obj) in (pd.DataFrame, pd.Series):
+        if len(list(obj.columns)) &gt; 1:
+            return bool(
+                len(obj) == 0
+                or (
+                    obj[list(obj.columns)[0]].values[0] == &#34;&#34;
+                    and obj[list(obj.columns)[1]].values[0] == &#34;&#34;
+                )
+            )
+        else:
+            return bool(len(obj) == 0 or obj[list(obj.columns)[0]].values[0] == &#34;&#34;)
+    elif isinstance(obj, list):
+        return bool(obj == [])
+    elif isinstance(obj, str):
+        return bool(obj == &#34;&#34;)
+    elif isinstance(obj, dict):
+        return bool(len(obj.keys()) == 0)
+
+
+def numdict(input_list):
+    &#34;&#34;&#34;
+    Creates a dictionary from a list where the keys are an item&#39;s index and the values are the list&#39;s items.
+
+    Args:
+        input_list (list): List of items
+
+    Returns:
+        dict: Keys are the index of each item in a given list and the values are the lists&#39;s items
+
+    Examples:
+        &gt;&gt;&gt; numdict([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;])
+        {1: &#39;dog&#39;, 2: &#39;cat&#39;, 3: &#39;ferret&#39;, 4: &#39;rat&#39;}
+    &#34;&#34;&#34;
+    input_list = list(filter(None, input_list))
+    return dict(zip(range(1, len(input_list) + 1), input_list))
+
+
+def reverse_dict(mydict, vals_as_list=False):
+    &#34;&#34;&#34;
+    Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
+    rather than overwriting the values all values of duplicate keys are merged into lists.
+
+    Args:
+        mydict (dict): Dictionary to reverse
+        vals_as_list (bool): If True all values are returned as lists, not just values of duplicate keys
+
+    Returns:
+        dict: A reversed dictionary
+
+    Examples:
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;})
+        {&#39;cat&#39;: &#39;dog&#39;, &#39;rat&#39;: &#39;ferret&#39;}
+
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;, &#34;lion&#34;: &#34;cat&#34;})
+        {&#39;cat&#39;: [&#39;dog&#39;, &#39;lion&#39;], &#39;rat&#39;: &#39;ferret&#39;}
+
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;, &#34;lion&#34;: &#34;cat&#34;}, True)
+        {&#39;cat&#39;: [&#39;dog&#39;, &#39;lion&#39;], &#39;rat&#39;: [&#39;ferret&#39;]}
+    &#34;&#34;&#34;
+    reversed_dict = {}
+    for key, val in mydict.items():
+        reversed_dict.setdefault(val, [])
+        reversed_dict[val].append(key)
+
+    if not vals_as_list:
+        # all values will be lists, otherwise only
+        # duplicate values are lists
+        for key, val in reversed_dict.items():
+            if len(val) == 1:
+                reversed_dict[key] = val[0]
+
+    return reversed_dict
+
+
+def keepkeys(mydict, keys):
+    &#34;&#34;&#34;
+    Creates a dictionary from the passed dictionary containing only the given keys.
+
+    Args:
+        mydict (dict): Dictionary to filter
+        keys (list): List of keys you want to keep from the passed dictionary
+
+    Returns:
+        dict: The passed dictionary containing only the desired keys
+
+    Examples:
+        &gt;&gt;&gt; keepkeys({&#34;dog&#34;: &#34;woof&#34;, &#34;cat&#34;: &#34;meow&#34;, &#34;cow&#34;: &#34;moo&#34;}, [&#34;dog&#34;, &#34;cat&#34;])
+        {&#39;dog&#39;: &#39;woof&#39;, &#39;cat&#39;: &#39;meow&#39;}
+    &#34;&#34;&#34;
+    if isinstance(keys, str):
+        if &#34;,&#34; in keys:
+            keys = [i.strip() for i in keys.split(&#34;,&#34;)]
+        else:
+            keys = [keys]
+
+    return {k: v for k, v in mydict.items() if k in keys}
+
+
+def find_common(list1, list2):
+    &#34;&#34;&#34;
+    Finds common values between two lists.
+
+    Args:
+        list1 (Series, list): List to check against
+        list2 (Series, list): List to check
+
+    Returns:
+        list: Items that appear in both list1 and list2
+
+    Examples:
+        &gt;&gt;&gt; find_common([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
+        [&#39;dog&#39;, &#39;ferret&#39;]
+    &#34;&#34;&#34;
+    if isinstance(list1, pd.Series):
+        list1 = list(list1)
+    if isinstance(list1, str):
+        list1 = [t.strip() for t in list1.split(&#34;,&#34;)]
+
+    if isinstance(list2, pd.Series):
+        list2 = list(list2)
+    if isinstance(list2, str):
+        list2 = [t.strip() for t in list2.split(&#34;,&#34;)]
+
+    items = set(list1) &amp; set(list2)
+    # keep original order of list1
+    return sorted(items, key=lambda x: list1.index(x))
+
+
+def find_uncommon(list1, list2):
+    &#34;&#34;&#34;
+    Compares two lists and finds values that appear in the first list but not the second.
+
+    Args:
+        list1 (Series, list): List to check against
+        list2 (Series, list): List to check
+
+    Returns:
+        list: Items that appear in list1 that don&#39;t appear in list2
+
+    Examples:
+        &gt;&gt;&gt; find_uncommon([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
+        [&#39;cat&#39;, &#39;bird&#39;]
+    &#34;&#34;&#34;
+    if isinstance(list1, pd.Series):
+        list1 = list(list1)
+    if isinstance(list1, str):
+        list1 = [t.strip() for t in list1.split(&#34;,&#34;)]
+
+    if isinstance(list2, pd.Series):
+        list2 = list(list2)
+    if isinstance(list2, str):
+        list2 = [t.strip() for t in list2.split(&#34;,&#34;)]
+
+    items = set(list1) - set(list2)
+    # keep original order of list1
+    return sorted(items, key=lambda x: list1.index(x))
+
+
+def comma_and(input_list, sep=&#34;, &#34;, last_sep=&#34;and&#34;):
+    &#34;&#34;&#34;
+    Joins a list of strings together joined by the given separators.
+
+    Args:
+        input_list (list): A list of strings to join and parse
+        sep (str): The separator to be used to join the strings in the list (&#39;, &#39; by default)
+        last_sep (str): The separator for the last string in the list (&#39;and&#39; by default)
+
+    Returns:
+        str: Passed list joined by the given separators
+
+    Examples:
+        &gt;&gt;&gt; comma_and([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;], last_sep=&#34;&amp;&#34;)
+        &#39;dog, cat &amp; rat&#39;
+
+        &gt;&gt;&gt; comma_and([&#34;dog&#34;, &#34;cat&#34;], last_sep=&#34;&amp;&#34;)
+        &#39;dog &amp; cat&#39;
+    &#34;&#34;&#34;
+    if type(input_list) == str:
+        input_list = [i.strip() for i in input_list.split(&#34;,&#34;)]
+
+    if len(input_list) &gt;= 3:
+        return sep.join(input_list[:-1]) + f&#34; {last_sep} &#34; + input_list[-1]
+    elif len(input_list) == 2:
+        return f&#34; {last_sep} &#34;.join(input_list)
+    else:
+        return &#34;&#34;.join(input_list)
+
+
+def quotify(input_list, single=True):
+    &#34;&#34;&#34;
+    Joins a list of strings together commas and places each string inside quotes.
+
+    Args:
+        input_list (list): A list of strings to join and parse
+        single (bool): If True single quotes are used otherwise double quotes are used
+
+    Returns:
+        str: Passed list joined together by commas with each string inside quotes
+    &#34;&#34;&#34;
+    if single:
+        return &#34;, &#34;.join([f&#34;&#39;{i}&#39;&#34; for i in input_list])
+    else:
+        return &#34;, &#34;.join([f&#39;&#34;{i}&#34;&#39; for i in input_list])
+
+
+def chunkify(input_list, num):
+    &#34;&#34;&#34;
+    Divides a list into a given number of chunks.
+
+    Args:
+        input_list (list): A list to divide
+        num (int): The number of items each chunk should contain
+
+    Returns:
+        list: A list of lists where each list contains the passed number of items from the given list
+
+    Examples:
+        &gt;&gt;&gt; chunkify([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], num=2)
+        [[&#34;dog, &#34;cat&#34;], [&#34;ferret&#34;, &#34;bird&#34;]]
+    &#34;&#34;&#34;
+    return [input_list[i: i + num] for i in range(0, len(input_list), num)]
+
+
+def split_data(data, ratio):
+    &#34;&#34;&#34;
+    Splits data into two chunks based on a given ratio.
+
+    Args:
+        data (list): The data to be split
+        ratio (float): The ratio at which to split the data. Should be between 0 and 1
+
+    Returns:
+        tuple: 1 list containing the first &#39;ratio&#39; proportion of the data, 1 containing the rest
+    &#34;&#34;&#34;
+    split_index = int(len(data) * ratio)
+    return data[:split_index], data[split_index:]
+
+
+def join_newline(items, n):
+    &#34;&#34;&#34;
+    Joins a given list with commas and a \n every `n` items.
+
+    Args:
+        items (list): List of items to join
+        n (int): Number of items to split with a newline
+
+    Returns:
+        str: A joined string
+
+    Examples:
+        &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
+        &#39;test, test, test,\ntest, test, test&#39;
+    &#34;&#34;&#34;
+    chunks = [items[i:i + n] for i in range(0, len(items), n)]
+    return &#34;,\n&#34;.join(&#34;, &#34;.join(f&#34;&#39;{i}&#39;&#34; for i in chunk) for chunk in chunks)
+
+
+def ordinal(n):
+    &#34;&#34;&#34;
+    Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).
+
+    Args:
+        n (int, str): The string or integer to convert
+
+    Returns:
+        str: An ordinal string representation of the given number
+
+    Examples:
+        &gt;&gt;&gt; ordinal(3)
+        &#39;3rd&#39;
+    &#34;&#34;&#34;
+    n = int(str(n))
+    suffix = [&#34;th&#34;, &#34;st&#34;, &#34;nd&#34;, &#34;rd&#34;, &#34;th&#34;][min(n % 10, 4)]
+
+    if 11 &lt;= (n % 100) &lt;= 13:
+        suffix = &#34;th&#34;
+
+    return f&#34;{n}{suffix}&#34;
+
+
+def dget(dict_obj, key, val=None):
+    &#34;&#34;&#34;
+    More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
+    value is a blank string and returns None (or whatever you pass as val) instead of the blank string.
+
+    Args:
+        dict_obj (dict): Dictionary to reference
+        key (str): Target key to grab from the dictionary
+        val (str, None): Default value to return if the target key isn&#39;t in the dictionary
+
+    Returns:
+        any: Value of the key of the passed dict (or the value of val if the key doesn&#39;t exist)
+
+    Examples:
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key2&#34;)
+        None
+
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key2&#34;, val=&#34;N/A&#34;)
+        &#34;N/A&#34;
+
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key1&#34;)
+        &#34;val1&#34;
+    &#34;&#34;&#34;
+    if key in dict_obj:
+        if not dict_obj[key] or (
+            isinstance(dict_obj[key], str) and nullstr(dict_obj[key])
+        ):
+            return val
+
+    return dict_obj.get(key, val)
+
+
+def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
+    &#34;&#34;&#34;
+    Lists the filenames in the passed directory.
+
+    Args:
+        dirpath (str): Directory path to reference
+        ext (str): Extension of the files to target
+        prefix (str): Target files that start with this prefix
+        raise_err (bool): If False FileNotFoundErrors will fail silently
+        keep_ext (bool): If Flase base filenames without their extensions are returned
+
+    Returns:
+        list: All the filenames in the given directory
+    &#34;&#34;&#34;
+    if ext and &#34;.&#34; not in ext:
+        ext = f&#34;.{ext.strip()}&#34;
+    blacklist = [&#34;.DS_Store&#34;]
+
+    try:
+        if keep_ext:
+            if ext and prefix:
+                return [
+                    i for i in os.listdir(dirpath)
+                    if i.startswith(prefix) and i.endswith(ext)
+                ]
+            elif ext:
+                return [i for i in os.listdir(dirpath) if i.endswith(ext)]
+            elif prefix:
+                return [i for i in os.listdir(dirpath) if i.startswith(prefix)]
+            else:
+                return [i for i in os.listdir(dirpath) if i not in blacklist]
+        else:
+            if ext and prefix:
+                return [
+                    i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath)
+                    if i.startswith(prefix) and i.endswith(ext)
+                ]
+            elif ext:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i.endswith(ext)]
+            elif prefix:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i.startswith(prefix)]
+            else:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i not in blacklist]
+    except FileNotFoundError:
+        if raise_err:
+            raise FileNotFoundError
+        else:
+            red(&#34;&lt;b&gt;Can&#39;t locate directory&lt;/b&gt;&#34;)
+            return None
+
+
+def is_jupyter():
+    &#34;&#34;&#34;
+    Checks if the script is currently running in a Jupyter notebook.
+
+    Returns:
+        bool: True or False
+    &#34;&#34;&#34;
+    try:
+        from IPython import get_ipython
+        config_file = get_ipython().config.IPKernelApp.connection_file
+        if isinstance(config_file, str):
+            if &#34;jupyter&#34; in config_file.lower() or &#34;ipykernel&#34; in config_file.lower():
+                return True
+            else:
+                return False
+        else:
+            return False
+    except ImportError:
+        return False</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="alia.tools.b64encode"><code class="name flex">
+<span>def <span class="ident">b64encode</span></span>(<span>obj, encoding='utf-8')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Encodes an object using the base64 library.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>any type</code></dt>
+<dd>Object to encode</dd>
+<dt><strong><code>encoding</code></strong> :&ensp;<code>str</code></dt>
+<dd>Encoding to use (utf-8 by default)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>An encoded string representing the given object</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def b64encode(obj, encoding=&#34;utf-8&#34;):
+    &#34;&#34;&#34;
+    Encodes an object using the base64 library.
+
+    Args:
+        obj (any type): Object to encode
+        encoding (str): Encoding to use (utf-8 by default)
+
+    Returns:
+        str: An encoded string representing the given object
+    &#34;&#34;&#34;
+    if isinstance(obj, str):
+        return base64.b64encode(bytes(obj, encoding)).decode(encoding)
+    else:
+        return base64.b64encode(obj).decode(encoding)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.blanknull"><code class="name flex">
+<span>def <span class="ident">blanknull</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts any null values to a blank string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>'' if the passed string is null otherwise the string is returned</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def blanknull(string):
+    &#34;&#34;&#34;
+    Converts any null values to a blank string.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        str: &#39;&#39; if the passed string is null otherwise the string is returned
+    &#34;&#34;&#34;
+    if nullstr(string) or not string:
+        return &#34;&#34;
+    else:
+        return string</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.bomonth"><code class="name flex">
+<span>def <span class="ident">bomonth</span></span>(<span>month=10, year=2023, offset=0, style='%Y-%m-%d')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the 1st of the given month (current month is default).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Month to reference</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of months to offset by</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A date string of the 1st of the given month</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023)
+'2023-10-01'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
+'2023-11-01'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
+    &#34;&#34;&#34;
+    Returns the 1st of the given month (current month is default).
+
+    Args:
+        month (int): Month to reference
+        year (int): Year to reference
+        offset (int): Number of months to offset by
+        style (str): Desired datetime format
+
+    Returns:
+        str: A date string of the 1st of the given month
+
+    Examples:
+        &gt;&gt;&gt; bomonth(month=10, year=2023)
+        &#39;2023-10-01&#39;
+
+        &gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
+        &#39;2023-11-01&#39;
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                month = datetime.strptime(month[:3], &#34;%b&#34;).month
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            month = datetime.strptime(month, &#34;%b&#34;).month
+        elif len(month) &gt; 4:
+            try:
+                month = datetime.strptime(month, &#34;%B&#34;).month
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    if offset != 0:
+        if month &lt;= 2:
+            month = 13 + offset
+            year = todt(dt_int(-60)).year
+        else:
+            month = month + offset
+    rawdate = todt(f&#34;{year}-{month}-01&#34;)
+    return tformat(rawdate, style=style)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.chunkify"><code class="name flex">
+<span>def <span class="ident">chunkify</span></span>(<span>input_list, num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Divides a list into a given number of chunks.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list to divide</dd>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>The number of items each chunk should contain</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>A list of lists where each list contains the passed number of items from the given list</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; chunkify([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], num=2)
+[[&quot;dog, &quot;cat&quot;], [&quot;ferret&quot;, &quot;bird&quot;]]
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def chunkify(input_list, num):
+    &#34;&#34;&#34;
+    Divides a list into a given number of chunks.
+
+    Args:
+        input_list (list): A list to divide
+        num (int): The number of items each chunk should contain
+
+    Returns:
+        list: A list of lists where each list contains the passed number of items from the given list
+
+    Examples:
+        &gt;&gt;&gt; chunkify([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], num=2)
+        [[&#34;dog, &#34;cat&#34;], [&#34;ferret&#34;, &#34;bird&#34;]]
+    &#34;&#34;&#34;
+    return [input_list[i: i + num] for i in range(0, len(input_list), num)]</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.clipboard"><code class="name flex">
+<span>def <span class="ident">clipboard</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Copies text to clipboard so it can be pasted anywhere.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to copy</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Nothing</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def clipboard(string):
+    &#34;&#34;&#34;
+    Copies text to clipboard so it can be pasted anywhere.
+
+    Args:
+        string (str): String to copy
+
+    Returns:
+        Nothing
+    &#34;&#34;&#34;
+    pyperclip.copy(string)
+    green(&#34;Copied to clipboard&#34;, ts=False)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.comma_and"><code class="name flex">
+<span>def <span class="ident">comma_and</span></span>(<span>input_list, sep=', ', last_sep='and')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a list of strings together joined by the given separators.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of strings to join and parse</dd>
+<dt><strong><code>sep</code></strong> :&ensp;<code>str</code></dt>
+<dd>The separator to be used to join the strings in the list (', ' by default)</dd>
+<dt><strong><code>last_sep</code></strong> :&ensp;<code>str</code></dt>
+<dd>The separator for the last string in the list ('and' by default)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Passed list joined by the given separators</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; comma_and([&quot;dog&quot;, &quot;cat&quot;, &quot;rat&quot;], last_sep=&quot;&amp;&quot;)
+'dog, cat &amp; rat'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; comma_and([&quot;dog&quot;, &quot;cat&quot;], last_sep=&quot;&amp;&quot;)
+'dog &amp; cat'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def comma_and(input_list, sep=&#34;, &#34;, last_sep=&#34;and&#34;):
+    &#34;&#34;&#34;
+    Joins a list of strings together joined by the given separators.
+
+    Args:
+        input_list (list): A list of strings to join and parse
+        sep (str): The separator to be used to join the strings in the list (&#39;, &#39; by default)
+        last_sep (str): The separator for the last string in the list (&#39;and&#39; by default)
+
+    Returns:
+        str: Passed list joined by the given separators
+
+    Examples:
+        &gt;&gt;&gt; comma_and([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;], last_sep=&#34;&amp;&#34;)
+        &#39;dog, cat &amp; rat&#39;
+
+        &gt;&gt;&gt; comma_and([&#34;dog&#34;, &#34;cat&#34;], last_sep=&#34;&amp;&#34;)
+        &#39;dog &amp; cat&#39;
+    &#34;&#34;&#34;
+    if type(input_list) == str:
+        input_list = [i.strip() for i in input_list.split(&#34;,&#34;)]
+
+    if len(input_list) &gt;= 3:
+        return sep.join(input_list[:-1]) + f&#34; {last_sep} &#34; + input_list[-1]
+    elif len(input_list) == 2:
+        return f&#34; {last_sep} &#34;.join(input_list)
+    else:
+        return &#34;&#34;.join(input_list)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.contains"><code class="name flex">
+<span>def <span class="ident">contains</span></span>(<span>ref, checklist, exact=True, show_all=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Iterates through passed items and checks if they exist in a given list.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>ref</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of reference items to check</dd>
+<dt><strong><code>checklist</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of things to look for in ref</dd>
+<dt><strong><code>exact</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False checklist is lowercased to find matches regardless of captilization/trailing spaces</dd>
+<dt><strong><code>show_all</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False only the first matching item is returned, otherwise everything is</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items from checklist that exist in ref</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; contains([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;], [&quot;dog&quot;, &quot;rat&quot;])
+['dog', 'rat']
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; contains([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;], [&quot;dog&quot;, &quot;rat&quot;], show_all=False)
+['dog']
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def contains(ref, checklist, exact=True, show_all=True):
+    &#34;&#34;&#34;
+    Iterates through passed items and checks if they exist in a given list.
+
+    Args:
+        ref (list): List of reference items to check
+        checklist (list): List of things to look for in ref
+        exact (bool): If False checklist is lowercased to find matches regardless of captilization/trailing spaces
+        show_all (bool): If False only the first matching item is returned, otherwise everything is
+
+    Returns:
+        list: Items from checklist that exist in ref
+
+    Examples:
+        &gt;&gt;&gt; contains([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;], [&#34;dog&#34;, &#34;rat&#34;])
+        [&#39;dog&#39;, &#39;rat&#39;]
+
+        &gt;&gt;&gt; contains([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;], [&#34;dog&#34;, &#34;rat&#34;], show_all=False)
+        [&#39;dog&#39;]
+    &#34;&#34;&#34;
+    if not isinstance(checklist, list) and not isinstance(checklist, str):
+        # account for Series and whatnot
+        checklist = list(checklist)
+
+    if not exact:
+        checklist = [str(i).lower().strip() for i in checklist]
+
+    if isinstance(ref, str):
+        if &#34;,&#34; in ref and ref.strip() != &#34;,&#34;:
+            ref = [i.strip() for i in ref.split(&#34;,&#34;)]
+        else:
+            ref = [ref]
+
+    dd = []
+    if exact:
+        for i in ref:
+            if i in checklist:
+                dd.append(i)
+    else:
+        for i in ref:
+            if str(i).lower().strip() in checklist:
+                dd.append(i)
+
+    if len(dd) == 0:
+        pink(&#34;None of the items passed were found in given list&#34;,ts=False)
+    else:
+        if show_all or len(dd) == 1:
+            out = dd
+        else:
+            out = [dd[0]]
+        return out</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.daydiff"><code class="name flex">
+<span>def <span class="ident">daydiff</span></span>(<span>start, stop=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the number of days between two dates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, datetime, str</code></dt>
+<dd>Date to subtract from</dd>
+<dt><strong><code>stop</code></strong> :&ensp;<code>None, date, datetime, str</code></dt>
+<dd>Date to subtract (default is the current day)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of days in between the given dates</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def daydiff(start, stop=None):
+    &#34;&#34;&#34;
+    Calculates the number of days between two dates.
+
+    Args:
+        start (date, datetime, str): Date to subtract from
+        stop (None, date, datetime, str): Date to subtract (default is the current day)
+
+    Returns:
+        int: Number of days in between the given dates
+    &#34;&#34;&#34;
+    start = todt(str(start))
+    if stop is None:
+        stop = todt(now())
+    else:
+        stop = todt(str(stop))
+    return (stop - start).days</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.decrypt"><code class="name flex">
+<span>def <span class="ident">decrypt</span></span>(<span>encrypted_str, key)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Decrypts an encrypted bytes string using Fernet.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>encrypted_str</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Encrypted bytes string to decrypt</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>bytes</code></dt>
+<dd>Associated encryption key</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A decrypted string</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def decrypt(encrypted_str, key):
+    &#34;&#34;&#34;
+    Decrypts an encrypted bytes string using Fernet.
+
+    Args:
+        encrypted_str (bytes): Encrypted bytes string to decrypt
+        key (bytes): Associated encryption key
+
+    Returns:
+        str: A decrypted string
+    &#34;&#34;&#34;
+    f = Fernet(key)
+    return f.decrypt(encrypted_str).decode()</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.dget"><code class="name flex">
+<span>def <span class="ident">dget</span></span>(<span>dict_obj, key, val=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
+value is a blank string and returns None (or whatever you pass as val) instead of the blank string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dict_obj</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to reference</dd>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>Target key to grab from the dictionary</dd>
+<dt><strong><code>val</code></strong> :&ensp;<code>str, None</code></dt>
+<dd>Default value to return if the target key isn't in the dictionary</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>any</code></dt>
+<dd>Value of the key of the passed dict (or the value of val if the key doesn't exist)</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key2&quot;)
+None
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key2&quot;, val=&quot;N/A&quot;)
+&quot;N/A&quot;
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dget({&quot;key1&quot;: &quot;val1&quot;}, &quot;key1&quot;)
+&quot;val1&quot;
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dget(dict_obj, key, val=None):
+    &#34;&#34;&#34;
+    More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
+    value is a blank string and returns None (or whatever you pass as val) instead of the blank string.
+
+    Args:
+        dict_obj (dict): Dictionary to reference
+        key (str): Target key to grab from the dictionary
+        val (str, None): Default value to return if the target key isn&#39;t in the dictionary
+
+    Returns:
+        any: Value of the key of the passed dict (or the value of val if the key doesn&#39;t exist)
+
+    Examples:
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key2&#34;)
+        None
+
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key2&#34;, val=&#34;N/A&#34;)
+        &#34;N/A&#34;
+
+        &gt;&gt;&gt; dget({&#34;key1&#34;: &#34;val1&#34;}, &#34;key1&#34;)
+        &#34;val1&#34;
+    &#34;&#34;&#34;
+    if key in dict_obj:
+        if not dict_obj[key] or (
+            isinstance(dict_obj[key], str) and nullstr(dict_obj[key])
+        ):
+            return val
+
+    return dict_obj.get(key, val)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.dt_int"><code class="name flex">
+<span>def <span class="ident">dt_int</span></span>(<span>num, start=None, metric='days', style='%Y-%m-%d', dt=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adds/subtracts days, minutes or hours from a given date or datetime.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to offset by</dd>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, datetime, str</code></dt>
+<dd>Starting date to offset</dd>
+<dt><strong><code>metric</code></strong> :&ensp;<code>str</code></dt>
+<dd>The metric to use for calculation (days, minutes or hours)</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format (ignored when dt=True)</dd>
+<dt><strong><code>dt</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True a datetime object is returned instead of a string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A formatted date string of the calculated date</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01&quot;)
+'2023-10-04'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01 12:30:00&quot;, metric=&quot;hours&quot;)
+'2023-10-01 15:30:00'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; dt_int(3, start=&quot;2023-10-01&quot;, dt=True)
+datetime.date(2023, 10, 4)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def dt_int(num, start=None, metric=&#34;days&#34;, style=&#34;%Y-%m-%d&#34;, dt=True):
+    &#34;&#34;&#34;
+    Adds/subtracts days, minutes or hours from a given date or datetime.
+
+    Args:
+        num (int): Number to offset by
+        start (date, datetime, str): Starting date to offset
+        metric (str): The metric to use for calculation (days, minutes or hours)
+        style (str): Desired datetime format (ignored when dt=True)
+        dt (bool): If True a datetime object is returned instead of a string
+
+    Returns:
+        str: A formatted date string of the calculated date
+
+    Examples:
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01&#34;)
+        &#39;2023-10-04&#39;
+
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01 12:30:00&#34;, metric=&#34;hours&#34;)
+        &#39;2023-10-01 15:30:00&#39;
+
+        &gt;&gt;&gt; dt_int(3, start=&#34;2023-10-01&#34;, dt=True)
+        datetime.date(2023, 10, 4)
+    &#34;&#34;&#34;
+    input_type = &#34;date&#34;
+    out = None
+    if start is None:
+        start = datetime.now()
+        input_type = &#34;datetime&#34;
+    elif isinstance(start, str):
+        if &#34; &#34; in start:
+            start = todt(start)
+            input_type = &#34;datetime&#34;
+        else:
+            start = todt(start, as_date=True)
+
+    opts = [&#34;days&#34;, &#34;minutes&#34;, &#34;hours&#34;]
+    actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+    if len(actual) == 1:
+        metric = actual[0]
+    else:
+        if len(actual) &gt; 1:
+            orange(
+                f&#34;Multiple metric options found ({&#39;, &#39;.join(actual)}). Which did you mean?&#34;,
+                ts=False,
+            )
+        elif len(actual) == 0:
+            red(&#34;Metric value seems to be incorrect, try again&#34;, ts=False)
+        print(&#34;&#34;)
+        metric = str(input(&#34;days, minutes or hours? &#34;))
+        actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+        if len(actual) == 1:
+            metric = actual[0]
+        else:
+            red(&#34;Having trouble recognizing metric&#34;)
+            return None
+
+    if metric != &#34;days&#34;:
+        t_check = [i for i in [&#34;%H&#34;, &#34;%-H&#34;, &#34;%I&#34;, &#34;%-I&#34;] if i in style]
+        if len(t_check) == 0:
+            style = f&#34;{style} %H:%M:%S&#34;
+    if metric == &#34;days&#34;:
+        out = (start + timedelta(days=num)).strftime(style)
+    elif metric == &#34;hours&#34;:
+        out = (start + timedelta(hours=num)).strftime(style)
+    elif metric == &#34;minutes&#34;:
+        out = (start + timedelta(minutes=num)).strftime(style)
+
+    if dt:
+        if input_type == &#34;datetime&#34;:
+            return todt(out)
+        else:
+            return todt(out, as_date=True)
+    else:
+        return out</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.elapsed"><code class="name flex">
+<span>def <span class="ident">elapsed</span></span>(<span>start, stop=None, metric='minutes', full=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Pass a <code>datetime.datetime</code> object and return elapsed time from then to now. Metric opts:
+seconds, minutes, hours. When full=True elapsed time is returned as H:M:S.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>datetime, str</code></dt>
+<dd>The datetime value to subtract from</dd>
+<dt><strong><code>stop</code></strong> :&ensp;<code>None, datetime, str</code></dt>
+<dd>The datetime value to subtract with (current day by default)</dd>
+<dt><strong><code>metric</code></strong> :&ensp;<code>str</code></dt>
+<dd>The metric to calculate the elapsed time by (seconds, minutes, hours)</dd>
+<dt><strong><code>full</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True metric is overridden and elapsed time is returned in H:M:S format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>int|str: Either an integer representing the elapsed seconds, minutes or hours between two
+dates or a string representation of the elapsed time in H:M:S format</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; elapsed(&quot;2023-10-01 12:30:00&quot;, stop=&quot;2023-10-01 14:00:00&quot;)
+90
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; elapsed(&quot;2023-10-01 12:30:00&quot;, stop=&quot;2023-10-01 14:00:00&quot;, full=True)
+'01:30:00'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def elapsed(start, stop=None, metric=&#34;minutes&#34;, full=False):
+    &#34;&#34;&#34;
+    Pass a `datetime.datetime` object and return elapsed time from then to now. Metric opts:
+    seconds, minutes, hours. When full=True elapsed time is returned as H:M:S.
+
+    Args:
+        start (datetime, str): The datetime value to subtract from
+        stop (None, datetime, str): The datetime value to subtract with (current day by default)
+        metric (str): The metric to calculate the elapsed time by (seconds, minutes, hours)
+        full (bool): If True metric is overridden and elapsed time is returned in H:M:S format
+
+    Returns:
+        int|str: Either an integer representing the elapsed seconds, minutes or hours between two
+        dates or a string representation of the elapsed time in H:M:S format
+
+    Examples:
+        &gt;&gt;&gt; elapsed(&#34;2023-10-01 12:30:00&#34;, stop=&#34;2023-10-01 14:00:00&#34;)
+        90
+
+        &gt;&gt;&gt; elapsed(&#34;2023-10-01 12:30:00&#34;, stop=&#34;2023-10-01 14:00:00&#34;, full=True)
+        &#39;01:30:00&#39;
+    &#34;&#34;&#34;
+    opts = [&#34;minutes&#34;, &#34;hours&#34;, &#34;seconds&#34;]
+    actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+    if len(actual) == 1:
+        metric = actual[0]
+    else:
+        if len(actual) &gt; 1:
+            orange(
+                f&#34;Multiple metric options found ({&#39;, &#39;.join(actual)}). Which did you mean?&#34;,
+                ts=False,
+            )
+        elif len(actual) == 0:
+            red(&#34;Metric value seems to be incorrect, try again&#34;, ts=False)
+        print(&#34;&#34;)
+        metric = str(input(&#34;seconds, minutes or hours? &#34;))
+        actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
+        if len(actual) == 1:
+            metric = actual[0]
+        else:
+            red(&#34;Having trouble recognizing metric&#34;)
+            return None
+
+    if stop is not None:
+        stop = todt(str(stop))
+    else:
+        stop = todt(now())
+    diff = (stop - todt(str(start))).total_seconds()
+
+    if full:
+        hours, leftover = divmod(diff, 3600)
+        minutes, seconds = divmod(leftover, 60)
+        return &#34;{:02}:{:02}:{:02}&#34;.format(int(hours), int(minutes), int(seconds))
+    else:
+        seconds = round(diff)
+        minutes = round(diff / 60)
+        hours = round(diff / 3600)
+        if metric == &#34;seconds&#34;:
+            return seconds
+        elif metric == &#34;minutes&#34;:
+            return minutes
+        elif metric == &#34;hours&#34;:
+            return hours</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.encrypt"><code class="name flex">
+<span>def <span class="ident">encrypt</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Uses Fernet 128-bit encryption to encrypt the passed string</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to encrypt</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>encrypted_str (bytes): Encrypted string
+key (bytes): Associated encryption key (keep private!)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def encrypt(string):
+    &#34;&#34;&#34;
+    Uses Fernet 128-bit encryption to encrypt the passed string
+
+    Args:
+        string (str): String to encrypt
+
+    Returns:
+        encrypted_str (bytes): Encrypted string
+        key (bytes): Associated encryption key (keep private!)
+    &#34;&#34;&#34;
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    encrypted_str = f.encrypt(string.encode())
+
+    return encrypted_str, key</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.eomonth"><code class="name flex">
+<span>def <span class="ident">eomonth</span></span>(<span>month=10, year=2023, offset=0, style='%Y-%m-%d')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the last date of the given month (current month is default).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Month to reference</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of months to offset by</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A date string of the last date of the given month</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; eomonth(month=10, year=2023)
+'2023-10-31'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; eomonth(month=10, year=2023, offset=1)
+'2023-11-30'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
+    &#34;&#34;&#34;
+    Returns the last date of the given month (current month is default).
+
+    Args:
+        month (int): Month to reference
+        year (int): Year to reference
+        offset (int): Number of months to offset by
+        style (str): Desired datetime format
+
+    Returns:
+        str: A date string of the last date of the given month
+
+    Examples:
+        &gt;&gt;&gt; eomonth(month=10, year=2023)
+        &#39;2023-10-31&#39;
+
+        &gt;&gt;&gt; eomonth(month=10, year=2023, offset=1)
+        &#39;2023-11-30&#39;
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                month = datetime.strptime(month[:3], &#34;%b&#34;).month
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            month = datetime.strptime(month, &#34;%b&#34;).month
+        elif len(month) &gt; 4:
+            try:
+                month = datetime.strptime(month, &#34;%B&#34;).month
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    if offset != 0:
+        month = month + offset
+    last_day = monthdays(month)
+    rawdate = todt(f&#34;{year}-{month}-{last_day}&#34;)
+    return tformat(rawdate, style=style)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.filelist"><code class="name flex">
+<span>def <span class="ident">filelist</span></span>(<span>dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Lists the filenames in the passed directory.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dirpath</code></strong> :&ensp;<code>str</code></dt>
+<dd>Directory path to reference</dd>
+<dt><strong><code>ext</code></strong> :&ensp;<code>str</code></dt>
+<dd>Extension of the files to target</dd>
+<dt><strong><code>prefix</code></strong> :&ensp;<code>str</code></dt>
+<dd>Target files that start with this prefix</dd>
+<dt><strong><code>raise_err</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False FileNotFoundErrors will fail silently</dd>
+<dt><strong><code>keep_ext</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If Flase base filenames without their extensions are returned</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>All the filenames in the given directory</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
+    &#34;&#34;&#34;
+    Lists the filenames in the passed directory.
+
+    Args:
+        dirpath (str): Directory path to reference
+        ext (str): Extension of the files to target
+        prefix (str): Target files that start with this prefix
+        raise_err (bool): If False FileNotFoundErrors will fail silently
+        keep_ext (bool): If Flase base filenames without their extensions are returned
+
+    Returns:
+        list: All the filenames in the given directory
+    &#34;&#34;&#34;
+    if ext and &#34;.&#34; not in ext:
+        ext = f&#34;.{ext.strip()}&#34;
+    blacklist = [&#34;.DS_Store&#34;]
+
+    try:
+        if keep_ext:
+            if ext and prefix:
+                return [
+                    i for i in os.listdir(dirpath)
+                    if i.startswith(prefix) and i.endswith(ext)
+                ]
+            elif ext:
+                return [i for i in os.listdir(dirpath) if i.endswith(ext)]
+            elif prefix:
+                return [i for i in os.listdir(dirpath) if i.startswith(prefix)]
+            else:
+                return [i for i in os.listdir(dirpath) if i not in blacklist]
+        else:
+            if ext and prefix:
+                return [
+                    i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath)
+                    if i.startswith(prefix) and i.endswith(ext)
+                ]
+            elif ext:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i.endswith(ext)]
+            elif prefix:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i.startswith(prefix)]
+            else:
+                return [i.rsplit(&#34;.&#34;, 1)[0] for i in os.listdir(dirpath) if i not in blacklist]
+    except FileNotFoundError:
+        if raise_err:
+            raise FileNotFoundError
+        else:
+            red(&#34;&lt;b&gt;Can&#39;t locate directory&lt;/b&gt;&#34;)
+            return None</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.filldates"><code class="name flex">
+<span>def <span class="ident">filldates</span></span>(<span>start, end=None, as_str=False, weekends=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the dates in between two dates.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>start</code></strong> :&ensp;<code>date, str</code></dt>
+<dd>Start of the desired date range</dd>
+<dt><strong><code>end</code></strong> :&ensp;<code>None, date, str</code></dt>
+<dd>End of the desired date range (current day by default)</dd>
+<dt><strong><code>as_str</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True dates are returned as strings instead of date objects</dd>
+<dt><strong><code>weekends</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If False weekend dates are excluded from the final output</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Dates in between two given dates</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; filldates(&quot;2023-10-01&quot;, end=&quot;2023-10-10&quot;)
+[datetime.date(2023, 10, 1),
+ datetime.date(2023, 10, 2),
+ datetime.date(2023, 10, 3),
+ datetime.date(2023, 10, 4),
+ datetime.date(2023, 10, 5),
+ datetime.date(2023, 10, 6),
+ datetime.date(2023, 10, 7),
+ datetime.date(2023, 10, 8),
+ datetime.date(2023, 10, 9),
+ datetime.date(2023, 10, 10)]
+</code></pre>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>filldates("2023-10-01", end="2023-10-10", weekends=False)
+[datetime.date(2023, 10, 2),
+datetime.date(2023, 10, 3),
+datetime.date(2023, 10, 4),
+datetime.date(2023, 10, 5),
+datetime.date(2023, 10, 6),
+datetime.date(2023, 10, 9),
+datetime.date(2023, 10, 10)]</p>
+</blockquote>
+</blockquote>
+</blockquote></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def filldates(start, end=None, as_str=False, weekends=True):
+    &#34;&#34;&#34;
+    Calculates the dates in between two dates.
+
+    Args:
+        start (date, str): Start of the desired date range
+        end (None, date, str): End of the desired date range (current day by default)
+        as_str (bool): If True dates are returned as strings instead of date objects
+        weekends (bool): If False weekend dates are excluded from the final output
+
+    Returns:
+        list: Dates in between two given dates
+
+    Examples:
+        &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;)
+        [datetime.date(2023, 10, 1),
+         datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 7),
+         datetime.date(2023, 10, 8),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
+
+         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
+         [datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
+    &#34;&#34;&#34;
+    start = todt(str(start), as_date=True)
+    if end is None:
+        end = todt(now(), as_date=True)
+    else:
+        end = todt(str(end), as_date=True)
+    drange = range((end - start).days + 1)
+
+    if not weekends:
+        dd = [
+            start + timedelta(days=x)
+            for x in drange
+            if (start + timedelta(days=x)).weekday() not in [5, 6]
+        ]
+    else:
+        dd = [start + timedelta(days=x) for x in drange]
+
+    if as_str:
+        try:
+            return [tformat(i) for i in dd]
+        except:
+            red(&#34;Problem formatting as strings, returning dates as-is&#34;, False)
+            return dd
+    else:
+        return dd</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.find_common"><code class="name flex">
+<span>def <span class="ident">find_common</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Finds common values between two lists.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list1</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check against</dd>
+<dt><strong><code>list2</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items that appear in both list1 and list2</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; find_common([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
+['dog', 'ferret']
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_common(list1, list2):
+    &#34;&#34;&#34;
+    Finds common values between two lists.
+
+    Args:
+        list1 (Series, list): List to check against
+        list2 (Series, list): List to check
+
+    Returns:
+        list: Items that appear in both list1 and list2
+
+    Examples:
+        &gt;&gt;&gt; find_common([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
+        [&#39;dog&#39;, &#39;ferret&#39;]
+    &#34;&#34;&#34;
+    if isinstance(list1, pd.Series):
+        list1 = list(list1)
+    if isinstance(list1, str):
+        list1 = [t.strip() for t in list1.split(&#34;,&#34;)]
+
+    if isinstance(list2, pd.Series):
+        list2 = list(list2)
+    if isinstance(list2, str):
+        list2 = [t.strip() for t in list2.split(&#34;,&#34;)]
+
+    items = set(list1) &amp; set(list2)
+    # keep original order of list1
+    return sorted(items, key=lambda x: list1.index(x))</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.find_uncommon"><code class="name flex">
+<span>def <span class="ident">find_uncommon</span></span>(<span>list1, list2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Compares two lists and finds values that appear in the first list but not the second.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>list1</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check against</dd>
+<dt><strong><code>list2</code></strong> :&ensp;<code>Series, list</code></dt>
+<dd>List to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Items that appear in list1 that don't appear in list2</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; find_uncommon([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
+['cat', 'bird']
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def find_uncommon(list1, list2):
+    &#34;&#34;&#34;
+    Compares two lists and finds values that appear in the first list but not the second.
+
+    Args:
+        list1 (Series, list): List to check against
+        list2 (Series, list): List to check
+
+    Returns:
+        list: Items that appear in list1 that don&#39;t appear in list2
+
+    Examples:
+        &gt;&gt;&gt; find_uncommon([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
+        [&#39;cat&#39;, &#39;bird&#39;]
+    &#34;&#34;&#34;
+    if isinstance(list1, pd.Series):
+        list1 = list(list1)
+    if isinstance(list1, str):
+        list1 = [t.strip() for t in list1.split(&#34;,&#34;)]
+
+    if isinstance(list2, pd.Series):
+        list2 = list(list2)
+    if isinstance(list2, str):
+        list2 = [t.strip() for t in list2.split(&#34;,&#34;)]
+
+    items = set(list1) - set(list2)
+    # keep original order of list1
+    return sorted(items, key=lambda x: list1.index(x))</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.is_empty"><code class="name flex">
+<span>def <span class="ident">is_empty</span></span>(<span>obj)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given obj is either null, blank or len(obj) == 0.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>DataFrame, Series, list, dict, str</code></dt>
+<dd>Object to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the object is empty, False if not</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_empty(obj):
+    &#34;&#34;&#34;
+    Checks if a given obj is either null, blank or len(obj) == 0.
+
+    Args:
+        obj (DataFrame, Series, list, dict, str): Object to check
+
+    Returns:
+        bool: True if the object is empty, False if not
+    &#34;&#34;&#34;
+    if obj is None:
+        return True
+    elif type(obj) in (pd.DataFrame, pd.Series):
+        if len(list(obj.columns)) &gt; 1:
+            return bool(
+                len(obj) == 0
+                or (
+                    obj[list(obj.columns)[0]].values[0] == &#34;&#34;
+                    and obj[list(obj.columns)[1]].values[0] == &#34;&#34;
+                )
+            )
+        else:
+            return bool(len(obj) == 0 or obj[list(obj.columns)[0]].values[0] == &#34;&#34;)
+    elif isinstance(obj, list):
+        return bool(obj == [])
+    elif isinstance(obj, str):
+        return bool(obj == &#34;&#34;)
+    elif isinstance(obj, dict):
+        return bool(len(obj.keys()) == 0)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.is_float"><code class="name flex">
+<span>def <span class="ident">is_float</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a string is meant to be a float.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the string is a float, False if not</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_float(string):
+    &#34;&#34;&#34;
+    Checks if a string is meant to be a float.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        bool: True if the string is a float, False if not
+    &#34;&#34;&#34;
+    if str(string).replace(&#34;.&#34;, &#34;&#34;).isnumeric():
+        return True
+    else:
+        return False</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.is_jupyter"><code class="name flex">
+<span>def <span class="ident">is_jupyter</span></span>(<span>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if the script is currently running in a Jupyter notebook.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True or False</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def is_jupyter():
+    &#34;&#34;&#34;
+    Checks if the script is currently running in a Jupyter notebook.
+
+    Returns:
+        bool: True or False
+    &#34;&#34;&#34;
+    try:
+        from IPython import get_ipython
+        config_file = get_ipython().config.IPKernelApp.connection_file
+        if isinstance(config_file, str):
+            if &#34;jupyter&#34; in config_file.lower() or &#34;ipykernel&#34; in config_file.lower():
+                return True
+            else:
+                return False
+        else:
+            return False
+    except ImportError:
+        return False</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.iseven"><code class="name flex">
+<span>def <span class="ident">iseven</span></span>(<span>num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given number is even.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given number is even, False if it's odd</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def iseven(num):
+    &#34;&#34;&#34;
+    Checks if a given number is even.
+
+    Args:
+        num (int): Number to check
+
+    Returns:
+        bool: True if the given number is even, False if it&#39;s odd
+    &#34;&#34;&#34;
+    if not isinstance(num, int):
+        num = int(num.replace(&#34;,&#34;, &#34;&#34;))
+    return (num % 2) == 0</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.isodd"><code class="name flex">
+<span>def <span class="ident">isodd</span></span>(<span>num)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks if a given number is odd.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>num</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>True if the given number is odd, False if it's even</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def isodd(num):
+    &#34;&#34;&#34;
+    Checks if a given number is odd.
+
+    Args:
+        num (int): Number to check
+
+    Returns:
+        bool: True if the given number is odd, False if it&#39;s even
+    &#34;&#34;&#34;
+    if not isinstance(num, int):
+        num = int(num.replace(&#34;,&#34;, &#34;&#34;))
+    return (num % 2) != 0</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.join_newline"><code class="name flex">
+<span>def <span class="ident">join_newline</span></span>(<span>items, n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a given list with commas and a
+every <code>n</code> items.</p>
+<pre><code>Args:
+    items (list): List of items to join
+    n (int): Number of items to split with a newline
+
+Returns:
+    str: A joined string
+
+Examples:
+    &gt;&gt;&gt; join_newline(["test", "test", "test", "test", "test", "test"], n=3)
+    'test, test, test,
+</code></pre>
+<p>test, test, test'</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def join_newline(items, n):
+    &#34;&#34;&#34;
+    Joins a given list with commas and a \n every `n` items.
+
+    Args:
+        items (list): List of items to join
+        n (int): Number of items to split with a newline
+
+    Returns:
+        str: A joined string
+
+    Examples:
+        &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
+        &#39;test, test, test,\ntest, test, test&#39;
+    &#34;&#34;&#34;
+    chunks = [items[i:i + n] for i in range(0, len(items), n)]
+    return &#34;,\n&#34;.join(&#34;, &#34;.join(f&#34;&#39;{i}&#39;&#34; for i in chunk) for chunk in chunks)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.keepkeys"><code class="name flex">
+<span>def <span class="ident">keepkeys</span></span>(<span>mydict, keys)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a dictionary from the passed dictionary containing only the given keys.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mydict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to filter</dd>
+<dt><strong><code>keys</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of keys you want to keep from the passed dictionary</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>The passed dictionary containing only the desired keys</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; keepkeys({&quot;dog&quot;: &quot;woof&quot;, &quot;cat&quot;: &quot;meow&quot;, &quot;cow&quot;: &quot;moo&quot;}, [&quot;dog&quot;, &quot;cat&quot;])
+{'dog': 'woof', 'cat': 'meow'}
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def keepkeys(mydict, keys):
+    &#34;&#34;&#34;
+    Creates a dictionary from the passed dictionary containing only the given keys.
+
+    Args:
+        mydict (dict): Dictionary to filter
+        keys (list): List of keys you want to keep from the passed dictionary
+
+    Returns:
+        dict: The passed dictionary containing only the desired keys
+
+    Examples:
+        &gt;&gt;&gt; keepkeys({&#34;dog&#34;: &#34;woof&#34;, &#34;cat&#34;: &#34;meow&#34;, &#34;cow&#34;: &#34;moo&#34;}, [&#34;dog&#34;, &#34;cat&#34;])
+        {&#39;dog&#39;: &#39;woof&#39;, &#39;cat&#39;: &#39;meow&#39;}
+    &#34;&#34;&#34;
+    if isinstance(keys, str):
+        if &#34;,&#34; in keys:
+            keys = [i.strip() for i in keys.split(&#34;,&#34;)]
+        else:
+            keys = [keys]
+
+    return {k: v for k, v in mydict.items() if k in keys}</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.load_obj"><code class="name flex">
+<span>def <span class="ident">load_obj</span></span>(<span>filename)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Loads a saved pickled object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filename of the pickled object</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>obj</code></dt>
+<dd>An un-pickled object</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_obj(filename):
+    &#34;&#34;&#34;
+    Loads a saved pickled object.
+
+    Args:
+        filename (str): Filename of the pickled object
+
+    Returns:
+        obj: An un-pickled object
+    &#34;&#34;&#34;
+    with open(filename, &#34;rb&#34;) as f:
+        obj = pickle.load(f)
+
+    return obj</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.monthdays"><code class="name flex">
+<span>def <span class="ident">monthdays</span></span>(<span>month, year=2023)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the total number of days in a given month.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
+<dd>Integer representation of a given month</dd>
+<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
+<dd>Year to reference</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>int</code></dt>
+<dd>Number of days in a given month</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def monthdays(month, year=todt(now()).year):
+    &#34;&#34;&#34;
+    Returns the total number of days in a given month.
+
+    Args:
+        month (int): Integer representation of a given month
+        year (int): Year to reference
+
+    Returns:
+        int: Number of days in a given month
+    &#34;&#34;&#34;
+    if type(month) == str:
+        if len(month) == 4:
+            try:
+                out = calendar.monthrange(
+                    year, datetime.strptime(month[:3], &#34;%b&#34;).month
+                )
+            except:
+                red(
+                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
+                    ts=False,
+                )
+                return None
+        elif len(month) == 3:
+            out = calendar.monthrange(year, datetime.strptime(month, &#34;%b&#34;).month)
+        elif len(month) &gt; 4:
+            try:
+                out = calendar.monthrange(year, datetime.strptime(month, &#34;%B&#34;).month)
+            except:
+                red(
+                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
+                    ts=False,
+                )
+                return None
+    elif type(month) == int:
+        out = calendar.monthrange(year, month)
+    return out[1]</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.now"><code class="name flex">
+<span>def <span class="ident">now</span></span>(<span>style='%Y-%m-%d %H:%M:%S', dt=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the current date and time.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Datetime format to use (default is %Y-%m-%d %H:%M:%S)</dd>
+<dt><strong><code>dt</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True a datetime object is returned instead of a string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>str|datetime: Either a string or datetime object of the current date and time</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; now()
+'2023-10-01 12:30:00'
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; now(dt=True)
+datetime.datetime(2023, 10, 1, 12, 30)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def now(style=&#34;%Y-%m-%d %H:%M:%S&#34;, dt=False):
+    &#34;&#34;&#34;
+    Returns the current date and time.
+
+    Args:
+        style (str): Datetime format to use (default is %Y-%m-%d %H:%M:%S)
+        dt (bool): If True a datetime object is returned instead of a string
+
+    Returns:
+        str|datetime: Either a string or datetime object of the current date and time
+
+    Examples:
+        &gt;&gt;&gt; now()
+        &#39;2023-10-01 12:30:00&#39;
+
+        &gt;&gt;&gt; now(dt=True)
+        datetime.datetime(2023, 10, 1, 12, 30)
+    &#34;&#34;&#34;
+    if dt:
+        return datetime.now()
+    else:
+        return datetime.now().strftime(style)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.nullstr"><code class="name flex">
+<span>def <span class="ident">nullstr</span></span>(<span>string)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>More robust way of checking if a string is null even in cases where things like '#N/A'
+are present.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to check</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>Dictates whether or not the passed string is truly null</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def nullstr(string):
+    &#34;&#34;&#34;
+    More robust way of checking if a string is null even in cases where things like &#39;#N/A&#39;
+    are present.
+
+    Args:
+        string (str): String to check
+
+    Returns:
+        bool: Dictates whether or not the passed string is truly null
+    &#34;&#34;&#34;
+    return bool(
+        pd.isnull(string) or string in [&#34;&#34;, None, &#34;nan&#34;, &#34;NaN&#34;, &#34;None&#34;, &#34;NONE&#34;, &#34;N/A&#34;, &#34;#N/A&#34;]
+    )</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.numdict"><code class="name flex">
+<span>def <span class="ident">numdict</span></span>(<span>input_list)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a dictionary from a list where the keys are an item's index and the values are the list's items.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of items</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>Keys are the index of each item in a given list and the values are the lists's items</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; numdict([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;])
+{1: 'dog', 2: 'cat', 3: 'ferret', 4: 'rat'}
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def numdict(input_list):
+    &#34;&#34;&#34;
+    Creates a dictionary from a list where the keys are an item&#39;s index and the values are the list&#39;s items.
+
+    Args:
+        input_list (list): List of items
+
+    Returns:
+        dict: Keys are the index of each item in a given list and the values are the lists&#39;s items
+
+    Examples:
+        &gt;&gt;&gt; numdict([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;])
+        {1: &#39;dog&#39;, 2: &#39;cat&#39;, 3: &#39;ferret&#39;, 4: &#39;rat&#39;}
+    &#34;&#34;&#34;
+    input_list = list(filter(None, input_list))
+    return dict(zip(range(1, len(input_list) + 1), input_list))</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.ordinal"><code class="name flex">
+<span>def <span class="ident">ordinal</span></span>(<span>n)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>n</code></strong> :&ensp;<code>int, str</code></dt>
+<dd>The string or integer to convert</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>An ordinal string representation of the given number</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; ordinal(3)
+'3rd'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def ordinal(n):
+    &#34;&#34;&#34;
+    Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).
+
+    Args:
+        n (int, str): The string or integer to convert
+
+    Returns:
+        str: An ordinal string representation of the given number
+
+    Examples:
+        &gt;&gt;&gt; ordinal(3)
+        &#39;3rd&#39;
+    &#34;&#34;&#34;
+    n = int(str(n))
+    suffix = [&#34;th&#34;, &#34;st&#34;, &#34;nd&#34;, &#34;rd&#34;, &#34;th&#34;][min(n % 10, 4)]
+
+    if 11 &lt;= (n % 100) &lt;= 13:
+        suffix = &#34;th&#34;
+
+    return f&#34;{n}{suffix}&#34;</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.quotify"><code class="name flex">
+<span>def <span class="ident">quotify</span></span>(<span>input_list, single=True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Joins a list of strings together commas and places each string inside quotes.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
+<dd>A list of strings to join and parse</dd>
+<dt><strong><code>single</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True single quotes are used otherwise double quotes are used</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Passed list joined together by commas with each string inside quotes</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def quotify(input_list, single=True):
+    &#34;&#34;&#34;
+    Joins a list of strings together commas and places each string inside quotes.
+
+    Args:
+        input_list (list): A list of strings to join and parse
+        single (bool): If True single quotes are used otherwise double quotes are used
+
+    Returns:
+        str: Passed list joined together by commas with each string inside quotes
+    &#34;&#34;&#34;
+    if single:
+        return &#34;, &#34;.join([f&#34;&#39;{i}&#39;&#34; for i in input_list])
+    else:
+        return &#34;, &#34;.join([f&#39;&#34;{i}&#34;&#39; for i in input_list])</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.read_csv"><code class="name flex">
+<span>def <span class="ident">read_csv</span></span>(<span>file_path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reads a CSV file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>file_path</code></strong> :&ensp;<code>str</code></dt>
+<dd>Path to the CSV file to read</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>list</code></dt>
+<dd>Dictionaries where each dictionary represents a row of the CSV</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def read_csv(file_path):
+    &#34;&#34;&#34;
+    Reads a CSV file.
+
+    Args:
+        file_path (str): Path to the CSV file to read
+
+    Returns:
+        list: Dictionaries where each dictionary represents a row of the CSV
+    &#34;&#34;&#34;
+    with open(file_path, &#34;r&#34;, newline=&#34;&#34;) as file:
+        reader = csv.DictReader(file)
+        rows = [{k: v.strip() for k, v in row.items()} for row in reader]
+
+    return rows</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.regex"><code class="name flex">
+<span>def <span class="ident">regex</span></span>(<span>string, pattern, ignore_case=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Performs a regex extraction of a given string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>string</code></strong> :&ensp;<code>str, re.compile</code></dt>
+<dd>String or compiled re object to reference</dd>
+<dt><strong><code>pattern</code></strong> :&ensp;<code>str</code></dt>
+<dd>Regex pattern to search the string with</dd>
+<dt><strong><code>ignore_case</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether or not to use re.IGNORECASE</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>Extracted output of the passed regex</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; regex(&quot;There were 3 pups at the park&quot;, &quot;(\d+)&quot;)
+'3'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def regex(string, pattern, ignore_case=False):
+    &#34;&#34;&#34;
+    Performs a regex extraction of a given string.
+
+    Args:
+        string (str, re.compile): String or compiled re object to reference
+        pattern (str): Regex pattern to search the string with
+        ignore_case (bool): Whether or not to use re.IGNORECASE
+
+    Returns:
+        str: Extracted output of the passed regex
+
+    Examples:
+        &gt;&gt;&gt; regex(&#34;There were 3 pups at the park&#34;, &#34;(\d+)&#34;)
+        &#39;3&#39;
+    &#34;&#34;&#34;
+    try:
+        if isinstance(pattern, str):
+            if ignore_case:
+                return re.search(pattern, string, re.IGNORECASE).group(1)
+            else:
+                return re.search(pattern, string).group(1)
+        elif ignore_case:
+            return pattern.search(string, re.IGNORECASE).group(1)
+        else:
+            return pattern.search(string).group(1)
+    except AttributeError:
+        print(&#34;Nothing matches the given regex pattern in the given string&#34;)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.reverse_dict"><code class="name flex">
+<span>def <span class="ident">reverse_dict</span></span>(<span>mydict, vals_as_list=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
+rather than overwriting the values all values of duplicate keys are merged into lists.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>mydict</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary to reverse</dd>
+<dt><strong><code>vals_as_list</code></strong> :&ensp;<code>bool</code></dt>
+<dd>If True all values are returned as lists, not just values of duplicate keys</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>dict</code></dt>
+<dd>A reversed dictionary</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;})
+{'cat': 'dog', 'rat': 'ferret'}
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;, &quot;lion&quot;: &quot;cat&quot;})
+{'cat': ['dog', 'lion'], 'rat': 'ferret'}
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; reverse_dict({&quot;dog&quot;: &quot;cat&quot;, &quot;ferret&quot;: &quot;rat&quot;, &quot;lion&quot;: &quot;cat&quot;}, True)
+{'cat': ['dog', 'lion'], 'rat': ['ferret']}
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def reverse_dict(mydict, vals_as_list=False):
+    &#34;&#34;&#34;
+    Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
+    rather than overwriting the values all values of duplicate keys are merged into lists.
+
+    Args:
+        mydict (dict): Dictionary to reverse
+        vals_as_list (bool): If True all values are returned as lists, not just values of duplicate keys
+
+    Returns:
+        dict: A reversed dictionary
+
+    Examples:
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;})
+        {&#39;cat&#39;: &#39;dog&#39;, &#39;rat&#39;: &#39;ferret&#39;}
+
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;, &#34;lion&#34;: &#34;cat&#34;})
+        {&#39;cat&#39;: [&#39;dog&#39;, &#39;lion&#39;], &#39;rat&#39;: &#39;ferret&#39;}
+
+        &gt;&gt;&gt; reverse_dict({&#34;dog&#34;: &#34;cat&#34;, &#34;ferret&#34;: &#34;rat&#34;, &#34;lion&#34;: &#34;cat&#34;}, True)
+        {&#39;cat&#39;: [&#39;dog&#39;, &#39;lion&#39;], &#39;rat&#39;: [&#39;ferret&#39;]}
+    &#34;&#34;&#34;
+    reversed_dict = {}
+    for key, val in mydict.items():
+        reversed_dict.setdefault(val, [])
+        reversed_dict[val].append(key)
+
+    if not vals_as_list:
+        # all values will be lists, otherwise only
+        # duplicate values are lists
+        for key, val in reversed_dict.items():
+            if len(val) == 1:
+                reversed_dict[key] = val[0]
+
+    return reversed_dict</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.save_obj"><code class="name flex">
+<span>def <span class="ident">save_obj</span></span>(<span>obj, filename, mode='wb')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Saves an object to a file by pickling it.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>obj</code></strong> :&ensp;<code>any type</code></dt>
+<dd>Object to save</dd>
+<dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filename to save the object as</dd>
+<dt><strong><code>mode</code></strong> :&ensp;<code>str</code></dt>
+<dd>Which file mode to use ('wb' by default, 'ab' to append)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>Nothing</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def save_obj(obj, filename, mode=&#34;wb&#34;):
+    &#34;&#34;&#34;
+    Saves an object to a file by pickling it.
+
+    Args:
+        obj (any type): Object to save
+        filename (str): Filename to save the object as
+        mode (str): Which file mode to use (&#39;wb&#39; by default, &#39;ab&#39; to append)
+
+    Returns:
+        Nothing
+    &#34;&#34;&#34;
+    if &#34;.pkl&#34; not in filename:
+        filename = f&#34;{filename.strip()}.pkl&#34;
+
+    with open(filename, mode) as f:
+        pickle.dump(obj, f)
+
+    green(f&#34;Object saved as {filename}&#34;, ts=False)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.split_data"><code class="name flex">
+<span>def <span class="ident">split_data</span></span>(<span>data, ratio)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Splits data into two chunks based on a given ratio.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>list</code></dt>
+<dd>The data to be split</dd>
+<dt><strong><code>ratio</code></strong> :&ensp;<code>float</code></dt>
+<dd>The ratio at which to split the data. Should be between 0 and 1</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>1 list containing the first 'ratio' proportion of the data, 1 containing the rest</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def split_data(data, ratio):
+    &#34;&#34;&#34;
+    Splits data into two chunks based on a given ratio.
+
+    Args:
+        data (list): The data to be split
+        ratio (float): The ratio at which to split the data. Should be between 0 and 1
+
+    Returns:
+        tuple: 1 list containing the first &#39;ratio&#39; proportion of the data, 1 containing the rest
+    &#34;&#34;&#34;
+    split_index = int(len(data) * ratio)
+    return data[:split_index], data[split_index:]</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.str_dedupe"><code class="name flex">
+<span>def <span class="ident">str_dedupe</span></span>(<span>txt)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes duplicate substrings from a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to dedupe</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A string with unique substrings</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_dedupe(&quot;The dog dog was cute&quot;)
+'The dog was cute'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def str_dedupe(txt):
+    &#34;&#34;&#34;
+    Removes duplicate substrings from a string.
+
+    Args:
+        txt (str): String to dedupe
+
+    Returns:
+        str: A string with unique substrings
+
+    Examples:
+        &gt;&gt;&gt; str_dedupe(&#34;The dog dog was cute&#34;)
+        &#39;The dog was cute&#39;
+    &#34;&#34;&#34;
+    words = txt.strip().split()
+    unique_words = []
+    for word in words:
+        if word not in unique_words:
+            unique_words.append(word)
+
+    return &#34; &#34;.join(unique_words)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.str_remove"><code class="name flex">
+<span>def <span class="ident">str_remove</span></span>(<span>txt, rplc_strs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Removes passed strings from a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to clean</dd>
+<dt><strong><code>rplc_strs</code></strong> :&ensp;<code>list</code></dt>
+<dd>Strings to remove from the passed txt string</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The passed string with the strings passed in rplc_strs removed from it</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_remove(&quot;There were @3 dogs#&quot;, [&quot;@&quot;, &quot;#&quot;])
+'There were 3 dogs'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def str_remove(txt, rplc_strs):
+    &#34;&#34;&#34;
+    Removes passed strings from a string.
+
+    Args:
+        txt (str): String to clean
+        rplc_strs (list): Strings to remove from the passed txt string
+
+    Returns:
+        str: The passed string with the strings passed in rplc_strs removed from it
+
+    Examples:
+        &gt;&gt;&gt; str_remove(&#34;There were @3 dogs#&#34;, [&#34;@&#34;, &#34;#&#34;])
+        &#39;There were 3 dogs&#39;
+    &#34;&#34;&#34;
+    if not isinstance(rplc_strs, list):
+        rplc_strs = [r.strip() for r in rplc_strs.split(&#34;,&#34;)]
+    ntxt = txt
+    for i in rplc_strs:
+        ntxt = ntxt.replace(i, &#34;&#34;)
+    return ntxt</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.str_replace"><code class="name flex">
+<span>def <span class="ident">str_replace</span></span>(<span>txt, **rplc_map)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Replaces things in a string.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>txt</code></strong> :&ensp;<code>str</code></dt>
+<dd>String to clean</dd>
+<dt><strong><code>rplc_map</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dict where the keys are what to replace and the values are what to replace it with</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The passed string with the desired replacements</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; str_replace(&quot;There was a cute cat at the beach&quot;, **{&quot;cat&quot;: &quot;dog&quot;, &quot;beach&quot;: &quot;park&quot;})
+'There was a cute dog at the park'
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def str_replace(txt, **rplc_map):
+    &#34;&#34;&#34;
+    Replaces things in a string.
+
+    Args:
+        txt (str): String to clean
+        rplc_map (dict): Dict where the keys are what to replace and the values are what to replace it with
+
+    Returns:
+        str: The passed string with the desired replacements
+
+    Examples:
+        &gt;&gt;&gt; str_replace(&#34;There was a cute cat at the beach&#34;, **{&#34;cat&#34;: &#34;dog&#34;, &#34;beach&#34;: &#34;park&#34;})
+        &#39;There was a cute dog at the park&#39;
+    &#34;&#34;&#34;
+    out = txt
+    for k, v in rplc_map.items():
+        out = out.replace(k, v)
+    return out</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.tformat"><code class="name flex">
+<span>def <span class="ident">tformat</span></span>(<span>date_obj, style=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Formats a date or datetime object as a string with the given style.
+When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date format is %Y-%m-%d.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>date_obj</code></strong> :&ensp;<code>date, datetime</code></dt>
+<dd>Date or datetime object to format</dd>
+<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
+<dd>Desired datetime format (i.e. %Y-%m-%d)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A representation of the passed date_obj in the given style</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tformat(date_obj, style=None):
+    &#34;&#34;&#34;
+    Formats a date or datetime object as a string with the given style.
+    When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date format is %Y-%m-%d.
+
+    Args:
+        date_obj (date, datetime): Date or datetime object to format
+        style (str): Desired datetime format (i.e. %Y-%m-%d)
+
+    Returns:
+        str: A representation of the passed date_obj in the given style
+    &#34;&#34;&#34;
+    if type(date_obj) not in [datetime, date]:
+        if &#34;:&#34; in date_obj:
+            date_obj = todt(date_obj)
+        else:
+            date_obj = todt(date_obj, as_date=True)
+    if style is None:
+        if type(date_obj) == datetime:
+            style = &#34;%Y-%m-%d %H:%M:%S&#34;
+        elif type(date_obj) == date:
+            style = &#34;%Y-%m-%d&#34;
+    return date_obj.strftime(style)</code></pre>
+</details>
+</dd>
+<dt id="alia.tools.todt"><code class="name flex">
+<span>def <span class="ident">todt</span></span>(<span>dt_str=None, as_date=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Takes a datetime string and converts it to an actual datetime object.
+When as_date=True a date object is returned instead of a datetime object.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>dt_str</code></strong> :&ensp;<code>str</code></dt>
+<dd>Date or datetime string</dd>
+<dt><strong><code>as_date</code></strong> :&ensp;<code>bool</code></dt>
+<dd>Whether or not to return the value as a date not datetime object</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>date|datetime: Converted object of the passed string</p>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; todt(&quot;2023-10-01&quot;)
+datetime.datetime(2023, 10, 1, 0, 0)
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; todt(&quot;2023-10-01&quot;, as_date=True)
+datetime.date(2023, 10, 1)
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def todt(dt_str=None, as_date=False):
+    &#34;&#34;&#34;
+    Takes a datetime string and converts it to an actual datetime object.
+    When as_date=True a date object is returned instead of a datetime object.
+
+    Args:
+        dt_str (str): Date or datetime string
+        as_date (bool): Whether or not to return the value as a date not datetime object
+
+    Returns:
+        date|datetime: Converted object of the passed string
+
+    Examples:
+        &gt;&gt;&gt; todt(&#34;2023-10-01&#34;)
+        datetime.datetime(2023, 10, 1, 0, 0)
+
+        &gt;&gt;&gt; todt(&#34;2023-10-01&#34;, as_date=True)
+        datetime.date(2023, 10, 1)
+    &#34;&#34;&#34;
+    if dt_str is None:
+        dt_str = now()
+    elif &#34;_&#34; in dt_str:
+        dt_str = dt_str.replace(&#34;_&#34;, &#34;-&#34;)
+
+    if as_date:
+        return parse(dt_str).date()
+    else:
+        return parse(dt_str)</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="alia" href="index.html">alia</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="two-column">
+<li><code><a title="alia.tools.b64encode" href="#alia.tools.b64encode">b64encode</a></code></li>
+<li><code><a title="alia.tools.blanknull" href="#alia.tools.blanknull">blanknull</a></code></li>
+<li><code><a title="alia.tools.bomonth" href="#alia.tools.bomonth">bomonth</a></code></li>
+<li><code><a title="alia.tools.chunkify" href="#alia.tools.chunkify">chunkify</a></code></li>
+<li><code><a title="alia.tools.clipboard" href="#alia.tools.clipboard">clipboard</a></code></li>
+<li><code><a title="alia.tools.comma_and" href="#alia.tools.comma_and">comma_and</a></code></li>
+<li><code><a title="alia.tools.contains" href="#alia.tools.contains">contains</a></code></li>
+<li><code><a title="alia.tools.daydiff" href="#alia.tools.daydiff">daydiff</a></code></li>
+<li><code><a title="alia.tools.decrypt" href="#alia.tools.decrypt">decrypt</a></code></li>
+<li><code><a title="alia.tools.dget" href="#alia.tools.dget">dget</a></code></li>
+<li><code><a title="alia.tools.dt_int" href="#alia.tools.dt_int">dt_int</a></code></li>
+<li><code><a title="alia.tools.elapsed" href="#alia.tools.elapsed">elapsed</a></code></li>
+<li><code><a title="alia.tools.encrypt" href="#alia.tools.encrypt">encrypt</a></code></li>
+<li><code><a title="alia.tools.eomonth" href="#alia.tools.eomonth">eomonth</a></code></li>
+<li><code><a title="alia.tools.filelist" href="#alia.tools.filelist">filelist</a></code></li>
+<li><code><a title="alia.tools.filldates" href="#alia.tools.filldates">filldates</a></code></li>
+<li><code><a title="alia.tools.find_common" href="#alia.tools.find_common">find_common</a></code></li>
+<li><code><a title="alia.tools.find_uncommon" href="#alia.tools.find_uncommon">find_uncommon</a></code></li>
+<li><code><a title="alia.tools.is_empty" href="#alia.tools.is_empty">is_empty</a></code></li>
+<li><code><a title="alia.tools.is_float" href="#alia.tools.is_float">is_float</a></code></li>
+<li><code><a title="alia.tools.is_jupyter" href="#alia.tools.is_jupyter">is_jupyter</a></code></li>
+<li><code><a title="alia.tools.iseven" href="#alia.tools.iseven">iseven</a></code></li>
+<li><code><a title="alia.tools.isodd" href="#alia.tools.isodd">isodd</a></code></li>
+<li><code><a title="alia.tools.join_newline" href="#alia.tools.join_newline">join_newline</a></code></li>
+<li><code><a title="alia.tools.keepkeys" href="#alia.tools.keepkeys">keepkeys</a></code></li>
+<li><code><a title="alia.tools.load_obj" href="#alia.tools.load_obj">load_obj</a></code></li>
+<li><code><a title="alia.tools.monthdays" href="#alia.tools.monthdays">monthdays</a></code></li>
+<li><code><a title="alia.tools.now" href="#alia.tools.now">now</a></code></li>
+<li><code><a title="alia.tools.nullstr" href="#alia.tools.nullstr">nullstr</a></code></li>
+<li><code><a title="alia.tools.numdict" href="#alia.tools.numdict">numdict</a></code></li>
+<li><code><a title="alia.tools.ordinal" href="#alia.tools.ordinal">ordinal</a></code></li>
+<li><code><a title="alia.tools.quotify" href="#alia.tools.quotify">quotify</a></code></li>
+<li><code><a title="alia.tools.read_csv" href="#alia.tools.read_csv">read_csv</a></code></li>
+<li><code><a title="alia.tools.regex" href="#alia.tools.regex">regex</a></code></li>
+<li><code><a title="alia.tools.reverse_dict" href="#alia.tools.reverse_dict">reverse_dict</a></code></li>
+<li><code><a title="alia.tools.save_obj" href="#alia.tools.save_obj">save_obj</a></code></li>
+<li><code><a title="alia.tools.split_data" href="#alia.tools.split_data">split_data</a></code></li>
+<li><code><a title="alia.tools.str_dedupe" href="#alia.tools.str_dedupe">str_dedupe</a></code></li>
+<li><code><a title="alia.tools.str_remove" href="#alia.tools.str_remove">str_remove</a></code></li>
+<li><code><a title="alia.tools.str_replace" href="#alia.tools.str_replace">str_replace</a></code></li>
+<li><code><a title="alia.tools.tformat" href="#alia.tools.tformat">tformat</a></code></li>
+<li><code><a title="alia.tools.todt" href="#alia.tools.todt">todt</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
