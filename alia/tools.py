@@ -1062,7 +1062,8 @@ def join_newline(items, n):
 
     Examples:
         >>> join_newline(["test", "test", "test", "test", "test", "test"], n=3)
-        'test, test, test,\ntest, test, test'
+        'test, test, test,
+        test, test, test'
     """
     chunks = [items[i:i + n] for i in range(0, len(items), n)]
     return ",\n".join(", ".join(f"'{i}'" for i in chunk) for chunk in chunks)

@@ -1090,7 +1090,8 @@ def join_newline(items, n):
 
     Examples:
         &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
-        &#39;test, test, test,\ntest, test, test&#39;
+        &#39;test, test, test,
+        test, test, test&#39;
     &#34;&#34;&#34;
     chunks = [items[i:i + n] for i in range(0, len(items), n)]
     return &#34;,\n&#34;.join(&#34;, &#34;.join(f&#34;&#39;{i}&#39;&#34; for i in chunk) for chunk in chunks)
@@ -2560,18 +2561,23 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 </code></dt>
 <dd>
 <div class="desc"><p>Joins a given list with commas and a newline every <code>n</code> items.</p>
-<pre><code>Args:
-    items (list): List of items to join
-    n (int): Number of items to split with a newline
-
-Returns:
-    str: A joined string
-
-Examples:
-    &gt;&gt;&gt; join_newline(["test", "test", "test", "test", "test", "test"], n=3)
-    'test, test, test,
-</code></pre>
-<p>test, test, test'</p></div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>items</code></strong> :&ensp;<code>list</code></dt>
+<dd>List of items to join</dd>
+<dt><strong><code>n</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of items to split with a newline</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>A joined string</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; join_newline([&quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;], n=3)
+'test, test, test,
+test, test, test'
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2589,7 +2595,8 @@ Examples:
 
     Examples:
         &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
-        &#39;test, test, test,\ntest, test, test&#39;
+        &#39;test, test, test,
+        test, test, test&#39;
     &#34;&#34;&#34;
     chunks = [items[i:i + n] for i in range(0, len(items), n)]
     return &#34;,\n&#34;.join(&#34;, &#34;.join(f&#34;&#39;{i}&#39;&#34; for i in chunk) for chunk in chunks)</code></pre>
