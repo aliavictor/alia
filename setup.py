@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="alia",
-    version="0.2.8",
+    version="0.2.9",
     description="A collection of random helper tools to make life easier",
     author="Alia",
     author_email="alia.jo.victor@gmail.com",

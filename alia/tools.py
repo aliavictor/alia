@@ -15,19 +15,22 @@ from .colors import *
 
 
 def clipboard(string):
-    """Copies text to clipboard so it can be pasted anywhere.
+    """
+    Copies text to clipboard so it can be pasted anywhere.
 
     Args:
         string (str): String to copy
 
     Returns:
-        Nothing."""
+        Nothing
+    """
     pyperclip.copy(string)
     green("Copied to clipboard", ts=False)
 
 
 def save_obj(obj, filename, mode="wb"):
-    """Saves an object to a file by pickling it.
+    """
+    Saves an object to a file by pickling it.
 
     Args:
         obj (any type): Object to save
@@ -35,7 +38,8 @@ def save_obj(obj, filename, mode="wb"):
         mode (str): Which file mode to use ('wb' by default, 'ab' to append)
 
     Returns:
-        Nothing."""
+        Nothing
+    """
     if ".pkl" not in filename:
         filename = f"{filename.strip()}.pkl"
 
@@ -46,13 +50,15 @@ def save_obj(obj, filename, mode="wb"):
 
 
 def load_obj(filename):
-    """Loads a saved pickled object.
+    """
+    Loads a saved pickled object.
 
     Args:
         filename (str): Filename of the pickled object
 
     Returns:
-        An un-pickled object."""
+        obj: An un-pickled object
+    """
     with open(filename, "rb") as f:
         obj = pickle.load(f)
 
@@ -60,13 +66,15 @@ def load_obj(filename):
 
 
 def read_csv(file_path):
-    """Reads a CSV file.
+    """
+    Reads a CSV file.
 
     Args:
         file_path (str): Path to the CSV file to read
 
     Returns:
-        A list of dictionaries where each dictionary represents a row of the CSV."""
+        list: Dictionaries where each dictionary represents a row of the CSV
+    """
     with open(file_path, "r", newline="") as file:
         reader = csv.DictReader(file)
         rows = [{k: v.strip() for k, v in row.items()} for row in reader]
@@ -75,14 +83,16 @@ def read_csv(file_path):
 
 
 def b64encode(obj, encoding="utf-8"):
-    """Encodes an object using the base64 library.
+    """
+    Encodes an object using the base64 library.
 
     Args:
         obj (any type): Object to encode
         encoding (str): Encoding to use (utf-8 by default)
 
     Returns:
-        An encoded string representing the given object."""
+        str: An encoded string representing the given object
+    """
     if isinstance(obj, str):
         return base64.b64encode(bytes(obj, encoding)).decode(encoding)
     else:
@@ -90,14 +100,16 @@ def b64encode(obj, encoding="utf-8"):
 
 
 def encrypt(string):
-    """Uses Fernet 128-bit encryption to encrypt the passed string
+    """
+    Uses Fernet 128-bit encryption to encrypt the passed string
 
     Args:
         string (str): String to encrypt
 
     Returns:
         encrypted_str (bytes): Encrypted string
-        key (bytes): Associated encryption key (keep private!)"""
+        key (bytes): Associated encryption key (keep private!)
+    """
     key = Fernet.generate_key()
     f = Fernet(key)
     encrypted_str = f.encrypt(string.encode())
@@ -106,20 +118,23 @@ def encrypt(string):
 
 
 def decrypt(encrypted_str, key):
-    """Decrypts an encrypted bytes string using Fernet.
+    """
+    Decrypts an encrypted bytes string using Fernet.
 
     Args:
         encrypted_str (bytes): Encrypted bytes string to decrypt
         key (bytes): Associated encryption key
 
     Returns:
-        A decrypted string."""
+        str: A decrypted string
+    """
     f = Fernet(key)
     return f.decrypt(encrypted_str).decode()
 
 
 def tformat(date_obj, style=None):
-    """Formats a date or datetime object as a string with the given style.
+    """
+    Formats a date or datetime object as a string with the given style.
     When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date format is %Y-%m-%d.
 
     Args:
@@ -127,7 +142,8 @@ def tformat(date_obj, style=None):
         style (str): Desired datetime format (i.e. %Y-%m-%d)
 
     Returns:
-        A string representation of the passed date_obj in the given style."""
+        str: A representation of the passed date_obj in the given style
+    """
     if type(date_obj) not in [datetime, date]:
         if ":" in date_obj:
             date_obj = todt(date_obj)
@@ -142,7 +158,8 @@ def tformat(date_obj, style=None):
 
 
 def todt(dt_str=None, as_date=False):
-    """Takes a datetime string and converts it to an actual datetime object.
+    """
+    Takes a datetime string and converts it to an actual datetime object.
     When as_date=True a date object is returned instead of a datetime object.
 
     Args:
@@ -150,7 +167,7 @@ def todt(dt_str=None, as_date=False):
         as_date (bool): Whether or not to return the value as a date not datetime object
 
     Returns:
-        A date or datetime objects of the passed string.
+        date|datetime: Converted object of the passed string
     """
     if dt_str is None:
         dt_str = now()
@@ -164,14 +181,16 @@ def todt(dt_str=None, as_date=False):
 
 
 def now(style="%Y-%m-%d %H:%M:%S", dt=False):
-    """Returns the current date and time.
+    """
+    Returns the current date and time.
 
     Args:
         style (str): Datetime format to use (default is %Y-%m-%d %H:%M:%S)
         dt (bool): If True a datetime object is returned instead of a string
 
     Returns:
-        Either a string or datetime object of the current date and time"""
+        str|datetime: Either a string or datetime object of the current date and time
+    """
     if dt:
         return datetime.now()
     else:
@@ -179,14 +198,15 @@ def now(style="%Y-%m-%d %H:%M:%S", dt=False):
 
 
 def monthdays(month, year=todt(now()).year):
-    """Returns the total number of days in a given month.
+    """
+    Returns the total number of days in a given month.
 
     Args:
         month (int): Integer representation of a given month
         year (int): Year to reference
 
     Returns:
-        A integer representing the number of days in a given month.
+        int: Number of days in a given month
     """
     if type(month) == str:
         if len(month) == 4:
@@ -217,7 +237,8 @@ def monthdays(month, year=todt(now()).year):
 
 
 def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-%m-%d"):
-    """Returns the 1st of the given month (current month is default).
+    """
+    Returns the 1st of the given month (current month is default).
 
     Args:
         month (int): Month to reference
@@ -226,7 +247,8 @@ def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
         style (str): Desired datetime format
 
     Returns:
-        A date string of the 1st of the given month."""
+        str: A date string of the 1st of the given month
+    """
     if type(month) == str:
         if len(month) == 4:
             try:
@@ -259,7 +281,8 @@ def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
 
 
 def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-%m-%d"):
-    """Returns the last date of the given month (current month is default).
+    """
+    Returns the last date of the given month (current month is default).
 
     Args:
         month (int): Month to reference
@@ -268,7 +291,8 @@ def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
         style (str): Desired datetime format
 
     Returns:
-        A date string of the last date of the given month."""
+        str: A date string of the last date of the given month
+    """
     if type(month) == str:
         if len(month) == 4:
             try:
@@ -298,7 +322,8 @@ def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
 
 
 def dt_int(num, start=None, metric="days", style="%Y-%m-%d", dt=True):
-    """Adds/subtracts days, minutes or hours from a given date or datetime.
+    """
+    Adds/subtracts days, minutes or hours from a given date or datetime.
 
     Args:
         num (int): Number to offset by
@@ -308,7 +333,8 @@ def dt_int(num, start=None, metric="days", style="%Y-%m-%d", dt=True):
         dt (bool): If True a datetime object is returned instead of a string
 
     Returns:
-        A formatted date string of the calculated date."""
+        str: A formatted date string of the calculated date
+    """
     input_type = "date"
     out = None
     if start is None:
@@ -363,14 +389,16 @@ def dt_int(num, start=None, metric="days", style="%Y-%m-%d", dt=True):
 
 
 def daydiff(start, stop=None):
-    """Calculates the number of days between two dates.
+    """
+    Calculates the number of days between two dates.
 
     Args:
         start (date, datetime, str): Date to subtract from
         stop (None, date, datetime, str): Date to subtract (default is the current day)
 
     Returns:
-        A integer representing the number of days in between the given dates"""
+        int: Number of days in between the given dates
+    """
     start = todt(str(start))
     if stop is None:
         stop = todt(now())
@@ -380,7 +408,8 @@ def daydiff(start, stop=None):
 
 
 def elapsed(start, stop=None, metric="minutes", full=False):
-    """Pass a datetime.datetime object and return elapsed time from then to now. Metric opts:
+    """
+    Pass a `datetime.datetime` object and return elapsed time from then to now. Metric opts:
     seconds, minutes, hours. When full=True elapsed time is returned as H:M:S.
 
     Args:
@@ -390,8 +419,9 @@ def elapsed(start, stop=None, metric="minutes", full=False):
         full (bool): If True metric is overridden and elapsed time is returned in H:M:S format
 
     Returns:
-        Either an integer representing the elapsed seconds, minutes or hours between two dates or a
-        string representation of the elapsed time in H:M:S format."""
+        int|str: Either an integer representing the elapsed seconds, minutes or hours between two
+        dates or a string representation of the elapsed time in H:M:S format
+    """
     opts = ["minutes", "hours", "seconds"]
     actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
     if len(actual) == 1:
@@ -436,7 +466,8 @@ def elapsed(start, stop=None, metric="minutes", full=False):
 
 
 def filldates(start, end=None, as_str=False, weekends=True):
-    """Calculates the dates in between two dates.
+    """
+    Calculates the dates in between two dates.
 
     Args:
         start (date, str): Start of the desired date range
@@ -445,7 +476,8 @@ def filldates(start, end=None, as_str=False, weekends=True):
         weekends (bool): If False weekend dates are excluded from the final output
 
     Returns:
-        A list of dates in between two given dates."""
+        list: Dates in between two given dates
+    """
     start = todt(str(start), as_date=True)
     if end is None:
         end = todt(now(), as_date=True)
@@ -473,27 +505,31 @@ def filldates(start, end=None, as_str=False, weekends=True):
 
 
 def nullstr(string):
-    """More robust way of checking if a string is null even in cases where things like '#N/A'
+    """
+    More robust way of checking if a string is null even in cases where things like '#N/A'
     are present.
 
     Args:
         string (str): String to check
 
     Returns:
-        A boolean dictating whether or not the passed string is truly null."""
+        bool: Dictates whether or not the passed string is truly null
+    """
     return bool(
         pd.isnull(string) or string in ["", None, "nan", "NaN", "None", "NONE", "N/A", "#N/A"]
     )
 
 
 def blanknull(string):
-    """Converts any null values to a blank string.
+    """
+    Converts any null values to a blank string.
 
     Args:
         string (str): String to check
 
     Returns:
-        '' if the passed string is null otherwise the string is returned."""
+        str: '' if the passed string is null otherwise the string is returned
+    """
     if nullstr(string) or not string:
         return ""
     else:
@@ -501,13 +537,15 @@ def blanknull(string):
 
 
 def is_float(string):
-    """Checks if a string is meant to be a float.
+    """
+    Checks if a string is meant to be a float.
 
     Args:
         string (str): String to check
 
     Returns:
-        True if the string is a float, False if not."""
+        bool: True if the string is a float, False if not
+    """
     if str(string).replace(".", "").isnumeric():
         return True
     else:
@@ -515,33 +553,38 @@ def is_float(string):
 
 
 def isodd(num):
-    """Checks if a given number is odd.
+    """
+    Checks if a given number is odd.
 
     Args:
         num (int): Number to check
 
     Returns:
-        True if the given number is odd, False if it's even."""
+        bool: True if the given number is odd, False if it's even
+    """
     if not isinstance(num, int):
         num = int(num.replace(",", ""))
     return (num % 2) != 0
 
 
 def iseven(num):
-    """Checks if a given number is even.
+    """
+    Checks if a given number is even.
 
     Args:
         num (int): Number to check
 
     Returns:
-        True if the given number is even, False if it's odd."""
+        bool: True if the given number is even, False if it's odd
+    """
     if not isinstance(num, int):
         num = int(num.replace(",", ""))
     return (num % 2) == 0
 
 
 def regex(string, pattern, ignore_case=False):
-    """Performs a regex extraction of a given string.
+    """
+    Performs a regex extraction of a given string.
 
     Args:
         string (str, re.compile): String or compiled re object to reference
@@ -549,7 +592,8 @@ def regex(string, pattern, ignore_case=False):
         ignore_case (bool): Whether or not to use re.IGNORECASE
 
     Returns:
-        A string of the output of the passed regex."""
+        str: Extracted output of the passed regex
+    """
     try:
         if isinstance(pattern, str):
             if ignore_case:
@@ -565,13 +609,15 @@ def regex(string, pattern, ignore_case=False):
 
 
 def str_dedupe(txt):
-    """Removes duplicate substrings from a string.
+    """
+    Removes duplicate substrings from a string.
 
     Args:
         txt (str): String to dedupe
 
     Returns:
-        A string with unique substrings."""
+        str: A string with unique substrings
+    """
     words = txt.strip().split()
     unique_words = []
     for word in words:
@@ -582,14 +628,16 @@ def str_dedupe(txt):
 
 
 def str_remove(txt, rplc_strs):
-    """Removes passed strings from a string.
+    """
+    Removes passed strings from a string.
 
     Args:
         txt (str): String to clean
         rplc_strs (list): Strings to remove from the passed txt string
 
     Returns:
-        The passed string with the strings passed in rplc_strs removed from it."""
+        str: The passed string with the strings passed in rplc_strs removed from it
+    """
     if not isinstance(rplc_strs, list):
         rplc_strs = [r.strip() for r in rplc_strs.split(",")]
     ntxt = txt
@@ -599,14 +647,16 @@ def str_remove(txt, rplc_strs):
 
 
 def str_replace(txt, **rplc_map):
-    """Replaces things in a string.
+    """
+    Replaces things in a string.
 
     Args:
         txt (str): String to clean
         rplc_map (dict): Dict where the keys are what to replace and the values are what to replace it with
 
     Returns:
-        The passed string with the desired replacements."""
+        str: The passed string with the desired replacements
+    """
     out = txt
     for k, v in rplc_map.items():
         out = out.replace(k, v)
@@ -614,7 +664,8 @@ def str_replace(txt, **rplc_map):
 
 
 def contains(ref, checklist, exact=True, show_all=True):
-    """Iterates through passed items and checks if they exist in a given list.
+    """
+    Iterates through passed items and checks if they exist in a given list.
 
     Args:
         ref (list): List of reference items to check
@@ -623,7 +674,8 @@ def contains(ref, checklist, exact=True, show_all=True):
         show_all (bool): If False only the first matching item is returned, otherwise everything is
 
     Returns:
-        A list of items from checklist that exist in ref."""
+        list: Items from checklist that exist in ref
+    """
     if not isinstance(checklist, list) and not isinstance(checklist, str):
         # account for Series and whatnot
         checklist = list(checklist)
@@ -658,13 +710,15 @@ def contains(ref, checklist, exact=True, show_all=True):
 
 
 def is_empty(obj):
-    """Checks if a given obj is either null, blank or len(obj) == 0.
+    """
+    Checks if a given obj is either null, blank or len(obj) == 0.
 
     Args:
         obj (DataFrame, Series, list, dict, str): Object to check
 
     Returns:
-        True if the object is empty, False if not."""
+        bool: True if the object is empty, False if not
+    """
     if obj is None:
         return True
     elif type(obj) in (pd.DataFrame, pd.Series):
@@ -687,19 +741,22 @@ def is_empty(obj):
 
 
 def numdict(input_list):
-    """Creates a dictionary from a list where the keys are an item's index and the values are the list's items.
+    """
+    Creates a dictionary from a list where the keys are an item's index and the values are the list's items.
 
     Args:
         input_list (list): List of items
 
     Returns:
-        A dictionary where the keys are the index of each item in a given list and the values are the lists's items."""
+        dict: Keys are the index of each item in a given list and the values are the lists's items
+    """
     input_list = list(filter(None, input_list))
     return dict(zip(range(1, len(input_list) + 1), input_list))
 
 
 def reverse_dict(mydict, vals_as_list=False):
-    """Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
+    """
+    Reverses a dictionary by swapping its keys with its values. In cases where this causes duplicate keys,
     rather than overwriting the values all values of duplicate keys are merged into lists.
 
     Args:
@@ -707,7 +764,8 @@ def reverse_dict(mydict, vals_as_list=False):
         vals_as_list (bool): If True all values are returned as lists, not just values of duplicate keys
 
     Returns:
-        A reversed dictionary."""
+        dict: A reversed dictionary
+    """
     reversed_dict = {}
     for key, val in mydict.items():
         reversed_dict.setdefault(val, [])
@@ -724,14 +782,16 @@ def reverse_dict(mydict, vals_as_list=False):
 
 
 def keepkeys(mydict, keys):
-    """Creates a dictionary from the passed dictionary containing only the given keys.
+    """
+    Creates a dictionary from the passed dictionary containing only the given keys.
 
     Args:
         mydict (dict): Dictionary to filter
         keys (list): List of keys you want to keep from the passed dictionary
 
     Returns:
-        The passed dictionary containing only the desired keys."""
+        dict: The passed dictionary containing only the desired keys
+    """
     if isinstance(keys, str):
         if "," in keys:
             keys = [i.strip() for i in keys.split(",")]
@@ -742,14 +802,20 @@ def keepkeys(mydict, keys):
 
 
 def find_common(list1, list2):
-    """Finds common values between two lists.
+    """
+    Finds common values between two lists.
 
     Args:
         list1 (Series, list): List to check against
         list2 (Series, list): List to check
 
     Returns:
-        A list of items that appear in both list1 and list2."""
+        list: Items that appear in both list1 and list2
+
+    Examples:
+        >>> find_common(["dog", "cat", "ferret", "bird"], ["dog", "ferret", "horse"])
+        ["dog", "ferret"]
+    """
     if isinstance(list1, pd.Series):
         list1 = list(list1)
     if isinstance(list1, str):
@@ -766,14 +832,20 @@ def find_common(list1, list2):
 
 
 def find_uncommon(list1, list2):
-    """Compares two lists and finds values that appear in the first list but not the second.
+    """
+    Compares two lists and finds values that appear in the first list but not the second.
 
     Args:
         list1 (Series, list): List to check against
         list2 (Series, list): List to check
 
     Returns:
-        A list of items that appear in list1 that don't appear in list2."""
+        list: Items that appear in list1 that don't appear in list2
+
+    Examples:
+        >>> find_uncommon(["dog", "cat", "ferret", "bird"], ["dog", "ferret", "horse"])
+        ["cat", "bird"]
+    """
     if isinstance(list1, pd.Series):
         list1 = list(list1)
     if isinstance(list1, str):
@@ -790,8 +862,8 @@ def find_uncommon(list1, list2):
 
 
 def comma_and(input_list, sep=", ", last_sep="and"):
-    """Joins a list of strings together joined by the given separators.
-    e.g. comma_and(['dog', 'cat', 'rat'], sep=', ', last_sep='&') would return 'dog, cat & rat'
+    """
+    Joins a list of strings together joined by the given separators.
 
     Args:
         input_list (list): A list of strings to join and parse
@@ -799,7 +871,12 @@ def comma_and(input_list, sep=", ", last_sep="and"):
         last_sep (str): The separator for the last string in the list ('and' by default)
 
     Returns:
-        A string of the passed list joined by the given separators."""
+        str: Passed list joined by the given separators
+
+    Examples:
+        >>> comma_and(["dog", "cat", "rat"], sep=", ", last_sep="&")
+        "dog, cat & rat"
+    """
     if type(input_list) == str:
         input_list = [i.strip() for i in input_list.split(",")]
 
@@ -812,14 +889,16 @@ def comma_and(input_list, sep=", ", last_sep="and"):
 
 
 def quotify(input_list, single=True):
-    """Joins a list of strings together commas and places each string inside quotes.
+    """
+    Joins a list of strings together commas and places each string inside quotes.
 
     Args:
         input_list (list): A list of strings to join and parse
         single (bool): If True single quotes are used otherwise double quotes are used
 
     Returns:
-        A string of the passed list joined together by commas with each string inside quotes."""
+        str: Passed list joined together by commas with each string inside quotes
+    """
     if single:
         return ", ".join([f"'{i}'" for i in input_list])
     else:
@@ -827,39 +906,67 @@ def quotify(input_list, single=True):
 
 
 def chunkify(input_list, num):
-    """Divides a list into a given number of chunks.
+    """
+    Divides a list into a given number of chunks.
 
-        Args:
-            input_list (list): A list to divide
-            num (int): The number of items each chunk should contain
+    Args:
+        input_list (list): A list to divide
+        num (int): The number of items each chunk should contain
 
-        Returns:
-            A list of lists where each list contains the passed number of items from the given list."""
+    Returns:
+        list: A list of lists where each list contains the passed number of items from the given list
+
+    Examples:
+        >>> chunkify(["dog", "cat", "ferret", "bird"], num=2)
+        [["dog, "cat"], ["ferret", "bird"]]
+    """
     return [input_list[i: i + num] for i in range(0, len(input_list), num)]
 
 
 def split_data(data, ratio):
-    """Splits data into two chunks based on a given ratio.
+    """
+    Splits data into two chunks based on a given ratio.
 
-        Args:
-            data (list): The data to be split
-            ratio (float): The ratio at which to split the data. Should be between 0 and 1
+    Args:
+        data (list): The data to be split
+        ratio (float): The ratio at which to split the data. Should be between 0 and 1
 
-        Returns:
-            A tuple of 2 lists, the first containing the first 'ratio' proportion of the data,
-            the second containing the rest."""
+    Returns:
+        tuple: 1 list containing the first 'ratio' proportion of the data, 1 containing the rest
+    """
     split_index = int(len(data) * ratio)
     return data[:split_index], data[split_index:]
 
 
+def join_newline(items, n):
+    """
+    Joins a given list with \n every `n` items.
+
+    Args:
+        items (list): List of items to join
+        n (int): Number of items to split with a newline
+
+    Returns:
+        str: A joined string
+
+    Examples:
+        >>> join_newline(["test", "test", "test", "test", "test", "test"], n=3)
+        '"test", "test", "test",\n"test", "test", "test"'
+    """
+    chunks = [items[i:i + n] for i in range(0, len(items), n)]
+    return ",\n".join(", ".join(f"'{i}'" for i in chunk) for chunk in chunks)
+
+
 def ordinal(n):
-    """Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).
+    """
+    Converts a number into its ordinal representation (e.g. 1st, 2nd, etc).
 
     Args:
         n (int, str): The string or integer to convert
 
     Returns:
-        An ordinal string representation of the given number."""
+        str: An ordinal string representation of the given number
+    """
     n = int(str(n))
     suffix = ["th", "st", "nd", "rd", "th"][min(n % 10, 4)]
 
@@ -870,7 +977,8 @@ def ordinal(n):
 
 
 def dget(dict_obj, key, val=None):
-    """More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
+    """
+    More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
     value is a blank string and returns None (or whatever you pass as val) instead of the blank string.
 
     Args:
@@ -879,7 +987,8 @@ def dget(dict_obj, key, val=None):
         val (str, None): Default value to return if the target key isn't in the dictionary
 
     Returns:
-        The value of the key of the passed dictionary (or the value of val if the key doesn't exist)."""
+        any: Value of the key of the passed dict (or the value of val if the key doesn't exist)
+    """
     if key in dict_obj:
         if not dict_obj[key] or (
             isinstance(dict_obj[key], str) and nullstr(dict_obj[key])
@@ -890,7 +999,8 @@ def dget(dict_obj, key, val=None):
 
 
 def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
-    """Lists the filenames in the passed directory.
+    """
+    Lists the filenames in the passed directory.
 
     Args:
         dirpath (str): Directory path to reference
@@ -900,7 +1010,8 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
         keep_ext (bool): If Flase base filenames without their extensions are returned
 
     Returns:
-        A list containing all the filenames in the given directory."""
+        list: All the filenames in the given directory
+    """
     if ext and "." not in ext:
         ext = f".{ext.strip()}"
     blacklist = [".DS_Store"]
@@ -939,10 +1050,12 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
 
 
 def is_jupyter():
-    """Checks if the script is currently running in a Jupyter notebook.
+    """
+    Checks if the script is currently running in a Jupyter notebook.
 
     Returns:
-        True or False."""
+        bool: True or False
+    """
     try:
         from IPython import get_ipython
         config_file = get_ipython().config.IPKernelApp.connection_file
