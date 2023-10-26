@@ -168,6 +168,13 @@ def todt(dt_str=None, as_date=False):
 
     Returns:
         date|datetime: Converted object of the passed string
+
+    Examples:
+        >>> todt("2023-10-01")
+        datetime.datetime(2023, 10, 1, 0, 0)
+
+        >>> todt("2023-10-01", as_date=True)
+        datetime.date(2023, 10, 1)
     """
     if dt_str is None:
         dt_str = now()
@@ -190,6 +197,13 @@ def now(style="%Y-%m-%d %H:%M:%S", dt=False):
 
     Returns:
         str|datetime: Either a string or datetime object of the current date and time
+
+    Examples:
+        >>> now()
+        '2023-10-01 12:30:00'
+
+        >>> now(dt=True)
+        datetime.datetime(2023, 10, 1, 12, 30)
     """
     if dt:
         return datetime.now()
@@ -248,6 +262,13 @@ def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
 
     Returns:
         str: A date string of the 1st of the given month
+
+    Examples:
+        >>> bomonth(month=10, year=2023)
+        '2023-10-01'
+
+        >>> bomonth(month=10, year=2023, offset=1)
+        '2023-11-01'
     """
     if type(month) == str:
         if len(month) == 4:
@@ -292,6 +313,13 @@ def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style="%Y-
 
     Returns:
         str: A date string of the last date of the given month
+
+    Examples:
+        >>> eomonth(month=10, year=2023)
+        '2023-10-31'
+
+        >>> eomonth(month=10, year=2023, offset=1)
+        '2023-11-30'
     """
     if type(month) == str:
         if len(month) == 4:
@@ -334,6 +362,16 @@ def dt_int(num, start=None, metric="days", style="%Y-%m-%d", dt=True):
 
     Returns:
         str: A formatted date string of the calculated date
+
+    Examples:
+        >>> dt_int(3, start="2023-10-01")
+        '2023-10-04'
+
+        >>> dt_int(3, start="2023-10-01 12:30:00", metric="hours")
+        '2023-10-01 15:30:00'
+
+        >>> dt_int(3, start="2023-10-01", dt=True)
+        datetime.date(2023, 10, 4)
     """
     input_type = "date"
     out = None
@@ -421,6 +459,13 @@ def elapsed(start, stop=None, metric="minutes", full=False):
     Returns:
         int|str: Either an integer representing the elapsed seconds, minutes or hours between two
         dates or a string representation of the elapsed time in H:M:S format
+
+    Examples:
+        >>> elapsed("2023-10-01 12:30:00", stop="2023-10-01 14:00:00")
+        90
+
+        >>> elapsed("2023-10-01 12:30:00", stop="2023-10-01 14:00:00", full=True)
+        '01:30:00'
     """
     opts = ["minutes", "hours", "seconds"]
     actual = difflib.get_close_matches(metric.lower(), opts, cutoff=0.7)
@@ -477,6 +522,28 @@ def filldates(start, end=None, as_str=False, weekends=True):
 
     Returns:
         list: Dates in between two given dates
+
+    Examples:
+        >>> filldates("2023-10-01", end="2023-10-10")
+        [datetime.date(2023, 10, 1),
+         datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 7),
+         datetime.date(2023, 10, 8),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
+
+         >>> filldates("2023-10-01", end="2023-10-10", weekends=False)
+         [datetime.date(2023, 10, 2),
+         datetime.date(2023, 10, 3),
+         datetime.date(2023, 10, 4),
+         datetime.date(2023, 10, 5),
+         datetime.date(2023, 10, 6),
+         datetime.date(2023, 10, 9),
+         datetime.date(2023, 10, 10)]
     """
     start = todt(str(start), as_date=True)
     if end is None:
@@ -593,6 +660,10 @@ def regex(string, pattern, ignore_case=False):
 
     Returns:
         str: Extracted output of the passed regex
+
+    Examples:
+        >>> regex("There were 3 pups at the park", "(\d+)")
+        '3'
     """
     try:
         if isinstance(pattern, str):
@@ -617,6 +688,10 @@ def str_dedupe(txt):
 
     Returns:
         str: A string with unique substrings
+
+    Examples:
+        >>> str_dedupe("The dog dog was cute")
+        'The dog was cute'
     """
     words = txt.strip().split()
     unique_words = []
@@ -637,6 +712,10 @@ def str_remove(txt, rplc_strs):
 
     Returns:
         str: The passed string with the strings passed in rplc_strs removed from it
+
+    Examples:
+        >>> str_remove("There were @3 dogs#", ["@", "#"])
+        'There were 3 dogs'
     """
     if not isinstance(rplc_strs, list):
         rplc_strs = [r.strip() for r in rplc_strs.split(",")]
@@ -656,6 +735,10 @@ def str_replace(txt, **rplc_map):
 
     Returns:
         str: The passed string with the desired replacements
+
+    Examples:
+        >>> str_replace("There was a cute cat at the beach", **{"cat": "dog", "beach": "park"})
+        'There was a cute dog at the park'
     """
     out = txt
     for k, v in rplc_map.items():
@@ -675,6 +758,13 @@ def contains(ref, checklist, exact=True, show_all=True):
 
     Returns:
         list: Items from checklist that exist in ref
+
+    Examples:
+        >>> contains(["dog", "cat", "ferret", "rat"], ["dog", "rat"])
+        ['dog', 'rat']
+
+        >>> contains(["dog", "cat", "ferret", "rat"], ["dog", "rat"], show_all=False)
+        ['dog']
     """
     if not isinstance(checklist, list) and not isinstance(checklist, str):
         # account for Series and whatnot
@@ -749,6 +839,10 @@ def numdict(input_list):
 
     Returns:
         dict: Keys are the index of each item in a given list and the values are the lists's items
+
+    Examples:
+        >>> numdict(["dog", "cat", "ferret", "rat"])
+        {1: 'dog', 2: 'cat', 3: 'ferret', 4: 'rat'}
     """
     input_list = list(filter(None, input_list))
     return dict(zip(range(1, len(input_list) + 1), input_list))
@@ -765,6 +859,16 @@ def reverse_dict(mydict, vals_as_list=False):
 
     Returns:
         dict: A reversed dictionary
+
+    Examples:
+        >>> reverse_dict({"dog": "cat", "ferret": "rat"})
+        {'cat': 'dog', 'rat': 'ferret'}
+
+        >>> reverse_dict({"dog": "cat", "ferret": "rat", "lion": "cat"})
+        {'cat': ['dog', 'lion'], 'rat': 'ferret'}
+
+        >>> reverse_dict({"dog": "cat", "ferret": "rat", "lion": "cat"}, True)
+        {'cat': ['dog', 'lion'], 'rat': ['ferret']}
     """
     reversed_dict = {}
     for key, val in mydict.items():
@@ -791,6 +895,10 @@ def keepkeys(mydict, keys):
 
     Returns:
         dict: The passed dictionary containing only the desired keys
+
+    Examples:
+        >>> keepkeys({"dog": "woof", "cat": "meow", "cow": "moo"}, ["dog", "cat"])
+        {'dog': 'woof', 'cat': 'meow'}
     """
     if isinstance(keys, str):
         if "," in keys:
@@ -814,7 +922,7 @@ def find_common(list1, list2):
 
     Examples:
         >>> find_common(["dog", "cat", "ferret", "bird"], ["dog", "ferret", "horse"])
-        ["dog", "ferret"]
+        ['dog', 'ferret']
     """
     if isinstance(list1, pd.Series):
         list1 = list(list1)
@@ -844,7 +952,7 @@ def find_uncommon(list1, list2):
 
     Examples:
         >>> find_uncommon(["dog", "cat", "ferret", "bird"], ["dog", "ferret", "horse"])
-        ["cat", "bird"]
+        ['cat', 'bird']
     """
     if isinstance(list1, pd.Series):
         list1 = list(list1)
@@ -874,8 +982,11 @@ def comma_and(input_list, sep=", ", last_sep="and"):
         str: Passed list joined by the given separators
 
     Examples:
-        >>> comma_and(["dog", "cat", "rat"], sep=", ", last_sep="&")
-        "dog, cat & rat"
+        >>> comma_and(["dog", "cat", "rat"], last_sep="&")
+        'dog, cat & rat'
+
+        >>> comma_and(["dog", "cat"], last_sep="&")
+        'dog & cat'
     """
     if type(input_list) == str:
         input_list = [i.strip() for i in input_list.split(",")]
@@ -940,7 +1051,7 @@ def split_data(data, ratio):
 
 def join_newline(items, n):
     """
-    Joins a given list with \n every `n` items.
+    Joins a given list with commas and a \n every `n` items.
 
     Args:
         items (list): List of items to join
@@ -951,7 +1062,7 @@ def join_newline(items, n):
 
     Examples:
         >>> join_newline(["test", "test", "test", "test", "test", "test"], n=3)
-        '"test", "test", "test",\n"test", "test", "test"'
+        'test, test, test,\ntest, test, test'
     """
     chunks = [items[i:i + n] for i in range(0, len(items), n)]
     return ",\n".join(", ".join(f"'{i}'" for i in chunk) for chunk in chunks)
@@ -966,6 +1077,10 @@ def ordinal(n):
 
     Returns:
         str: An ordinal string representation of the given number
+
+    Examples:
+        >>> ordinal(3)
+        '3rd'
     """
     n = int(str(n))
     suffix = ["th", "st", "nd", "rd", "th"][min(n % 10, 4)]
@@ -988,6 +1103,16 @@ def dget(dict_obj, key, val=None):
 
     Returns:
         any: Value of the key of the passed dict (or the value of val if the key doesn't exist)
+
+    Examples:
+        >>> dget({"key1": "val1"}, "key2")
+        None
+
+        >>> dget({"key1": "val1"}, "key2", val="N/A")
+        "N/A"
+
+        >>> dget({"key1": "val1"}, "key1")
+        "val1"
     """
     if key in dict_obj:
         if not dict_obj[key] or (
