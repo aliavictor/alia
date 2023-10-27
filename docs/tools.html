@@ -50,7 +50,7 @@ def clipboard(string):
         string (str): String to copy
 
     Returns:
-        Nothing
+        None
     &#34;&#34;&#34;
     pyperclip.copy(string)
     green(&#34;Copied to clipboard&#34;, ts=False)
@@ -63,10 +63,10 @@ def save_obj(obj, filename, mode=&#34;wb&#34;):
     Args:
         obj (any type): Object to save
         filename (str): Filename to save the object as
-        mode (str): Which file mode to use (&#39;wb&#39; by default, &#39;ab&#39; to append)
+        mode (str): Which file mode to use (`wb` by default, `ab` to append)
 
     Returns:
-        Nothing
+        None
     &#34;&#34;&#34;
     if &#34;.pkl&#34; not in filename:
         filename = f&#34;{filename.strip()}.pkl&#34;
@@ -112,11 +112,11 @@ def read_csv(file_path):
 
 def b64encode(obj, encoding=&#34;utf-8&#34;):
     &#34;&#34;&#34;
-    Encodes an object using the base64 library.
+    Encodes an object using the `base64` library.
 
     Args:
         obj (any type): Object to encode
-        encoding (str): Encoding to use (utf-8 by default)
+        encoding (str): Encoding to use (`utf-8` by default)
 
     Returns:
         str: An encoded string representing the given object
@@ -135,8 +135,7 @@ def encrypt(string):
         string (str): String to encrypt
 
     Returns:
-        encrypted_str (bytes): Encrypted string
-        key (bytes): Associated encryption key (keep private!)
+        tuple: Encrypted string + associated encryption key (keep private!)
     &#34;&#34;&#34;
     key = Fernet.generate_key()
     f = Fernet(key)
@@ -188,7 +187,7 @@ def tformat(date_obj, style=None):
 def todt(dt_str=None, as_date=False):
     &#34;&#34;&#34;
     Takes a datetime string and converts it to an actual datetime object.
-    When as_date=True a date object is returned instead of a datetime object.
+    When `as_date=True` a date object is returned instead of a datetime object.
 
     Args:
         dt_str (str): Date or datetime string
@@ -221,10 +220,10 @@ def now(style=&#34;%Y-%m-%d %H:%M:%S&#34;, dt=False):
 
     Args:
         style (str): Datetime format to use (default is %Y-%m-%d %H:%M:%S)
-        dt (bool): If True a datetime object is returned instead of a string
+        dt (bool): If `True` a datetime object is returned instead of a string
 
     Returns:
-        str|datetime: Either a string or datetime object of the current date and time
+        str, datetime: Either a string or datetime object of the current date and time
 
     Examples:
         &gt;&gt;&gt; now()
@@ -276,57 +275,6 @@ def monthdays(month, year=todt(now()).year):
     elif type(month) == int:
         out = calendar.monthrange(year, month)
     return out[1]
-
-
-def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
-    &#34;&#34;&#34;
-    Returns the 1st of the given month (current month is default).
-
-    Args:
-        month (int): Month to reference
-        year (int): Year to reference
-        offset (int): Number of months to offset by
-        style (str): Desired datetime format
-
-    Returns:
-        str: A date string of the 1st of the given month
-
-    Examples:
-        &gt;&gt;&gt; bomonth(month=10, year=2023)
-        &#39;2023-10-01&#39;
-
-        &gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
-        &#39;2023-11-01&#39;
-    &#34;&#34;&#34;
-    if type(month) == str:
-        if len(month) == 4:
-            try:
-                month = datetime.strptime(month[:3], &#34;%b&#34;).month
-            except:
-                red(
-                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
-                    ts=False,
-                )
-                return None
-        elif len(month) == 3:
-            month = datetime.strptime(month, &#34;%b&#34;).month
-        elif len(month) &gt; 4:
-            try:
-                month = datetime.strptime(month, &#34;%B&#34;).month
-            except:
-                red(
-                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
-                    ts=False,
-                )
-                return None
-    if offset != 0:
-        if month &lt;= 2:
-            month = 13 + offset
-            year = todt(dt_int(-60)).year
-        else:
-            month = month + offset
-    rawdate = todt(f&#34;{year}-{month}-01&#34;)
-    return tformat(rawdate, style=style)
 
 
 def eomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
@@ -464,6 +412,10 @@ def daydiff(start, stop=None):
 
     Returns:
         int: Number of days in between the given dates
+
+    Example:
+        &gt;&gt;&gt; daydiff(start=&#34;2023-10-15&#34;, stop=&#34;2023-10-10&#34;)
+        -5
     &#34;&#34;&#34;
     start = todt(str(start))
     if stop is None:
@@ -545,8 +497,8 @@ def filldates(start, end=None, as_str=False, weekends=True):
     Args:
         start (date, str): Start of the desired date range
         end (None, date, str): End of the desired date range (current day by default)
-        as_str (bool): If True dates are returned as strings instead of date objects
-        weekends (bool): If False weekend dates are excluded from the final output
+        as_str (bool): If `True` dates are returned as strings instead of date objects
+        weekends (bool): If `False` weekend dates are excluded from the final output
 
     Returns:
         list: Dates in between two given dates
@@ -565,7 +517,7 @@ def filldates(start, end=None, as_str=False, weekends=True):
          datetime.date(2023, 10, 10)]
 
         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
-         [datetime.date(2023, 10, 2),
+        [datetime.date(2023, 10, 2),
          datetime.date(2023, 10, 3),
          datetime.date(2023, 10, 4),
          datetime.date(2023, 10, 5),
@@ -623,7 +575,7 @@ def blanknull(string):
         string (str): String to check
 
     Returns:
-        str: &#39;&#39; if the passed string is null otherwise the string is returned
+        str: Blank string (&#34;&#34;) if the passed string is null, otherwise the string is returned
     &#34;&#34;&#34;
     if nullstr(string) or not string:
         return &#34;&#34;
@@ -639,7 +591,7 @@ def is_float(string):
         string (str): String to check
 
     Returns:
-        bool: True if the string is a float, False if not
+        bool: `True` if the string is a float, `False` if not
     &#34;&#34;&#34;
     if str(string).replace(&#34;.&#34;, &#34;&#34;).isnumeric():
         return True
@@ -655,7 +607,7 @@ def isodd(num):
         num (int): Number to check
 
     Returns:
-        bool: True if the given number is odd, False if it&#39;s even
+        bool: `True` if the given number is odd, `False` if it&#39;s even
     &#34;&#34;&#34;
     if not isinstance(num, int):
         num = int(num.replace(&#34;,&#34;, &#34;&#34;))
@@ -670,7 +622,7 @@ def iseven(num):
         num (int): Number to check
 
     Returns:
-        bool: True if the given number is even, False if it&#39;s odd
+        bool: `True` if the given number is even, `False` if it&#39;s odd
     &#34;&#34;&#34;
     if not isinstance(num, int):
         num = int(num.replace(&#34;,&#34;, &#34;&#34;))
@@ -689,7 +641,7 @@ def regex(string, pattern, ignore_case=False):
     Returns:
         str: Extracted output of the passed regex
 
-    Examples:
+    Example:
         &gt;&gt;&gt; regex(&#34;There were 3 pups at the park&#34;, &#34;(\d+)&#34;)
         &#39;3&#39;
     &#34;&#34;&#34;
@@ -717,7 +669,7 @@ def str_dedupe(txt):
     Returns:
         str: A string with unique substrings
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_dedupe(&#34;The dog dog was cute&#34;)
         &#39;The dog was cute&#39;
     &#34;&#34;&#34;
@@ -741,7 +693,7 @@ def str_remove(txt, rplc_strs):
     Returns:
         str: The passed string with the strings passed in rplc_strs removed from it
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_remove(&#34;There were @3 dogs#&#34;, [&#34;@&#34;, &#34;#&#34;])
         &#39;There were 3 dogs&#39;
     &#34;&#34;&#34;
@@ -764,7 +716,7 @@ def str_replace(txt, **rplc_map):
     Returns:
         str: The passed string with the desired replacements
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_replace(&#34;There was a cute cat at the beach&#34;, **{&#34;cat&#34;: &#34;dog&#34;, &#34;beach&#34;: &#34;park&#34;})
         &#39;There was a cute dog at the park&#39;
     &#34;&#34;&#34;
@@ -829,13 +781,13 @@ def contains(ref, checklist, exact=True, show_all=True):
 
 def is_empty(obj):
     &#34;&#34;&#34;
-    Checks if a given obj is either null, blank or len(obj) == 0.
+    Checks if a given obj is either null, blank or `len(obj) == 0`.
 
     Args:
-        obj (DataFrame, Series, list, dict, str): Object to check
+        obj (pd.DataFrame, pd.Series, list, dict, str): Object to check
 
     Returns:
-        bool: True if the object is empty, False if not
+        bool: `True` if the object is empty, `False` if not
     &#34;&#34;&#34;
     if obj is None:
         return True
@@ -868,7 +820,7 @@ def numdict(input_list):
     Returns:
         dict: Keys are the index of each item in a given list and the values are the lists&#39;s items
 
-    Examples:
+    Example:
         &gt;&gt;&gt; numdict([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;])
         {1: &#39;dog&#39;, 2: &#39;cat&#39;, 3: &#39;ferret&#39;, 4: &#39;rat&#39;}
     &#34;&#34;&#34;
@@ -883,7 +835,7 @@ def reverse_dict(mydict, vals_as_list=False):
 
     Args:
         mydict (dict): Dictionary to reverse
-        vals_as_list (bool): If True all values are returned as lists, not just values of duplicate keys
+        vals_as_list (bool): If `True` all values are returned as lists, not just values of duplicate keys
 
     Returns:
         dict: A reversed dictionary
@@ -924,7 +876,7 @@ def keepkeys(mydict, keys):
     Returns:
         dict: The passed dictionary containing only the desired keys
 
-    Examples:
+    Example:
         &gt;&gt;&gt; keepkeys({&#34;dog&#34;: &#34;woof&#34;, &#34;cat&#34;: &#34;meow&#34;, &#34;cow&#34;: &#34;moo&#34;}, [&#34;dog&#34;, &#34;cat&#34;])
         {&#39;dog&#39;: &#39;woof&#39;, &#39;cat&#39;: &#39;meow&#39;}
     &#34;&#34;&#34;
@@ -946,9 +898,9 @@ def find_common(list1, list2):
         list2 (Series, list): List to check
 
     Returns:
-        list: Items that appear in both list1 and list2
+        list: Items that appear in both `list1` and `list2`
 
-    Examples:
+    Example:
         &gt;&gt;&gt; find_common([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
         [&#39;dog&#39;, &#39;ferret&#39;]
     &#34;&#34;&#34;
@@ -976,9 +928,9 @@ def find_uncommon(list1, list2):
         list2 (Series, list): List to check
 
     Returns:
-        list: Items that appear in list1 that don&#39;t appear in list2
+        list: Items that appear in `list1` that don&#39;t appear in `list2`
 
-    Examples:
+    Example:
         &gt;&gt;&gt; find_uncommon([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
         [&#39;cat&#39;, &#39;bird&#39;]
     &#34;&#34;&#34;
@@ -1033,10 +985,17 @@ def quotify(input_list, single=True):
 
     Args:
         input_list (list): A list of strings to join and parse
-        single (bool): If True single quotes are used otherwise double quotes are used
+        single (bool): If `True` single quotes are used, otherwise double quotes are used
 
     Returns:
         str: Passed list joined together by commas with each string inside quotes
+
+    Examples:
+        &gt;&gt;&gt; quotify([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;])
+        &#34;&#39;dog&#39;, &#39;cat&#39;, &#39;rat&#39;&#34;
+
+        &gt;&gt;&gt; quotify([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;], single=False)
+        &#39;&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;&#39;
     &#34;&#34;&#34;
     if single:
         return &#34;, &#34;.join([f&#34;&#39;{i}&#39;&#34; for i in input_list])
@@ -1055,7 +1014,7 @@ def chunkify(input_list, num):
     Returns:
         list: A list of lists where each list contains the passed number of items from the given list
 
-    Examples:
+    Example:
         &gt;&gt;&gt; chunkify([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], num=2)
         [[&#34;dog, &#34;cat&#34;], [&#34;ferret&#34;, &#34;bird&#34;]]
     &#34;&#34;&#34;
@@ -1071,7 +1030,7 @@ def split_data(data, ratio):
         ratio (float): The ratio at which to split the data. Should be between 0 and 1
 
     Returns:
-        tuple: 1 list containing the first &#39;ratio&#39; proportion of the data, 1 containing the rest
+        tuple: One list containing the first `ratio` proportion of the data, another containing the rest
     &#34;&#34;&#34;
     split_index = int(len(data) * ratio)
     return data[:split_index], data[split_index:]
@@ -1088,7 +1047,7 @@ def join_newline(items, n):
     Returns:
         str: A joined string
 
-    Examples:
+    Example:
         &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
         &#39;test, test, test,
         test, test, test&#39;
@@ -1107,7 +1066,7 @@ def ordinal(n):
     Returns:
         str: An ordinal string representation of the given number
 
-    Examples:
+    Example:
         &gt;&gt;&gt; ordinal(3)
         &#39;3rd&#39;
     &#34;&#34;&#34;
@@ -1160,8 +1119,8 @@ def filelist(dirpath, ext=None, prefix=None, raise_err=False, keep_ext=True):
         dirpath (str): Directory path to reference
         ext (str): Extension of the files to target
         prefix (str): Target files that start with this prefix
-        raise_err (bool): If False FileNotFoundErrors will fail silently
-        keep_ext (bool): If Flase base filenames without their extensions are returned
+        raise_err (bool): If `False` FileNotFoundErrors will fail silently
+        keep_ext (bool): If `False` base filenames without their extensions are returned
 
     Returns:
         list: All the filenames in the given directory
@@ -1208,7 +1167,7 @@ def is_jupyter():
     Checks if the script is currently running in a Jupyter notebook.
 
     Returns:
-        bool: True or False
+        bool: `True` or `False`
     &#34;&#34;&#34;
     try:
         from IPython import get_ipython
@@ -1235,13 +1194,13 @@ def is_jupyter():
 <span>def <span class="ident">b64encode</span></span>(<span>obj, encoding='utf-8')</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Encodes an object using the base64 library.</p>
+<div class="desc"><p>Encodes an object using the <code>base64</code> library.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>obj</code></strong> :&ensp;<code>any type</code></dt>
 <dd>Object to encode</dd>
 <dt><strong><code>encoding</code></strong> :&ensp;<code>str</code></dt>
-<dd>Encoding to use (utf-8 by default)</dd>
+<dd>Encoding to use (<code>utf-8</code> by default)</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -1254,11 +1213,11 @@ def is_jupyter():
 </summary>
 <pre><code class="python">def b64encode(obj, encoding=&#34;utf-8&#34;):
     &#34;&#34;&#34;
-    Encodes an object using the base64 library.
+    Encodes an object using the `base64` library.
 
     Args:
         obj (any type): Object to encode
-        encoding (str): Encoding to use (utf-8 by default)
+        encoding (str): Encoding to use (`utf-8` by default)
 
     Returns:
         str: An encoded string representing the given object
@@ -1282,7 +1241,7 @@ def is_jupyter():
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>str</code></dt>
-<dd>'' if the passed string is null otherwise the string is returned</dd>
+<dd>Blank string ("") if the passed string is null, otherwise the string is returned</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -1296,95 +1255,12 @@ def is_jupyter():
         string (str): String to check
 
     Returns:
-        str: &#39;&#39; if the passed string is null otherwise the string is returned
+        str: Blank string (&#34;&#34;) if the passed string is null, otherwise the string is returned
     &#34;&#34;&#34;
     if nullstr(string) or not string:
         return &#34;&#34;
     else:
         return string</code></pre>
-</details>
-</dd>
-<dt id="alia.tools.bomonth"><code class="name flex">
-<span>def <span class="ident">bomonth</span></span>(<span>month=10, year=2023, offset=0, style='%Y-%m-%d')</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Returns the 1st of the given month (current month is default).</p>
-<h2 id="args">Args</h2>
-<dl>
-<dt><strong><code>month</code></strong> :&ensp;<code>int</code></dt>
-<dd>Month to reference</dd>
-<dt><strong><code>year</code></strong> :&ensp;<code>int</code></dt>
-<dd>Year to reference</dd>
-<dt><strong><code>offset</code></strong> :&ensp;<code>int</code></dt>
-<dd>Number of months to offset by</dd>
-<dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
-<dd>Desired datetime format</dd>
-</dl>
-<h2 id="returns">Returns</h2>
-<dl>
-<dt><code>str</code></dt>
-<dd>A date string of the 1st of the given month</dd>
-</dl>
-<h2 id="examples">Examples</h2>
-<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023)
-'2023-10-01'
-</code></pre>
-<pre><code class="language-python-repl">&gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
-'2023-11-01'
-</code></pre></div>
-<details class="source">
-<summary>
-<span>Expand source code</span>
-</summary>
-<pre><code class="python">def bomonth(month=todt(now()).month, year=todt(now()).year, offset=0, style=&#34;%Y-%m-%d&#34;):
-    &#34;&#34;&#34;
-    Returns the 1st of the given month (current month is default).
-
-    Args:
-        month (int): Month to reference
-        year (int): Year to reference
-        offset (int): Number of months to offset by
-        style (str): Desired datetime format
-
-    Returns:
-        str: A date string of the 1st of the given month
-
-    Examples:
-        &gt;&gt;&gt; bomonth(month=10, year=2023)
-        &#39;2023-10-01&#39;
-
-        &gt;&gt;&gt; bomonth(month=10, year=2023, offset=1)
-        &#39;2023-11-01&#39;
-    &#34;&#34;&#34;
-    if type(month) == str:
-        if len(month) == 4:
-            try:
-                month = datetime.strptime(month[:3], &#34;%b&#34;).month
-            except:
-                red(
-                    &#34;If passing a month abbreviation, it must be a &lt;b&gt;3 letter&lt;/b&gt; abbreviation&#34;,
-                    ts=False,
-                )
-                return None
-        elif len(month) == 3:
-            month = datetime.strptime(month, &#34;%b&#34;).month
-        elif len(month) &gt; 4:
-            try:
-                month = datetime.strptime(month, &#34;%B&#34;).month
-            except:
-                red(
-                    &#34;Can&#39;t parse passed month string; try passing month as an integer&#34;,
-                    ts=False,
-                )
-                return None
-    if offset != 0:
-        if month &lt;= 2:
-            month = 13 + offset
-            year = todt(dt_int(-60)).year
-        else:
-            month = month + offset
-    rawdate = todt(f&#34;{year}-{month}-01&#34;)
-    return tformat(rawdate, style=style)</code></pre>
 </details>
 </dd>
 <dt id="alia.tools.chunkify"><code class="name flex">
@@ -1404,7 +1280,7 @@ def is_jupyter():
 <dt><code>list</code></dt>
 <dd>A list of lists where each list contains the passed number of items from the given list</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; chunkify([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], num=2)
 [[&quot;dog, &quot;cat&quot;], [&quot;ferret&quot;, &quot;bird&quot;]]
 </code></pre></div>
@@ -1423,7 +1299,7 @@ def is_jupyter():
     Returns:
         list: A list of lists where each list contains the passed number of items from the given list
 
-    Examples:
+    Example:
         &gt;&gt;&gt; chunkify([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], num=2)
         [[&#34;dog, &#34;cat&#34;], [&#34;ferret&#34;, &#34;bird&#34;]]
     &#34;&#34;&#34;
@@ -1441,7 +1317,7 @@ def is_jupyter():
 <dd>String to copy</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p>Nothing</p></div>
+<p>None</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1454,7 +1330,7 @@ def is_jupyter():
         string (str): String to copy
 
     Returns:
-        Nothing
+        None
     &#34;&#34;&#34;
     pyperclip.copy(string)
     green(&#34;Copied to clipboard&#34;, ts=False)</code></pre>
@@ -1621,7 +1497,11 @@ def is_jupyter():
 <dl>
 <dt><code>int</code></dt>
 <dd>Number of days in between the given dates</dd>
-</dl></div>
+</dl>
+<h2 id="example">Example</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; daydiff(start=&quot;2023-10-15&quot;, stop=&quot;2023-10-10&quot;)
+-5
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1636,6 +1516,10 @@ def is_jupyter():
 
     Returns:
         int: Number of days in between the given dates
+
+    Example:
+        &gt;&gt;&gt; daydiff(start=&#34;2023-10-15&#34;, stop=&#34;2023-10-10&#34;)
+        -5
     &#34;&#34;&#34;
     start = todt(str(start))
     if stop is None:
@@ -1968,8 +1852,10 @@ dates or a string representation of the elapsed time in H:M:S format</p>
 <dd>String to encrypt</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p>encrypted_str (bytes): Encrypted string
-key (bytes): Associated encryption key (keep private!)</p></div>
+<dl>
+<dt><code>tuple</code></dt>
+<dd>Encrypted string + associated encryption key (keep private!)</dd>
+</dl></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -1982,8 +1868,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         string (str): String to encrypt
 
     Returns:
-        encrypted_str (bytes): Encrypted string
-        key (bytes): Associated encryption key (keep private!)
+        tuple: Encrypted string + associated encryption key (keep private!)
     &#34;&#34;&#34;
     key = Fernet.generate_key()
     f = Fernet(key)
@@ -2086,9 +1971,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <dt><strong><code>prefix</code></strong> :&ensp;<code>str</code></dt>
 <dd>Target files that start with this prefix</dd>
 <dt><strong><code>raise_err</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If False FileNotFoundErrors will fail silently</dd>
+<dd>If <code>False</code> FileNotFoundErrors will fail silently</dd>
 <dt><strong><code>keep_ext</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If Flase base filenames without their extensions are returned</dd>
+<dd>If <code>False</code> base filenames without their extensions are returned</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -2107,8 +1992,8 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         dirpath (str): Directory path to reference
         ext (str): Extension of the files to target
         prefix (str): Target files that start with this prefix
-        raise_err (bool): If False FileNotFoundErrors will fail silently
-        keep_ext (bool): If Flase base filenames without their extensions are returned
+        raise_err (bool): If `False` FileNotFoundErrors will fail silently
+        keep_ext (bool): If `False` base filenames without their extensions are returned
 
     Returns:
         list: All the filenames in the given directory
@@ -2162,9 +2047,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <dt><strong><code>end</code></strong> :&ensp;<code>None, date, str</code></dt>
 <dd>End of the desired date range (current day by default)</dd>
 <dt><strong><code>as_str</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True dates are returned as strings instead of date objects</dd>
+<dd>If <code>True</code> dates are returned as strings instead of date objects</dd>
 <dt><strong><code>weekends</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If False weekend dates are excluded from the final output</dd>
+<dd>If <code>False</code> weekend dates are excluded from the final output</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -2185,7 +2070,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
  datetime.date(2023, 10, 10)]
 </code></pre>
 <pre><code class="language-python-repl">&gt;&gt;&gt; filldates(&quot;2023-10-01&quot;, end=&quot;2023-10-10&quot;, weekends=False)
- [datetime.date(2023, 10, 2),
+[datetime.date(2023, 10, 2),
  datetime.date(2023, 10, 3),
  datetime.date(2023, 10, 4),
  datetime.date(2023, 10, 5),
@@ -2204,8 +2089,8 @@ key (bytes): Associated encryption key (keep private!)</p></div>
     Args:
         start (date, str): Start of the desired date range
         end (None, date, str): End of the desired date range (current day by default)
-        as_str (bool): If True dates are returned as strings instead of date objects
-        weekends (bool): If False weekend dates are excluded from the final output
+        as_str (bool): If `True` dates are returned as strings instead of date objects
+        weekends (bool): If `False` weekend dates are excluded from the final output
 
     Returns:
         list: Dates in between two given dates
@@ -2224,7 +2109,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
          datetime.date(2023, 10, 10)]
 
         &gt;&gt;&gt; filldates(&#34;2023-10-01&#34;, end=&#34;2023-10-10&#34;, weekends=False)
-         [datetime.date(2023, 10, 2),
+        [datetime.date(2023, 10, 2),
          datetime.date(2023, 10, 3),
          datetime.date(2023, 10, 4),
          datetime.date(2023, 10, 5),
@@ -2273,9 +2158,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>list</code></dt>
-<dd>Items that appear in both list1 and list2</dd>
+<dd>Items that appear in both <code>list1</code> and <code>list2</code></dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; find_common([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
 ['dog', 'ferret']
 </code></pre></div>
@@ -2292,9 +2177,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         list2 (Series, list): List to check
 
     Returns:
-        list: Items that appear in both list1 and list2
+        list: Items that appear in both `list1` and `list2`
 
-    Examples:
+    Example:
         &gt;&gt;&gt; find_common([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
         [&#39;dog&#39;, &#39;ferret&#39;]
     &#34;&#34;&#34;
@@ -2328,9 +2213,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>list</code></dt>
-<dd>Items that appear in list1 that don't appear in list2</dd>
+<dd>Items that appear in <code>list1</code> that don't appear in <code>list2</code></dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; find_uncommon([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;bird&quot;], [&quot;dog&quot;, &quot;ferret&quot;, &quot;horse&quot;])
 ['cat', 'bird']
 </code></pre></div>
@@ -2347,9 +2232,9 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         list2 (Series, list): List to check
 
     Returns:
-        list: Items that appear in list1 that don&#39;t appear in list2
+        list: Items that appear in `list1` that don&#39;t appear in `list2`
 
-    Examples:
+    Example:
         &gt;&gt;&gt; find_uncommon([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;bird&#34;], [&#34;dog&#34;, &#34;ferret&#34;, &#34;horse&#34;])
         [&#39;cat&#39;, &#39;bird&#39;]
     &#34;&#34;&#34;
@@ -2372,16 +2257,16 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <span>def <span class="ident">is_empty</span></span>(<span>obj)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Checks if a given obj is either null, blank or len(obj) == 0.</p>
+<div class="desc"><p>Checks if a given obj is either null, blank or <code>len(obj) == 0</code>.</p>
 <h2 id="args">Args</h2>
 <dl>
-<dt><strong><code>obj</code></strong> :&ensp;<code>DataFrame, Series, list, dict, str</code></dt>
+<dt><strong><code>obj</code></strong> :&ensp;<code>pd.DataFrame, pd.Series, list, dict, str</code></dt>
 <dd>Object to check</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
-<dd>True if the object is empty, False if not</dd>
+<dd><code>True</code> if the object is empty, <code>False</code> if not</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -2389,13 +2274,13 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 </summary>
 <pre><code class="python">def is_empty(obj):
     &#34;&#34;&#34;
-    Checks if a given obj is either null, blank or len(obj) == 0.
+    Checks if a given obj is either null, blank or `len(obj) == 0`.
 
     Args:
-        obj (DataFrame, Series, list, dict, str): Object to check
+        obj (pd.DataFrame, pd.Series, list, dict, str): Object to check
 
     Returns:
-        bool: True if the object is empty, False if not
+        bool: `True` if the object is empty, `False` if not
     &#34;&#34;&#34;
     if obj is None:
         return True
@@ -2431,7 +2316,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
-<dd>True if the string is a float, False if not</dd>
+<dd><code>True</code> if the string is a float, <code>False</code> if not</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -2445,7 +2330,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         string (str): String to check
 
     Returns:
-        bool: True if the string is a float, False if not
+        bool: `True` if the string is a float, `False` if not
     &#34;&#34;&#34;
     if str(string).replace(&#34;.&#34;, &#34;&#34;).isnumeric():
         return True
@@ -2461,7 +2346,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
-<dd>True or False</dd>
+<dd><code>True</code> or <code>False</code></dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -2472,7 +2357,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
     Checks if the script is currently running in a Jupyter notebook.
 
     Returns:
-        bool: True or False
+        bool: `True` or `False`
     &#34;&#34;&#34;
     try:
         from IPython import get_ipython
@@ -2501,7 +2386,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
-<dd>True if the given number is even, False if it's odd</dd>
+<dd><code>True</code> if the given number is even, <code>False</code> if it's odd</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -2515,7 +2400,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         num (int): Number to check
 
     Returns:
-        bool: True if the given number is even, False if it&#39;s odd
+        bool: `True` if the given number is even, `False` if it&#39;s odd
     &#34;&#34;&#34;
     if not isinstance(num, int):
         num = int(num.replace(&#34;,&#34;, &#34;&#34;))
@@ -2535,7 +2420,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>bool</code></dt>
-<dd>True if the given number is odd, False if it's even</dd>
+<dd><code>True</code> if the given number is odd, <code>False</code> if it's even</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -2549,7 +2434,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
         num (int): Number to check
 
     Returns:
-        bool: True if the given number is odd, False if it&#39;s even
+        bool: `True` if the given number is odd, `False` if it&#39;s even
     &#34;&#34;&#34;
     if not isinstance(num, int):
         num = int(num.replace(&#34;,&#34;, &#34;&#34;))
@@ -2573,7 +2458,7 @@ key (bytes): Associated encryption key (keep private!)</p></div>
 <dt><code>str</code></dt>
 <dd>A joined string</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; join_newline([&quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;, &quot;test&quot;], n=3)
 'test, test, test,
 test, test, test'
@@ -2593,7 +2478,7 @@ test, test, test'
     Returns:
         str: A joined string
 
-    Examples:
+    Example:
         &gt;&gt;&gt; join_newline([&#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;, &#34;test&#34;], n=3)
         &#39;test, test, test,
         test, test, test&#39;
@@ -2619,7 +2504,7 @@ test, test, test'
 <dt><code>dict</code></dt>
 <dd>The passed dictionary containing only the desired keys</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; keepkeys({&quot;dog&quot;: &quot;woof&quot;, &quot;cat&quot;: &quot;meow&quot;, &quot;cow&quot;: &quot;moo&quot;}, [&quot;dog&quot;, &quot;cat&quot;])
 {'dog': 'woof', 'cat': 'meow'}
 </code></pre></div>
@@ -2638,7 +2523,7 @@ test, test, test'
     Returns:
         dict: The passed dictionary containing only the desired keys
 
-    Examples:
+    Example:
         &gt;&gt;&gt; keepkeys({&#34;dog&#34;: &#34;woof&#34;, &#34;cat&#34;: &#34;meow&#34;, &#34;cow&#34;: &#34;moo&#34;}, [&#34;dog&#34;, &#34;cat&#34;])
         {&#39;dog&#39;: &#39;woof&#39;, &#39;cat&#39;: &#39;meow&#39;}
     &#34;&#34;&#34;
@@ -2756,10 +2641,13 @@ test, test, test'
 <dt><strong><code>style</code></strong> :&ensp;<code>str</code></dt>
 <dd>Datetime format to use (default is %Y-%m-%d %H:%M:%S)</dd>
 <dt><strong><code>dt</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True a datetime object is returned instead of a string</dd>
+<dd>If <code>True</code> a datetime object is returned instead of a string</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p>str|datetime: Either a string or datetime object of the current date and time</p>
+<dl>
+<dt><code>str, datetime</code></dt>
+<dd>Either a string or datetime object of the current date and time</dd>
+</dl>
 <h2 id="examples">Examples</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; now()
 '2023-10-01 12:30:00'
@@ -2777,10 +2665,10 @@ datetime.datetime(2023, 10, 1, 12, 30)
 
     Args:
         style (str): Datetime format to use (default is %Y-%m-%d %H:%M:%S)
-        dt (bool): If True a datetime object is returned instead of a string
+        dt (bool): If `True` a datetime object is returned instead of a string
 
     Returns:
-        str|datetime: Either a string or datetime object of the current date and time
+        str, datetime: Either a string or datetime object of the current date and time
 
     Examples:
         &gt;&gt;&gt; now()
@@ -2846,7 +2734,7 @@ are present.</p>
 <dt><code>dict</code></dt>
 <dd>Keys are the index of each item in a given list and the values are the lists's items</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; numdict([&quot;dog&quot;, &quot;cat&quot;, &quot;ferret&quot;, &quot;rat&quot;])
 {1: 'dog', 2: 'cat', 3: 'ferret', 4: 'rat'}
 </code></pre></div>
@@ -2864,7 +2752,7 @@ are present.</p>
     Returns:
         dict: Keys are the index of each item in a given list and the values are the lists&#39;s items
 
-    Examples:
+    Example:
         &gt;&gt;&gt; numdict([&#34;dog&#34;, &#34;cat&#34;, &#34;ferret&#34;, &#34;rat&#34;])
         {1: &#39;dog&#39;, 2: &#39;cat&#39;, 3: &#39;ferret&#39;, 4: &#39;rat&#39;}
     &#34;&#34;&#34;
@@ -2887,7 +2775,7 @@ are present.</p>
 <dt><code>str</code></dt>
 <dd>An ordinal string representation of the given number</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; ordinal(3)
 '3rd'
 </code></pre></div>
@@ -2905,7 +2793,7 @@ are present.</p>
     Returns:
         str: An ordinal string representation of the given number
 
-    Examples:
+    Example:
         &gt;&gt;&gt; ordinal(3)
         &#39;3rd&#39;
     &#34;&#34;&#34;
@@ -2928,13 +2816,20 @@ are present.</p>
 <dt><strong><code>input_list</code></strong> :&ensp;<code>list</code></dt>
 <dd>A list of strings to join and parse</dd>
 <dt><strong><code>single</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True single quotes are used otherwise double quotes are used</dd>
+<dd>If <code>True</code> single quotes are used, otherwise double quotes are used</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>str</code></dt>
 <dd>Passed list joined together by commas with each string inside quotes</dd>
-</dl></div>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; quotify([&quot;dog&quot;, &quot;cat&quot;, &quot;rat&quot;])
+&quot;'dog', 'cat', 'rat'&quot;
+</code></pre>
+<pre><code class="language-python-repl">&gt;&gt;&gt; quotify([&quot;dog&quot;, &quot;cat&quot;, &quot;rat&quot;], single=False)
+'&quot;dog&quot;, &quot;cat&quot;, &quot;rat&quot;'
+</code></pre></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -2945,10 +2840,17 @@ are present.</p>
 
     Args:
         input_list (list): A list of strings to join and parse
-        single (bool): If True single quotes are used otherwise double quotes are used
+        single (bool): If `True` single quotes are used, otherwise double quotes are used
 
     Returns:
         str: Passed list joined together by commas with each string inside quotes
+
+    Examples:
+        &gt;&gt;&gt; quotify([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;])
+        &#34;&#39;dog&#39;, &#39;cat&#39;, &#39;rat&#39;&#34;
+
+        &gt;&gt;&gt; quotify([&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;], single=False)
+        &#39;&#34;dog&#34;, &#34;cat&#34;, &#34;rat&#34;&#39;
     &#34;&#34;&#34;
     if single:
         return &#34;, &#34;.join([f&#34;&#39;{i}&#39;&#34; for i in input_list])
@@ -3011,7 +2913,7 @@ are present.</p>
 <dt><code>str</code></dt>
 <dd>Extracted output of the passed regex</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; regex(&quot;There were 3 pups at the park&quot;, &quot;(\d+)&quot;)
 '3'
 </code></pre></div>
@@ -3031,7 +2933,7 @@ are present.</p>
     Returns:
         str: Extracted output of the passed regex
 
-    Examples:
+    Example:
         &gt;&gt;&gt; regex(&#34;There were 3 pups at the park&#34;, &#34;(\d+)&#34;)
         &#39;3&#39;
     &#34;&#34;&#34;
@@ -3060,7 +2962,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <dt><strong><code>mydict</code></strong> :&ensp;<code>dict</code></dt>
 <dd>Dictionary to reverse</dd>
 <dt><strong><code>vals_as_list</code></strong> :&ensp;<code>bool</code></dt>
-<dd>If True all values are returned as lists, not just values of duplicate keys</dd>
+<dd>If <code>True</code> all values are returned as lists, not just values of duplicate keys</dd>
 </dl>
 <h2 id="returns">Returns</h2>
 <dl>
@@ -3088,7 +2990,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 
     Args:
         mydict (dict): Dictionary to reverse
-        vals_as_list (bool): If True all values are returned as lists, not just values of duplicate keys
+        vals_as_list (bool): If `True` all values are returned as lists, not just values of duplicate keys
 
     Returns:
         dict: A reversed dictionary
@@ -3130,10 +3032,10 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <dt><strong><code>filename</code></strong> :&ensp;<code>str</code></dt>
 <dd>Filename to save the object as</dd>
 <dt><strong><code>mode</code></strong> :&ensp;<code>str</code></dt>
-<dd>Which file mode to use ('wb' by default, 'ab' to append)</dd>
+<dd>Which file mode to use (<code>wb</code> by default, <code>ab</code> to append)</dd>
 </dl>
 <h2 id="returns">Returns</h2>
-<p>Nothing</p></div>
+<p>None</p></div>
 <details class="source">
 <summary>
 <span>Expand source code</span>
@@ -3145,10 +3047,10 @@ rather than overwriting the values all values of duplicate keys are merged into 
     Args:
         obj (any type): Object to save
         filename (str): Filename to save the object as
-        mode (str): Which file mode to use (&#39;wb&#39; by default, &#39;ab&#39; to append)
+        mode (str): Which file mode to use (`wb` by default, `ab` to append)
 
     Returns:
-        Nothing
+        None
     &#34;&#34;&#34;
     if &#34;.pkl&#34; not in filename:
         filename = f&#34;{filename.strip()}.pkl&#34;
@@ -3174,7 +3076,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <h2 id="returns">Returns</h2>
 <dl>
 <dt><code>tuple</code></dt>
-<dd>1 list containing the first 'ratio' proportion of the data, 1 containing the rest</dd>
+<dd>One list containing the first <code>ratio</code> proportion of the data, another containing the rest</dd>
 </dl></div>
 <details class="source">
 <summary>
@@ -3189,7 +3091,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
         ratio (float): The ratio at which to split the data. Should be between 0 and 1
 
     Returns:
-        tuple: 1 list containing the first &#39;ratio&#39; proportion of the data, 1 containing the rest
+        tuple: One list containing the first `ratio` proportion of the data, another containing the rest
     &#34;&#34;&#34;
     split_index = int(len(data) * ratio)
     return data[:split_index], data[split_index:]</code></pre>
@@ -3210,7 +3112,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <dt><code>str</code></dt>
 <dd>A string with unique substrings</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; str_dedupe(&quot;The dog dog was cute&quot;)
 'The dog was cute'
 </code></pre></div>
@@ -3228,7 +3130,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
     Returns:
         str: A string with unique substrings
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_dedupe(&#34;The dog dog was cute&#34;)
         &#39;The dog was cute&#39;
     &#34;&#34;&#34;
@@ -3258,7 +3160,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <dt><code>str</code></dt>
 <dd>The passed string with the strings passed in rplc_strs removed from it</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; str_remove(&quot;There were @3 dogs#&quot;, [&quot;@&quot;, &quot;#&quot;])
 'There were 3 dogs'
 </code></pre></div>
@@ -3277,7 +3179,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
     Returns:
         str: The passed string with the strings passed in rplc_strs removed from it
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_remove(&#34;There were @3 dogs#&#34;, [&#34;@&#34;, &#34;#&#34;])
         &#39;There were 3 dogs&#39;
     &#34;&#34;&#34;
@@ -3306,7 +3208,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
 <dt><code>str</code></dt>
 <dd>The passed string with the desired replacements</dd>
 </dl>
-<h2 id="examples">Examples</h2>
+<h2 id="example">Example</h2>
 <pre><code class="language-python-repl">&gt;&gt;&gt; str_replace(&quot;There was a cute cat at the beach&quot;, **{&quot;cat&quot;: &quot;dog&quot;, &quot;beach&quot;: &quot;park&quot;})
 'There was a cute dog at the park'
 </code></pre></div>
@@ -3325,7 +3227,7 @@ rather than overwriting the values all values of duplicate keys are merged into 
     Returns:
         str: The passed string with the desired replacements
 
-    Examples:
+    Example:
         &gt;&gt;&gt; str_replace(&#34;There was a cute cat at the beach&#34;, **{&#34;cat&#34;: &#34;dog&#34;, &#34;beach&#34;: &#34;park&#34;})
         &#39;There was a cute dog at the park&#39;
     &#34;&#34;&#34;
@@ -3387,7 +3289,7 @@ When style=None default datetime format is %Y-%m-%d %H:%M:%S and default date fo
 </code></dt>
 <dd>
 <div class="desc"><p>Takes a datetime string and converts it to an actual datetime object.
-When as_date=True a date object is returned instead of a datetime object.</p>
+When <code>as_date=True</code> a date object is returned instead of a datetime object.</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>dt_str</code></strong> :&ensp;<code>str</code></dt>
@@ -3411,7 +3313,7 @@ datetime.date(2023, 10, 1)
 <pre><code class="python">def todt(dt_str=None, as_date=False):
     &#34;&#34;&#34;
     Takes a datetime string and converts it to an actual datetime object.
-    When as_date=True a date object is returned instead of a datetime object.
+    When `as_date=True` a date object is returned instead of a datetime object.
 
     Args:
         dt_str (str): Date or datetime string
@@ -3458,7 +3360,6 @@ datetime.date(2023, 10, 1)
 <ul class="two-column">
 <li><code><a title="alia.tools.b64encode" href="#alia.tools.b64encode">b64encode</a></code></li>
 <li><code><a title="alia.tools.blanknull" href="#alia.tools.blanknull">blanknull</a></code></li>
-<li><code><a title="alia.tools.bomonth" href="#alia.tools.bomonth">bomonth</a></code></li>
 <li><code><a title="alia.tools.chunkify" href="#alia.tools.chunkify">chunkify</a></code></li>
 <li><code><a title="alia.tools.clipboard" href="#alia.tools.clipboard">clipboard</a></code></li>
 <li><code><a title="alia.tools.comma_and" href="#alia.tools.comma_and">comma_and</a></code></li>

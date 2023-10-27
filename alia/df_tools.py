@@ -4,7 +4,7 @@ from .tools import *
 
 def reset(df):
     """
-    Resets the index of a DataFrame (shortcut for df.reset_index(drop=True)).
+    Resets the index of a DataFrame (shortcut for `df.reset_index(drop=True)`).
 
     Args:
         df (pd.DataFrame): DataFrame to reference
@@ -17,14 +17,35 @@ def reset(df):
 
 def drop(df, cols):
     """
-    Drops given columns from a DataFrame (shortcut for df.drop([cols],axis=1)). Also works on lists.
+    Drops given columns from a DataFrame (shortcut for `df.drop([cols],axis=1)`). Also works on lists.
 
     Args:
-        df (pd.DataFrame): DataFrame to reference
-        cols (list): Columns to drop
+        df (pd.DataFrame, list): DataFrame or list to reference
+        cols (list): Columns/items to drop
 
     Returns:
-        pd.DataFrame: The passed DataFrame with the given columns removed
+        pd.DataFrame: The passed dataFrame/list with the given columns/items removed
+
+    Example:
+        Given a dataframe `df`:
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  1 | dog      | Biscuit |     3 |
+        |  2 | cat      | Binx    |     5 |
+        ```
+
+        >>> drop(df, cols=["age"])
+
+        ```
+        |    | animal   | name    |
+        |----|----------|---------|
+        |  0 | dog      | Fido    |
+        |  1 | dog      | Biscuit |
+        |  2 | cat      | Binx    |
+        ```
     """
     if isinstance(cols, str):
         if "," in cols:
@@ -46,14 +67,35 @@ def drop(df, cols):
 
 def keep(df, cols):
     """
-    Shortcut for df[[i for i in list(df.columns) if i in cols]].
+    Shortcut for `df[[i for i in list(df.columns) if i in cols]]`.
 
     Args:
         df (pd.DataFrame): DataFrame to reference
         cols (list): Columns to keep
 
     Returns:
-        pd.DataFrame: The given DataFrame with only the passed columns
+        pd.DataFrame: The given dataframe with only the passed columns
+
+    Example:
+        Given a dataframe `df`:
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  1 | dog      | Biscuit |     3 |
+        |  2 | cat      | Binx    |     5 |
+        ```
+
+        >>> keep(df, cols=["animal", "name"])
+
+        ```
+        |    | animal   | name    |
+        |----|----------|---------|
+        |  0 | dog      | Fido    |
+        |  1 | dog      | Biscuit |
+        |  2 | cat      | Binx    |
+        ```
     """
     if type(cols) == str:
         if "," in cols:
@@ -85,7 +127,7 @@ def prettydf(df):
         df (pd.DataFrame): DataFrame to reference
 
     Returns:
-        pd.DataFrame: A DataFrame where strings are shown as printable strings not raw strings
+        pd.DataFrame: A dataframe where strings are shown as printable strings not raw strings
     """
     return display(HTML(df.to_html().replace("\\n", "<br>")))
 
@@ -97,10 +139,42 @@ def dedupe(df, cols=None, ix=False):
     Args:
         df (pd.DataFrame): DataFrame to reference
         cols (list): Subset of columns to dedupe by
-        ix (bool): If True original DataFrame indexes are kept, otherwise they're reset
+        ix (bool): If `True` original dataframe indexes are kept, otherwise they're reset
 
     Returns:
-        pd.DataFrame: A DataFrame deduped based on the given columns
+        pd.DataFrame: A dataframe deduped based on the given columns
+
+    Examples:
+        Given a dataframe `df`:
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  1 | dog      | Fido    |     3 |
+        |  2 | cat      | Binx    |     5 |
+        |  3 | dog      | Biscuit |     6 |
+        ```
+
+        >>> dedupe(df, cols=["animal", "name"])
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  1 | cat      | Binx    |     5 |
+        |  2 | dog      | Biscuit |     6 |
+        ```
+
+        >>> dedupe(df, cols=["animal", "name"], ix=True)
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  2 | cat      | Binx    |     5 |
+        |  3 | dog      | Biscuit |     6 |
+        ```
     """
     if cols is not None:
         if type(cols) == str:
@@ -131,6 +205,29 @@ def todict(df, ix, cols=None):
 
     Returns:
         dict: Dictionary created from the passed DataFrame grouping on the given `ix` value
+
+    Examples:
+        Given a dataframe `df`:
+
+        ```
+        |    | animal   | name    |   age |
+        |----|----------|---------|-------|
+        |  0 | dog      | Fido    |     2 |
+        |  1 | cat      | Binx    |     5 |
+        |  2 | dog      | Biscuit |     6 |
+        ```
+
+        >>> todict(df, "animal")
+
+        ```
+        {'name': {'dog': 'Biscuit', 'cat': 'Binx'}, 'age': {'dog': 6, 'cat': 5}}
+        ```
+
+        >>> todict(df, "animal", cols=["name"])
+
+        ```
+        {'dog': 'Biscuit', 'cat': 'Binx'}
+        ```
     """
     def merge(df, ix, cols):
         dicts = []
@@ -166,13 +263,13 @@ def todict(df, ix, cols=None):
 
 def pdnull(series):
     """
-    Checks for null values in a Series.
+    Checks for null values in a series.
 
     Args:
         series (pd.Series): Series to be reference
 
     Returns:
-        pd.Series: A Series of booleans indicating if the value of that index is null
+        pd.Series: A series of booleans indicating if the value of that index is null
     """
     if type(series) == pd.DataFrame:
         return (series.isnull()) | (
@@ -193,14 +290,31 @@ def pdnull(series):
 
 def unique(series, as_list=True):
     """
-    Dedupes a given Series.
+    Dedupes a given series or list.
 
     Args:
-        series (pd.Series): Series to reference
-        as_list (bool): If False the output is printed instead of returned
+        series (pd.Series, list): Series or list to reference
+        as_list (bool): If `False` the output is printed instead of returned
 
     Returns:
-        pd.Series: A Series containing unique values
+        list: A list containing unique values from the given series/list
+
+    Example:
+        Given a series `animals`:
+
+        ```
+        |    | animal   |
+        |----|----------|
+        |  0 | dog      |
+        |  1 | cat      |
+        |  2 | dog      |
+        ```
+
+        >>> unique(animals)
+
+        ```
+        ['dog', 'cat']
+        ```
     """
     if isinstance(series, pd.Series):
         out = list(series.unique())
