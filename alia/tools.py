@@ -1051,6 +1051,27 @@ def ordinal(n):
     return f"{n}{suffix}"
 
 
+def convert_curreny_str(currency_str):
+    """
+    Convert a currency string to a numeric value.
+
+    Args:
+    currency_str (str): The currency string to convert.
+
+    Returns:
+    float: The numeric value of the currency.
+    """
+    # Remove currency symbols and other non-digit characters except for the decimal point
+    num_str = re.sub(r'[^\d.]', '', currency_str)
+
+    # Convert the cleaned string to float
+    try:
+        return float(num_str)
+    except ValueError:
+        red(f"Could not convert '{currency_str}' to a number", ts=False)
+        return None
+
+
 def dget(dict_obj, key, val=None):
     """
     More secure version of dict.get(key, val). This accounts for edge cases where a key exists and the
