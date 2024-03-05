@@ -1056,10 +1056,14 @@ def convert_curreny_str(currency_str):
     Convert a currency string to a numeric value.
 
     Args:
-    currency_str (str): The currency string to convert.
+        currency_str (str): The currency string to convert
 
     Returns:
-    float: The numeric value of the currency.
+        float: The numeric value of the currency
+
+    Example:
+        >>> convert_curreny_str('$3,000')
+        3000.00
     """
     # Remove currency symbols and other non-digit characters except for the decimal point
     num_str = re.sub(r'[^\d.]', '', currency_str)
